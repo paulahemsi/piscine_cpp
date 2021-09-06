@@ -12,7 +12,8 @@ Ira Pohl
 ```
 
 ```
-And the crucial thing that makes OO languages so powerful is, they allow type extensibility that allows you to program naturally with the new types.
+And the crucial thing that makes OO languages so powerful is,
+they allow type extensibility that allows you to program naturally with the new types.
 ```
 
 C++98 is simpler nad easier to beggin
@@ -64,3 +65,49 @@ alias::my_var
 `std::cin >> buffer;` -> reads from stdin
 
 `std::cout << "you sayed:" << buffer << "!" << std::endl;`
+
+### Class and instance
+
+`.class` pre extension to better organize and makes class files explicit
+`My_class.class.hpp`
+`My_class.class.cpp`
+
+constructors and distructors don´t have a return type, they are producers
+
+```cpp
+#ifndef MY_CLASS_H
+# define MY_CLASS_H
+
+class My_class {
+	My_class(void); //Constructor - is called when the class is instaciated
+	~My_class(void); //Destructor - is called when the instance get destroyed
+};
+
+#endif
+```
+class is a static part, a model
+
+the incante will be the dynamic part
+
+the class is the molde and the instance is the cake
+
+instanciating:
+
+```cpp
+int main(void) {
+	My_class my_instance;
+	
+	return(0);
+}
+
+```
+
+## ex01
+
+Why I choose `a_string == other_string` over `a_string.compare(other_string)`:
+
+`std::string::compare()` works pretty much like `strcmp` and returns `0` if the string are equal, `< zero` if a_string is less than other_string and ` > 0` if a_string is greater than other_string.
+
+In the other hand, the equality operator only tests for equality and returns a `bool`. Hence I was not interested in how the strings are related, but in the equality between then, I choose `==` (it's also more straight forward and readable than `!a_string(other_string)` and still a huge improvement over C, beeing able to make this comparsion is such a simple way)
+
+
