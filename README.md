@@ -85,6 +85,17 @@ class My_class {
 
 #endif
 ```
+
+constructors can also accept parameters
+```cpp
+
+class My_class {
+	My_class(char c, int i, float f); //Constructor - is called when the class is instaciated
+	~My_class(void); //Destructor - is called when the instance get destroyed
+};
+
+```
+
 class is a static part, a model
 
 the incante will be the dynamic part
@@ -98,6 +109,81 @@ int main(void) {
 	My_class my_instance;
 	
 	return(0);
+}
+
+```
+
+## Member attributes and member functions
+
+`member attribute` a variable that you have in your class that you may use in a instance
+
+`member functions` are functions that you can use in your instances
+
+```cpp
+
+void Class_name::function_name(void) {
+	//function body
+	return ;
+}
+
+```
+
+```cpp
+int main(void) {
+	Class_name	my_instance;
+
+	my_instance.function_name();
+	return (0);
+}
+```
+
+## This
+
+`this` is a pointer to the current instance
+We use `this` inside the constructor
+
+```cpp
+My_class::My_class(void) {
+	this->my_var = 42;
+	this->my_func();
+	return ;
+}
+```
+
+## Initialization
+
+```cpp
+
+class My_class {
+	char	my_char;
+	int		my_int;
+	float	my_float;
+
+	My_class(char c, int i, float f); //Constructor - is called when the class is instaciated
+	~My_class(void); //Destructor - is called when the instance get destroyed
+};
+
+```
+
+this:
+
+```cpp
+
+My_class::My_class(char c, int i, float f) {
+	this->my_char = c;
+	this->my_int = i;
+	this->my_float = f;
+	return ;
+}
+
+```
+
+with initialization list sintax became this:
+
+```cpp
+
+My_class::My_class(char c, int i, float f) : my_char(c), my_int(i), my_float(f){
+	return ;
 }
 
 ```
