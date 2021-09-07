@@ -6,17 +6,17 @@
 #    By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 19:05:54 by phemsi-a          #+#    #+#              #
-#    Updated: 2021/09/06 19:37:07 by phemsi-a         ###   ########.fr        #
+#    Updated: 2021/09/07 01:53:44 by phemsi-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = contatinhos
 
-DIR_OBJS = objects
+OBJS =	./main.o \
+		./Contatinhos.o
 
-OBJS = main.o
-
-SRC = main.cpp
+SRC =	./main.cpp\
+		./Contatinhos.cpp
 
 CC	= clang++
 
@@ -24,22 +24,18 @@ RM	= rm -rf
 
 CFLAGS	= -Wall -Wextra -Werror -g  -std=c++98
 
-$(NAME): $(OBJS)
-		@-$(CC) $(CFLAGS) $(OBJS) $(HEADER) -o $(NAME)
+$(NAME):	$(SRC)
+			$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
-$(OBJS): $(SRC)
-		@$(CC) $(CFLAGS) -c $< -o $@
-		@echo "Compiled "$<" successfully!"
-
-all: $(NAME)
+all:		$(NAME)
 
 clean:
-		$(RM) $(OBJS)
+			$(RM) $(OBJS)
 
-fclean:	clean
-		$(RM) $(NAME)
-		$(RM) $(OBJS)
+fclean:		clean
+			$(RM) $(NAME)
+			$(RM) $(OBJS)
 
-re:		fclean all
+re:			fclean all
 
-PHONY:	all clean fclean re
+PHONY:		all clean fclean re
