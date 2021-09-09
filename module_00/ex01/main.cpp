@@ -6,50 +6,47 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:34:06 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/07 03:22:26 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/08 22:40:21 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Contatinhos.hpp"
+# include "Phonebook.hpp"
+# include "display.hpp"
 
-static void	display_prompt(void)
+static bool	is_command(std::string input, Phonebook *phonebook)
 {
-	std::cout << PROMPT << std::endl;
+	if (input == ADD)
+		return (phonebook->add());
+	else if (input == SEARCH)
+		return (phonebook->search());
+	else if (input == EXIT)
+		return (display_goodbye_msg());
+	return (false);
 }
 
-static std::string	read_input()
+static std::string	read_input(Phonebook *phonebook)
 {
-	std::string input;
-	Contatinhos	phonebook;
+	std::string	input;
 
 	std::getline(std::cin, input);
-	if (input == "ADD")
-		std::cout << "--ADD--" << std::endl;
-	else if (input == "SEARCH")
-		std::cout << "--SEARCH--" << std::endl;
-	else if (input == "EXIT")
-		std::cout << TELEPHONE << BYE;
-	else
-		std::cout << INSTRUCTIONS;
+	if (!is_command(input, phonebook))
+		display_instructions();
 	return input;
 }
 
-static void	display_wellcome_msg()
-{
-	std::cout << TELEPHONE << WELCOME;
-}
-
-static void	phonebook(void)
+static void	phonebook_on(Phonebook *phonebook)
 {
 	display_prompt();
-	if (read_input() == "EXIT")
+	if (read_input(phonebook) == "EXIT")
 		return ;
-	phonebook();
+	phonebook_on(phonebook);
 }
 
 int	main(void)
 {
+	Phonebook	phonebook;
+
 	display_wellcome_msg();
-	phonebook();
+	phonebook_on(&phonebook);
 	return (0);
 }

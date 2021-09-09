@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contatinhos.cpp                                    :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 00:53:00 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/07 03:07:28 by phemsi-a         ###   ########.fr       */
+/*   Created: 2021/09/07 20:03:04 by phemsi-a          #+#    #+#             */
+/*   Updated: 2021/09/08 21:38:45 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Contatinhos.hpp"
+# ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-Contatinhos::Contatinhos(void) {
-	return ;
-}
+# include "includes.hpp"
 
-Contatinhos::~Contatinhos(void) {
-	return ;
-}
+class Contact
+{
+private:
+	std::string	_firtsName;
+	std::string	_lastName;
+	std::string	_nickname;
+	std::string	_phoneNumber;
+	std::string	_darkestSecret;
+public:
+	Contact(/* args */);
+	~Contact();
+};
 
-void add(void) {
-	
-}
-
-void search(void) {
-	
-}
+#endif

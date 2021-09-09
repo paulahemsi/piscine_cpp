@@ -188,6 +188,216 @@ My_class::My_class(char c, int i, float f) : my_char(c), my_int(i), my_float(f){
 
 ```
 
+## const
+
+`const` cannot be changed
+in c++ we can declare a const in out class and define a different value for each object in the constructor
+
+```cpp
+class My_class {
+	public:
+	
+		float const pi;
+		
+		My_class(float const f);
+		~My_class(void);
+}
+```
+```cpp
+My_class::My_class(float const f) : pi(f) {
+	return ;
+}
+```
+It's also possible to use constante in a functions, meaning that the instance of the class cannot be changed in this function
+```cpp
+class My_class {
+	public:
+
+		float const	pi;
+		int			i;
+
+		My_class(float const f);
+		~My_class(void);
+
+		void my_func(void) const; // read-only mode
+}
+```
+
+```cpp
+void My_class::my_func(void) const {
+	this->i = 0; //compiler error! We can't assign any value for our instance
+	return ;
+}
+```
+
+## Visibility
+
+`public` and `private` control the encapsulation of the members of the class
+
+`public` available outside the class
+`private` only available inside the class
+
+`_my_private_var_`
+`_my_private_function`
+`_` before the name: convention for privates variables and functions
+
+Expose outside only the parts will be usefull for the user
+Keep private as much as possible
+
+## Structs x Class
+
+Class and structs works in the same way in C++, but the scope of the structure is public by default and the scope of the class is private by the default
+
+## Getter
+
+Proxy pattern is a software design pattern. A proxy, in its most general form, is a class functioning as an interface to something else.
+
+get and set are getters functions, a interface to interact with a private variable
+
+```cpp
+
+class My_class {
+public:
+
+	My_class(void);
+	~My_class(void);
+
+	int get_var(void) const; //getter, read only mode
+	bool set_var(int value); //setter with bool return to indicates if the value has changed
+	
+private:
+	int _var;
+}
+```
+
+with the getters we get control over the class variables, returning a copy when needed and making rules to the setter
+
+```cpp
+
+(...)
+
+int My_class::get_var(void) const {
+	return this->_var;
+}
+
+bool My_class::set_var(int value) {
+	if (value >= 0)
+	{
+		this->_var = value;
+		return (true);
+	}
+	return (false);
+}
+```
+
+## Comparisons
+
+it's possible not only to compare adresses but also structural equality
+
+in class header:
+
+```cpp
+int compare(My_class *other) const;
+```
+
+in class implementation:
+
+```cpp
+int My_class::compare(My_class *other) const {
+	if (this->_var < other->get_var())
+		return (-1);
+	else if (this->_var > other->get_var())
+		return (1);
+	return (0);
+}
+```
+
+## Non Member Attributes and functions
+
+or Class attributes and functions (not-instances attributes and functions)
+
+`static`: functions and variables from the class, and not for each instance
+
+```cpp
+
+class My_class {
+
+public:
+
+	My_class(void);
+	~My_class(void);
+	
+	static int	get_number_of_instances(void);
+	
+private:
+
+	static int	_number_of_instances;
+}
+
+```
+
+```cpp
+
+My_class::My_class(void) {
+	My_class::_number_of_instances += 1;
+	return ;
+}
+
+My_class::~My_class(void) {
+	My_class::_number_of_instances -= 1;
+	return ;
+}
+
+//static func dont have the instance as a secret argument, therefore we can't use THIS keyword
+int My_class::get_number_of_instances(void) {
+	return My_class::_number_of_instances;
+}
+
+int My_class::_number_of_instances = 0; //initializing the static non-member variable
+
+```
+## Pointers to members and members functions
+
+```cpp
+
+class My_class {
+
+public:
+
+	int var;
+
+	My_class(void);
+	~My_class(void);
+
+	void func(void) const; //non-member function
+}
+
+```
+
+```cpp
+
+int main(void) {
+	
+	My_class	instance;
+	My_class	*instance_ptr;
+
+	int			My_class::*ptr = NULL; //pointer to a int from My_class
+	void		(My_class::*func_ptr)(void) const; //pointer to a non-member function from My_class
+
+	ptr = &My_class::var; //assigning the var address from My_class to the pointer, without specifiyng an instance
+
+	instance.*ptr = 21; //using the pointer to assign 21 to var from instance
+	instance_ptr->*ptr = 42; //using the pointer to the var and the pointer to the instance to assign 42 to var
+	func_ptr = &My_class::func; //assigning the func address to My_class-function-pointer
+
+	(instance.*func_ptr)(); //using the function pointer to call func from instance
+	(instance_ptr->*func_ptr)(); //using the function pointer and instance pointer to call func
+
+	return 0;
+}
+
+```
+
 ## ex01
 
 Why I choose `a_string == other_string` over `a_string.compare(other_string)`:

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contatinhos.hpp                                    :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 00:37:36 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/07 03:19:28 by phemsi-a         ###   ########.fr       */
+/*   Created: 2021/09/07 00:53:00 by phemsi-a          #+#    #+#             */
+/*   Updated: 2021/09/08 22:04:20 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef CONTATINHOS_HPP
-# define CONTATINHOS_HPP
+# include "Phonebook.hpp"
 
-# include <iostream>
-# include <stdlib.h>
-# include <string>
-# include "msg.hpp"
+Phonebook::Phonebook(void) {
+	std::cout << "phonebook instanciado\n";
+	return ;
+}
 
-class Contatinhos {
-	public:
-	
-		Contatinhos(void);
-		~Contatinhos(void);
+Phonebook::~Phonebook(void) {
+	std::cout << "phonebook destruido\n";
+	return ;
+}
 
-		void add(void);
-		void search(void);
-};
+bool Phonebook::add(void) {
+	std::cout << "Add\n";
+	return (true);
+}
 
-#endif
+bool Phonebook::search(void) {
+	std::cout << "Search\n";
+	return (true);
+}

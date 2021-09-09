@@ -6,17 +6,21 @@
 #    By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 19:05:54 by phemsi-a          #+#    #+#              #
-#    Updated: 2021/09/07 01:53:44 by phemsi-a         ###   ########.fr        #
+#    Updated: 2021/09/07 21:34:09 by phemsi-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = contatinhos
 
 OBJS =	./main.o \
-		./Contatinhos.o
+		./Phonebook.o \
+		./Contact.o \
+		./display.o
 
 SRC =	./main.cpp\
-		./Contatinhos.cpp
+		./Phonebook.cpp \
+		./Contact.cpp \
+		./display.cpp
 
 CC	= clang++
 
