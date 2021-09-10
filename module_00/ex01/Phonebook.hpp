@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 00:37:36 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/09 21:11:02 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/09 22:22:37 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 class Phonebook {
 	private:
 		Contact contacts[8];
+		int		contact_index;
 
 	public:
 
