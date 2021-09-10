@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 00:37:36 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/08 22:07:26 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/09 21:11:02 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,17 @@
 # define SEARCH	"SEARCH"
 # define EXIT	"EXIT"
 
-class Phonebook
-{
-private:
-	Contact contacts[8];
+class Phonebook {
+	private:
+		Contact contacts[8];
 
-public:
+	public:
 
-	Phonebook(void);
-	~Phonebook(void);
+		Phonebook(void);
+		~Phonebook(void);
 
-	bool add(void);
-	bool search(void);
+		bool add(void);
+		bool search(void);
 };
 
 #endif
