@@ -406,4 +406,22 @@ Why I choose `a_string == other_string` over `a_string.compare(other_string)`:
 
 In the other hand, the equality operator only tests for equality and returns a `bool`. Hence I was not interested in how the strings are related, but in the equality between then, I choose `==` (it's also more straight forward and readable than `!a_string(other_string)` and still a huge improvement over C, beeing able to make this comparsion is such a simple way)
 
+________________
 
+I have to options to ask the user for an input, and booth of them have some issues:
+
+`std::getline(std::cin, input)` stores in the `input` string variable the hole string, until the user press enter. But this method stores the `\n` in the `cin` buffer, therefore when the *getline* is called again, it reads the `\n` and exits the function without the user have the chance to write anything.
+
+In the other hand, `std::cin >> input` doesn't handle well spaces, only beeing able to store a word without any space.
+
+To solve this problem, I used [std::cin.ignore()](https://www.cplusplus.com/reference/istream/istream/ignore/) function. 
+
+```
+Extracts characters from the input sequence and discards them, until either n characters have been extracted, or one compares equal to delim.
+
+The function also stops extracting characters if the end-of-file is reached. If this is reached prematurely (before either extracting n characters or finding delim), the function sets the eofbit flag.
+```
+
+It's a tricky function, though, cause in loops it can ignore the first letter of the words, so be carefull where you place it.
+
+[this](https://stackoverflow.com/questions/4745858/stdcin-getline-vs-stdcin) and [this other](https://stackoverflow.com/questions/61007300/why-is-cin-ignore-ignoring-the-first-character-of-my-getline-input) threads in stackoverflow give's a good overview of the issue.
