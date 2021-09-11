@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 03:18:42 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/11 01:28:44 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 17:26:46 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,33 @@
 
 # define DOT			"."
 
+# define PIPE			LILAC \
+						"|" \
+						RESET
+
 
 # define TABLE_HEADER	LILAC \
-						"-._.-.-._.-.-._.-.-._.-.-._.-.-._.-.-._.-.-._.-.\n\n" \
-						"    INDEX   FIRST_NAME   LAST_NAME   NICKNAME   \n\n" \
-						"------------------------------------------------\n\n" \
+						"-._.-.-._.-.-._.-.-._.-.-._.-.-._.-.-._.-.-.\n\n" \
+						"     INDEX|FIRST_NAME| LAST_NAME|  NICKNAME|\n" \
+						"--------------------------------------------" \
 						RESET
 
 
 # define END_TABLE		LILAC \
-						"\n\n-._.-.-._.-.-._.-.-._.-.-._.-.-._.-.-._.-.-._.-.\n\n" \
+						"-._.-.-._.-.-._.-.-._.-.-._.-.-._.-.-._.-.-.\n\n" \
 						RESET
 
 
 # define CONTACTS_LIST	BOLD_CYAN \
 						"\n\navailable non-empty contacts are:\n\n" \
 						RESET
+
+
+# define CHOOSE_A_CONTACT	BOLD_CYAN \
+							"WHAT CONTACT DO YOU WANNA SHOW?\n" \
+							RESET
+
+
+# define ENTER_VALID		BOLD_CYAN \
+							"Enter a valid number\n" \
+							RESET

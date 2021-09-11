@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 20:03:04 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/10 21:28:45 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 17:52:54 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Contact {
 		void set_nickName(std::string buffer);
 		void set_phoneNumber(std::string buffer);
 		void set_darkestSecret(std::string buffer);
+		void displayContact(void);
 		
 	private:
 		std::string	_firstName;

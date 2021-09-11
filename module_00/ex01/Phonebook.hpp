@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 00:37:36 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/10 23:57:36 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 17:19:55 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,22 @@
 
 class Phonebook {
 	private:
-		Contact	_contacts[8];
-		int		_contact_index;
+		Contact		_contacts[8];
+		int			_lastIndex;
+		int			_defineLastIndex(void);
+		int			_getIndex(void);
+		void		_displayContact(int i);
+		void		_displayTable(void);
+		void		_displayContact(void);
+		bool		_contact(Contact contact);
+		std::string	_truncate(std::string value, size_t limit);
 
 	public:
-
 		Phonebook(void);
 		~Phonebook(void);
 
-		bool add(void);
-		bool search(void);
+		bool	add(void);
+		bool	search(void);
 };
 
 #endif
