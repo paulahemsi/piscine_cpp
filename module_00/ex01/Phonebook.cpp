@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 00:53:00 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/11 18:53:25 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 20:43:03 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,6 @@ std::string Phonebook::_truncate(std::string value, size_t limit) {
 	return value.substr(0, limit - 1) + DOT;
 }
 
-bool	Phonebook::_contact(Contact contact) {
-	return (contact.get_firstName() != "");
-}
-
 int	Phonebook::_defineLastIndex(void)
 {
 	_lastIndex++;
@@ -41,7 +37,7 @@ int	Phonebook::_defineLastIndex(void)
 
 int	Phonebook::_getIndex(void) {
 	for (int i = 0; i < 8; i++)
-		if (!(_contact(this->_contacts[i])))
+		if (this->_contacts[i].isEmpty())
 			return (i);
 	return (_defineLastIndex());
 }
@@ -65,7 +61,7 @@ void Phonebook::_displayTable(void) {
 	std::cout << TABLE_HEADER << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
-		if (_contact(this->_contacts[i]))
+		if (!(this->_contacts[i].isEmpty()))
 		{
 			std::cout << std::right << std::setw(10) << (i + 1) << PIPE ;
 			std::cout << std::right << std::setw(10) << _truncate(this->_contacts[i].get_firstName(), 10) << PIPE ;

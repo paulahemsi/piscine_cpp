@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 20:03:08 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/11 18:55:53 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 20:34:51 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,22 @@ void Contact::set_darkestSecret(std::string buffer) {
 	this->_darkestSecret = buffer;
 }
 
+bool Contact::isEmpty(void) {
+	if (this->get_firstName() != "")
+		return (false);
+	if (this->get_lastName() != "")
+		return (false);
+	if (this->get_nickName() != "")
+		return (false);
+	if (this->get_phoneNumber() != "")
+		return (false);
+	if (this->get_darkestSecret() != "")
+		return (false);
+	return (true);
+}
+
 void Contact::displayContact(void) {
-	if (this->get_firstName() == "")
+	if (this->isEmpty())
 	{
 		std::cout << EMPTY_CONTACT;
 		return ;
