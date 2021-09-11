@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 03:18:42 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/11 17:26:46 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 19:14:56 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@
 
 
 # define WELCOME		BOLD_CYAN \
-						"Welcome to contatinhos phonebook!\n\n" \
+						"Welcome to contatinhos phonebook!\n" \
+						"Please hit Enter to start\n\n" \
 						RESET
 
 
@@ -47,27 +48,27 @@
 
 
 # define FIRSTNAME		BOLD_CYAN \
-						"\nFIRST_NAME:\n" \
+						"\nFIRST_NAME: " \
 						RESET
 
 
 # define LASTNAME		BOLD_CYAN \
-						"\nLAST_NAME:\n" \
+						"\nLAST_NAME: " \
 						RESET
 
 
 # define NICKNAME		BOLD_CYAN \
-						"\nNICKNAME:\n" \
+						"\nNICKNAME: " \
 						RESET
 
 
 # define PHONENUMBER	BOLD_CYAN \
-						"\nPHONE_NUMBER:\n" \
+						"\nPHONE_NUMBER: " \
 						RESET
 
 
 # define DARKESTSECRET	BOLD_CYAN \
-						"\nDARKEST_SECRET:\n" \
+						"\nDARKEST_SECRET: " \
 						RESET
 
 
@@ -90,16 +91,16 @@
 						RESET
 
 
-# define CONTACTS_LIST	BOLD_CYAN \
-						"\n\navailable non-empty contacts are:\n\n" \
-						RESET
-
-
-# define CHOOSE_A_CONTACT	BOLD_CYAN \
-							"WHAT CONTACT DO YOU WANNA SHOW?\n" \
+# define CHOOSE_A_CONTACT	LILAC \
+							"\nChoose a contact id:\n" \
 							RESET
 
 
-# define ENTER_VALID		BOLD_CYAN \
-							"Enter a valid number\n" \
+# define ENTER_VALID		L_RED \
+							"\nEnter a valid number\n" \
+							RESET
+
+
+# define EMPTY_CONTACT		L_RED \
+							"\nThis contact is empty\n" \
 							RESET

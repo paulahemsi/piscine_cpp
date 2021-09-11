@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:34:06 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/10 23:57:22 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 19:12:28 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static std::string	read_input(Phonebook *phonebook)
 {
 	std::string	input;
 
-	std::cin >> input;
+	std::getline(std::cin, input);
 	if (!is_command(input, phonebook))
 		display_instructions();
 	return input;
@@ -47,6 +47,7 @@ int	main(void)
 	Phonebook	phonebook;
 
 	display_wellcome_msg();
+	std::cin.ignore();
 	phonebook_on(&phonebook);
 	return (0);
 }

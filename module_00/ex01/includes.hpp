@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 20:06:32 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/11 12:35:15 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 18:54:15 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <string>
 # include <iomanip>
-# include <locale>
 # include "msg.hpp"
 
 #endif

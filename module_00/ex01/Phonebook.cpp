@@ -6,20 +6,18 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 00:53:00 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/11 17:52:59 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 18:53:25 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Phonebook.hpp"
 
 Phonebook::Phonebook(void) {
-	std::cout << "phonebook instanciado\n";
 	this->_lastIndex = -1;
 	return ;
 }
 
 Phonebook::~Phonebook(void) {
-	std::cout << "phonebook destruido\n";
 	return ;
 }
 
@@ -63,7 +61,8 @@ bool Phonebook::add(void) {
 }
 
 void Phonebook::_displayTable(void) {
-	display_table_header();
+	
+	std::cout << TABLE_HEADER << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		if (_contact(this->_contacts[i]))
@@ -87,7 +86,7 @@ void Phonebook::_displayContact()
 	while (index <= 0 || index > 8 )
 	{
 		std::cout << CHOOSE_A_CONTACT;
-		std::cin >> index_str;
+		std::getline(std::cin, index_str);
 		index = atoi(index_str.c_str());
 		if (index <= 0 || index > 8 )
 			std::cout << ENTER_VALID;
