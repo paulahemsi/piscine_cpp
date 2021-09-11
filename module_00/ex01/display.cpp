@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 21:33:43 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/07 21:53:22 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 01:27:20 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,13 @@ void	display_instructions(void)
 	std::cout << INSTRUCTIONS;
 }
 
+void display_table_header(void) {
+	std::cout << CONTACTS_LIST << std::endl;
+	std::cout << TABLE_HEADER << std::endl;
+}
+
 bool	display_goodbye_msg(void)
 {
 	std::cout << TELEPHONE << BYE;
 	return (true);
 }
-

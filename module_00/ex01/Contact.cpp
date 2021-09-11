@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 20:03:08 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/09 21:08:43 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/10 22:47:37 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,32 @@ std::string Contact::get_darkestSecret(void) const {
 	return (this->_darkestSecret);
 }
 
-void Contact::set_firstName(std::string str) {
-	this->_firstName = str;
+void Contact::set_firstName(std::string buffer) {
+	std::cout << FIRSTNAME;
+	std::cin >> buffer;
+	this->_firstName = buffer;
 }
 
-void Contact::set_lastName(std::string str) {
-	this->_lastName = str;
+void Contact::set_lastName(std::string buffer) {
+	std::cout << LASTNAME;
+	std::cin >> buffer;
+	this->_lastName = buffer;
 }
 
-void Contact::set_nickName(std::string str) {
-	this->_nickname = str;
+void Contact::set_nickName(std::string buffer) {
+	std::cout << NICKNAME;
+	std::cin >> buffer;
+	this->_nickname = buffer;
 }
 
-void Contact::set_phoneNumber(std::string str) {
-	this->_phoneNumber = str;
+void Contact::set_phoneNumber(std::string buffer) {
+	std::cout << PHONENUMBER;
+	std::cin >> buffer;
+	this->_phoneNumber = buffer;
 }
 
-void Contact::set_darkestSecret(std::string str) {
-	this->_darkestSecret = str;
+void Contact::set_darkestSecret(std::string buffer) {
+	std::cout << DARKESTSECRET;
+	std::cin >> buffer;
+	this->_darkestSecret = buffer;
 }

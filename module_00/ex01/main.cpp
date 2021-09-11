@@ -6,12 +6,12 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:34:06 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/08 22:40:21 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/10 23:57:22 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Phonebook.hpp"
-# include "display.hpp"
+# include "stdio.h"
 
 static bool	is_command(std::string input, Phonebook *phonebook)
 {
@@ -28,7 +28,7 @@ static std::string	read_input(Phonebook *phonebook)
 {
 	std::string	input;
 
-	std::getline(std::cin, input);
+	std::cin >> input;
 	if (!is_command(input, phonebook))
 		display_instructions();
 	return input;
