@@ -428,3 +428,37 @@ It's a tricky function, though, cause in loops it can ignore the first letter of
 
 ## ex02
 
+initializing the four static non-member variable:
+
+```cpp
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
+```
+
+and member variables in the constructor
+
+```cpp
+Account::Account( int initial_deposit )	:	_amount(initial_deposit),
+											_accountIndex(_nbAccounts),//cause we initialize _nbAccount in 0 and keep track of this number in each instance created
+											_nbDeposits(0),
+											_nbWithdrawals(0)
+{
+	Account::_nbAccounts++; //next instance index will be the next one
+	Account::_amount += this->_amount; // == initial_deposit
+}
+```
+
+```cpp
+Account::~Account( void )
+{
+	Account::_nbAccounts--; //destructor needs to subtract the instance from the total accounts
+	Account::_amount -= this->_amount; //same with total amount from all accounts
+}
+```
+
+log clue: `[19920104_091532] index:0;p_amount:47;withdrawal:refused`
+when the withdrawal is more than the value, it is refused
+
+compiler clue: `error: field '_amount' will be initialized after field '_accountIndex' [-Werror,-Wreorder-ctor]`
