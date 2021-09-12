@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 21:22:01 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/12 00:17:51 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/12 01:14:47 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ Account::Account( int initial_deposit )	:	_accountIndex(_nbAccounts),
 											_nbWithdrawals(0)
 {
 	Account::_nbAccounts++;
-	Account::_amount += this->_amount;
+	Account::_totalAmount += this->_amount;
+
+	_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
 }
 
 
@@ -112,8 +115,8 @@ void	Account::_displayTimestamp( void )
 {
 	std::time_t timestamp = std::time(0);
 
-	std::cout << "[" << std::asctime(std::localtime(&timestamp))
-	<< timestamp << "]" <<std::endl;
+	std::cout << "[" << std::localtime(&timestamp)
+	<< timestamp << "]";
 }
 
 Account::Account(void)
