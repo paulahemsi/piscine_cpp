@@ -6,12 +6,13 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:34:06 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/11 19:12:28 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/12 12:39:32 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Phonebook.hpp"
-# include "stdio.h"
+# include "display.hpp"
+# include "includes.hpp"
 
 static bool	is_command(std::string input, Phonebook *phonebook)
 {

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 00:37:36 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/11 20:54:32 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/12 12:38:34 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "includes.hpp"
 # include "Contact.hpp"
-# include "display.hpp"
 
 # define ADD	"ADD"
 # define SEARCH	"SEARCH"
