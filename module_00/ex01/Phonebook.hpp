@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 00:37:36 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/11 17:19:55 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/11 20:54:32 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # define SEARCH	"SEARCH"
 # define EXIT	"EXIT"
 
-class Phonebook {
+class Phonebook
+{
 	private:
 		Contact		_contacts[8];
 		int			_lastIndex;
@@ -30,6 +31,7 @@ class Phonebook {
 		void		_displayContact(int i);
 		void		_displayTable(void);
 		void		_displayContact(void);
+		void		_displayLine(int id);
 		bool		_contact(Contact contact);
 		std::string	_truncate(std::string value, size_t limit);
 
