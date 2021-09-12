@@ -417,11 +417,14 @@ In the other hand, `std::cin >> input` doesn't handle well spaces, only beeing a
 To solve this problem, I used [std::cin.ignore()](https://www.cplusplus.com/reference/istream/istream/ignore/) function. 
 
 
->>> Extracts characters from the input sequence and discards them, until either n characters have been extracted, or one compares equal to delim.
+> Extracts characters from the input sequence and discards them, until either n characters have been extracted, or one compares equal to delim.
 
->>> The function also stops extracting characters if the end-of-file is reached. If this is reached prematurely (before either extracting n characters or finding delim), the function sets the eofbit flag.
+> The function also stops extracting characters if the end-of-file is reached. If this is reached prematurely (before either extracting n characters or finding delim), the function sets the eofbit flag.
 
 
 It's a tricky function, though, cause in loops it can ignore the first letter of the words, so be carefull where you place it.
 
 [this](https://stackoverflow.com/questions/4745858/stdcin-getline-vs-stdcin) and [this other](https://stackoverflow.com/questions/61007300/why-is-cin-ignore-ignoring-the-first-character-of-my-getline-input) threads in stackoverflow give's a good overview of the issue.
+
+## ex02
+
