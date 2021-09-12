@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 21:22:01 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/12 02:04:22 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/12 11:46:05 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,10 +168,18 @@ void	Account::displayStatus( void ) const
 */
 void	Account::_displayTimestamp( void )
 {
-	std::time_t timestamp = std::time(0);
+	std::time_t	timestamp = std::time(0);
+	tm			*time = localtime(&timestamp);
 
-	std::cout << "[" << std::localtime(&timestamp)
-	<< timestamp << "]";
+	std::cout	<< "["
+				<< time->tm_year + 1900
+				<< time->tm_mon
+				<< time->tm_mday
+				<< '_'
+				<< time->tm_hour
+				<< time->tm_min
+				<< time->tm_sec
+				<< "] ";
 }
 
 Account::Account(void)
