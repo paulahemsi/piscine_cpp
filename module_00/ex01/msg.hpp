@@ -6,11 +6,14 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 03:18:42 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/11 19:14:56 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/12 12:18:10 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "colors.hpp"
+
+# ifndef MSG_HPP
+# define MSG_HPP
 
 # define INSTRUCTIONS	L_RED \
 						"\n\nOooops, seems you wrote an invalid command\n\n" \
@@ -104,3 +107,5 @@
 # define EMPTY_CONTACT		L_RED \
 							"\nThis contact is empty\n" \
 							RESET
+
+#endif
