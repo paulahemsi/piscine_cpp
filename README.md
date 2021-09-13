@@ -493,3 +493,99 @@ between created and deposits, display account general infos and each account inf
 Account info are displayed in displayStatus function inside `std::for_each` loop =D
 
 In order to solve the mistery, I inserted some printf's in key lines of the code, it was very enlightening!
+
+## Module_01
+
+### New and delete
+
+`new` amd `delete` are the keywords to allocate and desallocate instances in the heap, they are using malloc and free under the hood but to us is much more simple.
+
+Is even possible to allocate a whole array in this simple line:
+
+```cpp
+Class className = new Class[42];
+```
+
+And deallocate:
+
+```cpp
+delete [] className;
+```
+
+### References
+
+reference is like an alias for an existing variable
+
+a pointer that constant and always unreferenced and never void
+
+reference is like a dereferenced pointer
+
+`int& ref_var` ref_var is a reference to int, and we assign the int variable to this var, not the adress
+
+```cpp
+
+int main(void) {
+	int number = 42;
+
+	int	*numberPtr = &number;
+	int	&numberRef = number; //like a constant, the reference can never be changed, it will always be pointing to the same var. Either can be inicialized withou assigning a value.
+
+	std::cout << number << " " << *numberPtr << " " << numberRef << std::endl; // 42 42 42
+
+	*numberPtr = 7;
+	std::cout << number << std::endl; // 7
+	numberRef = 666;
+	std::cout << number << std::endl; // 666
+	
+	return (0);
+}
+
+```
+
+passing a reference as parameter
+
+```cpp
+
+void byRef(std::string& str)
+{
+	str += "other thing";
+}
+
+int main(void)
+{
+	std::string str = "something";
+	byRef(str);
+}
+
+```
+
+returning a reference *vs* returning a pointer
+
+```cpp
+
+std::string &getStringRef()
+{
+	return this->_str;
+}
+
+std::string const &getStringRefConst() const
+{
+	return this->_str;
+}
+
+std::string *getStringPtr()
+{
+	return &(this->_str);
+}
+
+std::string const *getStringPtrConst() const
+{
+	return &(this->_str);
+}
+
+```
+
+use a **pointer** if at some point it shouldn't exist or if it should change
+use a **reference** if it should always axist and never change
+
+### file stream
