@@ -6,7 +6,7 @@
 #    By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/12 12:23:57 by phemsi-a          #+#    #+#              #
-#    Updated: 2021/09/12 20:26:39 by phemsi-a         ###   ########.fr        #
+#    Updated: 2021/09/12 23:42:44 by phemsi-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,14 @@ NAME = deep_in_the_night
 OBJS =	./main.o \
 		./Zombie.o \
 		./newZombie.o \
-		./randomChump.o
+		./randomChump.o \
+		./typewriter.o
 
 SRC =	./main.cpp\
 		./Zombie.cpp \
 		./newZombie.cpp \
-		./randomChump.cpp
+		./randomChump.cpp \
+		./typewriter.cpp
 
 CC	= clang++
 
