@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 18:38:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/14 00:08:29 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/14 00:21:37 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 /*
 ** ANDAMENTO
 */
-# define ADAGIO			1000000
-# define MODERATO		500000
+# define ADAGIO			500000
+# define MODERATO		200000
 # define ALLEGRO		100000
 # define PRESTO			50000
 # define PRESTISSIMO	10000
@@ -34,7 +34,7 @@
 
 # define ARE_U_LISTENING	"\n\nAre you listening....?\n\n\n"
 
-# define NOT_ALONE			"It seems you are note alone...\n"\
+# define NOT_ALONE			"It seems you are not alone...\n"\
 							"Shacking in fear, you turn you head back..."
 
 # define SILHUETE			"\n\nAnd you see...\nA slow and stumbling silhuete walking towards you!"
@@ -61,15 +61,15 @@
 */
 # define NOISE			"\n\n\"ARGGZsZKzzzKRsRGHzzzAAHaarrr!\"\n\n"
 
-# define ANNOUCE1		"\n\n\"aAAAaiiirzZNNnnNnN " 
+# define ANNOUCE1		"\n\"aAAAaiiirzZNNnnNnN " 
 
-# define ANNOUCE2		" WHAaaaNT'sss  BRAINiiiiiinnnzzzZ...\"\n\n" 
+# define ANNOUCE2		" WHAaaaNT'sss  BRAINiiiiiinnnzzzZ...\"\n" 
 
 # define ZOMBIE_DYING1	"\"AAizZNnn bRLLzzZ I'm "  \
 
 # define ZOMBIE_DYING2	" and I'M DYiiiIINnnnGGgggg\"\n\n" 
 
-# define ZOMBIE_WANTS_MORE " WiIILlll GEeTT MoreEeeEE BRAInzzssssssss...!\nWe NeeeEDddD MoooRE\n\n"
+# define ZOMBIE_WANTS_MORE "\"WiIILlll GEeTT MoreEeeEE BRAInzzssssssss...!\nWe NeeeEDddD MoooRE\"\n\n"
 
 
 #endif

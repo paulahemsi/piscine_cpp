@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 21:14:34 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/13 23:53:46 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/14 00:22:01 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Zombie::Zombie()
 Zombie::~Zombie()
 {
 	std::cout	<< V_GREEN;
-	noise();
 	typewriter(getName() + ZOMBIE_WANTS_MORE, PRESTISSIMO);
 	std::cout << GREEN;
 	return ;
