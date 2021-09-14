@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   chapters.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/12 12:56:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/13 23:22:13 by phemsi-a         ###   ########.fr       */
+/*   Created: 2021/09/13 18:06:52 by phemsi-a          #+#    #+#             */
+/*   Updated: 2021/09/13 23:42:54 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+# ifndef CHAPTERS_HPP
+# define CHAPTERS_HPP
 
-# include <iostream>
-# include "colors.hpp"
+# include "Zombie.hpp"
 
-class Zombie
-{
-	private:
-		std::string _name;
+void		tic_tac(int usleep_time, int duration);
+void		typewriter(std::string str, int velocity);
+Zombie*		zombieHorde(int N, std::string name);
+char		getChar(void);
 
-	public:
-		Zombie(std::string name);
-		~Zombie(void);
-	
-		void		annouce(void);
-		void		noise(void);
-		std::string	getName(void);
-};
-
-void randomChump(std::string name);
-Zombie* newZombie(std::string name);
-
-#endif
+# endif

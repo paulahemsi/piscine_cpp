@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/12 12:56:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/13 23:22:13 by phemsi-a         ###   ########.fr       */
+/*   Created: 2021/09/13 22:44:49 by phemsi-a          #+#    #+#             */
+/*   Updated: 2021/09/13 23:39:41 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
-
 # include <iostream>
-# include "colors.hpp"
+# include "Zombie.hpp"
 
-class Zombie
+Zombie*	zombieHorde(int N, std::string name)
 {
-	private:
-		std::string _name;
-
-	public:
-		Zombie(std::string name);
-		~Zombie(void);
-	
-		void		annouce(void);
-		void		noise(void);
-		std::string	getName(void);
-};
-
-void randomChump(std::string name);
-Zombie* newZombie(std::string name);
-
-#endif
+	Zombie *horde = new Zombie[N];
+	for (int i = 0; i < N; i++)
+	{
+		horde[i].setName(name);
+		horde[i].annouce();
+	}
+	return horde;
+}

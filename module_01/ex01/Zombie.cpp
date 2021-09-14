@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 21:14:34 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/13 23:24:11 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/13 23:53:46 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ Zombie::Zombie(std::string name) : _name(name)
 	return ;
 }
 
+Zombie::Zombie()
+{
+	return ;
+}
+
 Zombie::~Zombie()
 {
 	std::cout	<< V_GREEN;
-	if (getName() == "zzaaarghh")
-		typewriter(ZOMBIE_DYING1 + getName() + ZOMBIE_DYING2, PRESTO);
-	else
-		typewriter(getName() + ZOMBIE_HUNGRY, PRESTO);
+	noise();
+	typewriter(getName() + ZOMBIE_WANTS_MORE, PRESTISSIMO);
 	std::cout << GREEN;
 	return ;
 }
@@ -41,11 +44,26 @@ void Zombie::annouce(void)
 {
 	std::cout << V_GREEN;
 	typewriter(ANNOUCE1, PRESTISSIMO);
-	typewriter(getName() + ANNOUCE2, PRESTO);
+	typewriter(getName(), PRESTO);
+	typewriter (ANNOUCE2, PRESTISSIMO);
 	std::cout << GREEN;
 }
 
+
 std::string	Zombie::getName(void)
 {
-	return (getName());
+	return (this->_name);
+}
+
+# include <stdlib.h> 
+
+
+char getChar(void)
+{
+	return ('a' + rand()%26);
+}
+
+void	Zombie::setName(std::string name)
+{
+	this->_name = getChar() + name + getChar();
 }

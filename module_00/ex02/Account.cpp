@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 21:22:01 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/12 11:46:05 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/12 13:13:46 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,5 +184,5 @@ void	Account::_displayTimestamp( void )
 
 Account::Account(void)
 {
-	
+	return ;
 }

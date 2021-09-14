@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 12:56:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/13 23:22:13 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/13 23:34:05 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ class Zombie
 
 	public:
 		Zombie(std::string name);
+		Zombie();
 		~Zombie(void);
-	
+		
 		void		annouce(void);
 		void		noise(void);
 		std::string	getName(void);
+		void		setName(std::string name);
 };
 
 void randomChump(std::string name);

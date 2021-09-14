@@ -6,26 +6,20 @@
 #    By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/12 12:23:57 by phemsi-a          #+#    #+#              #
-#    Updated: 2021/09/13 22:43:53 by phemsi-a         ###   ########.fr        #
+#    Updated: 2021/09/13 23:41:20 by phemsi-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = chapter_one
+NAME = chapter_two
 
 OBJS =	./main.o \
 		./Zombie.o \
-		./newZombie.o \
-		./randomChump.o \
-		./prologue.o \
-		./choices.o \
+		./ZombieHorde.o \
 		./typewriter.o
 
 SRC =	./main.cpp\
 		./Zombie.cpp \
-		./newZombie.cpp \
-		./randomChump.cpp \
-		./prologue.cpp \
-		./choices.cpp \
+		./ZombieHorde.cpp \
 		./typewriter.cpp
 
 CC	= clang++

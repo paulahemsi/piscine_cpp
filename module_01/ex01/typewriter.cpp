@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   typewriter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/12 12:56:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/13 23:22:13 by phemsi-a         ###   ########.fr       */
+/*   Created: 2021/09/12 23:41:25 by phemsi-a          #+#    #+#             */
+/*   Updated: 2021/09/13 18:42:17 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
-
 # include <iostream>
-# include "colors.hpp"
+# include <unistd.h>
 
-class Zombie
+void	typewriter(std::string str, int velocity)
 {
-	private:
-		std::string _name;
+	int i = 0;
+	while (str[i] != '\0')
+	{
+		std::cout << str[i] << "\xDB" << std::flush;
+		usleep(velocity);
+		std::cout << "\b \b" <<std::flush;
+		usleep(velocity);
+		i++;
+	}
+}
 
-	public:
-		Zombie(std::string name);
-		~Zombie(void);
-	
-		void		annouce(void);
-		void		noise(void);
-		std::string	getName(void);
-};
-
-void randomChump(std::string name);
-Zombie* newZombie(std::string name);
-
-#endif
+void	tic_tac(int usleep_time, int duration)
+{
+	for (int i = 0; i < duration; i++)
+	{
+		std::cout << "." << std::endl;
+		usleep(usleep_time);
+	}
+}
