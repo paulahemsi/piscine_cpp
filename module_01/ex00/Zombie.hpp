@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 12:56:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/12 23:14:23 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/13 22:22:00 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 
 # include <iostream>
 # include "colors.hpp"
-
-# define ADAGIO			1000000
-# define MODERATO		500000
-# define ALLEGRO		200000
-# define PRESTO			100000
-# define PRESTISSIMO	70000
 
 class Zombie
 {
@@ -31,6 +25,7 @@ class Zombie
 		Zombie(std::string name);
 		~Zombie(void);
 		void annouce(void);
+		void noise(void);
 };
 
 void randomChump(std::string name);

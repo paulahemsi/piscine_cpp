@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   chapters.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/12 23:41:39 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/12 23:42:18 by phemsi-a         ###   ########.fr       */
+/*   Created: 2021/09/13 18:06:52 by phemsi-a          #+#    #+#             */
+/*   Updated: 2021/09/13 22:30:20 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef UTILS_HPP
-# define UTILS_HPP
+# ifndef CHAPTERS_HPP
+# define CHAPTERS_HPP
 
-# include <iostream>
+# include "Zombie.hpp"
 
-void	typewriter(std::string str, int velocity);
+void		prologue(std::string name, Zombie &firstZombie);
+void		tic_tac(int usleep_time, int duration);
+void		typewriter(std::string str, int velocity);
+std::string	choice(std::string choices, std::string option1, std::string option2);
 
 # endif

@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   typewriter.cpp                                     :+:      :+:    :+:   */
+/*   choices.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/12 23:41:25 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/13 18:42:17 by phemsi-a         ###   ########.fr       */
+/*   Created: 2021/09/13 18:48:23 by phemsi-a          #+#    #+#             */
+/*   Updated: 2021/09/13 21:47:56 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
-# include <unistd.h>
+# include "colors.hpp"
 
-void	typewriter(std::string str, int velocity)
+std::string	choice(std::string choices, std::string option1, std::string option2)
 {
-	int i = 0;
-	while (str[i] != '\0')
-	{
-		std::cout << str[i] << "\xDB" << std::flush;
-		usleep(velocity);
-		std::cout << "\b \b" <<std::flush;
-		usleep(velocity);
-		i++;
-	}
-}
+	std::string	option;
+	std::string action;
 
-void	tic_tac(int usleep_time, int duration)
-{
-	for (int i = 0; i < duration; i++)
+	while (true)
 	{
-		std::cout << "." << std::endl;
-		usleep(usleep_time);
+		std::cout << RESET << choices << std::endl;
+		std::getline(std::cin, option);
+		std::cout << GREEN;
+		if (option == "1")
+			return (option1);
+		if (option == "2")
+			return (option2);
 	}
 }
