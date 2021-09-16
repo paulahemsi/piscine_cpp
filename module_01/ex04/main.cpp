@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 22:32:05 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/14 23:12:54 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/16 19:00:17 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,11 @@
 
 # include <iostream>
 # include <fstream>
-
-static bool	return_error(std::string msg)
-{
-	std::cout << msg << std::endl;
-	return (true);
-}
-
-static bool	error(int argc)
-{
-	if (argc != 4)
-		return_error("Usage: ./replace filename string1 string2");
-	return (false);
-}
-
-static void	getSize(long *size, std::ifstream &inputFile)
-{
-	inputFile.seekg (0, inputFile.end);
-	*size = inputFile.tellg();
-	inputFile.seekg(0);
-}
+# include <string.h>
+# include <stdlib.h>
+# include <string>
+# include <cstring>
+# include "replace.hpp"
 
 static bool	openFile(const char *fileName, std::ifstream &inputFile)
 {
@@ -56,23 +41,25 @@ static bool	openFile(const char *fileName, std::ifstream &inputFile)
 	return (true);
 }
 
+static bool	errors(int argc, char *fileName, std::ifstream *inputFile)
+{
+	if (argc != 4 || !openFile(fileName, *inputFile))
+	{
+		std::cout << "Usage: ./replace filename string1 string2" << std::endl;
+		return (true);
+	}
+	return (false);
+}
+
 int main(int argc, char **argv)
 {
-	std::ifstream inputFile;
-	std::ofstream outputFile;
+	std::ifstream	inputFile;
+	std::ofstream	outputFile;
 	long size;
 
-	if (error(argc))
+	if (errors(argc, argv[1], &inputFile))
 		return (1);
-	if (!openFile(argv[1], inputFile))
-		return (1);
-	getSize(&size, inputFile);
-
-	char *buffer = new char[size];
-	inputFile.read(buffer, size);
-	outputFile.open("FILENAME.replace");
-	outputFile.write(buffer, size);
-	delete[] buffer;
+	writeFile(argv, &outputFile, readFile(&size, &inputFile), size);
 	inputFile.close();
 	outputFile.close();
 	return (0);
