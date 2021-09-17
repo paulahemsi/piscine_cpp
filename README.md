@@ -18,7 +18,7 @@ they allow type extensibility that allows you to program naturally with the new 
 
 C++98 is simpler nad easier to beggin
 
-## [Module_00](https://github.com/paulahemsi/piscine_cpp/blob/main/module_00/README.md)
+## [Module_00](https://github.com/paulahemsi/piscine_cpp/blob/main/module_00)
 
 * [Namespaces](https://github.com/paulahemsi/piscine_cpp/blob/main/module_00/README.md#Namespaces)
 * [in_out](https://github.com/paulahemsi/piscine_cpp/blob/main/module_00/README.md#in_out)
@@ -36,7 +36,7 @@ C++98 is simpler nad easier to beggin
 * [ex01 notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_00/README.md#ex01)
 * [ex02 notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_00/README.md#ex02)
 
-## [Module_01](https://github.com/paulahemsi/piscine_cpp/blob/main/module_01/README.md)
+## [Module_01](https://github.com/paulahemsi/piscine_cpp/blob/main/module_01)
 
 * [New_and_delete](https://github.com/paulahemsi/piscine_cpp/blob/main/module_01/README.md#New_and_delete)
 * [References](https://github.com/paulahemsi/piscine_cpp/blob/main/module_01/README.md#References)
