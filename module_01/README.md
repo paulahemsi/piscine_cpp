@@ -1,6 +1,11 @@
 ## Module_01
 
-### New and delete
+* [New_and_delete](#New_and_delete)
+* [References](#References)
+* [file_stream](#file_stream)
+* [ex04 notes](#ex04)
+
+### New_and_delete
 
 `new` amd `delete` are the keywords to allocate and desallocate instances in the heap, they are using malloc and free under the hood but to us is much more simple.
 
@@ -92,7 +97,7 @@ std::string const *getStringPtrConst() const
 use a **pointer** if at some point it shouldn't exist or if it should change
 use a **reference** if it should always axist and never change
 
-### file stream
+### file_stream
 
 >Objects of this class maintain a filebuf object as their internal stream buffer, which performs input/output operations on the file they are associated with (if any).
 
