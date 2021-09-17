@@ -1,5 +1,21 @@
 ## Module_00
 
+* [Namespaces](#Namespaces)
+* [in_out](#in_out)
+* [Class_and_instance](#Class_and_instance)
+* [Member_attributes_and_member_functions](#Member_attributes_and_member_functions)
+* [This](#This)
+* [Initialization](#Initialization)
+* [const](#const)
+* [Visibility](#Visibility)
+* [Structs_vs_Class](#Structs_vs_Class)
+* [Getter](Getter)
+* [Comparisons](Comparisons)
+* [Non_Member_Attributes_and_functions](Non_Member_Attributes_and_functions)
+* [Pointers_to_members_and_members_functions](Pointers_to_members_and_members_functions)
+* [ex01 notes](#ex01)
+* [ex02 notes](#ex02)
+
 ### Namespaces
 
 In each scope, a name can only represent one entity. So, there cannot be two variables with the same name in the same scope. Using namespaces, we can create two variables or member functions having the same name.
@@ -46,7 +62,7 @@ alias::my_var
 
 `std::cout << "you sayed:" << buffer << "!" << std::endl;`
 
-### Class and instance
+### Class_and_instance
 
 `.class` pre extension to better organize and makes class files explicit
 `My_class.class.hpp`
@@ -93,7 +109,7 @@ int main(void) {
 
 ```
 
-## Member attributes and member functions
+### Member_attributes_and_member_functions
 
 `member attribute` a variable that you have in your class that you may use in a instance
 
@@ -117,7 +133,7 @@ int main(void) {
 }
 ```
 
-## This
+### This
 
 `this` is a pointer to the current instance
 We use `this` inside the constructor
@@ -130,7 +146,7 @@ My_class::My_class(void) {
 }
 ```
 
-## Initialization
+### Initialization
 
 ```cpp
 
@@ -168,7 +184,7 @@ My_class::My_class(char c, int i, float f) : my_char(c), my_int(i), my_float(f){
 
 ```
 
-## const
+### const
 
 `const` cannot be changed
 in c++ we can declare a const in out class and define a different value for each object in the constructor
@@ -210,7 +226,7 @@ void My_class::my_func(void) const {
 }
 ```
 
-## Visibility
+### Visibility
 
 `public` and `private` control the encapsulation of the members of the class
 
@@ -224,11 +240,11 @@ void My_class::my_func(void) const {
 Expose outside only the parts will be usefull for the user
 Keep private as much as possible
 
-## Structs x Class
+### Structs_vs_Class
 
 Class and structs works in the same way in C++, but the scope of the structure is public by default and the scope of the class is private by the default
 
-## Getter
+### Getter
 
 Proxy pattern is a software design pattern. A proxy, in its most general form, is a class functioning as an interface to something else.
 
@@ -270,7 +286,7 @@ bool My_class::set_var(int value) {
 }
 ```
 
-## Comparisons
+### Comparisons
 
 it's possible not only to compare adresses but also structural equality
 
@@ -292,7 +308,7 @@ int My_class::compare(My_class *other) const {
 }
 ```
 
-## Non Member Attributes and functions
+### Non_Member_Attributes_and_functions
 
 or Class attributes and functions (not-instances attributes and functions)
 
@@ -336,7 +352,7 @@ int My_class::get_number_of_instances(void) {
 int My_class::_number_of_instances = 0; //initializing the static non-member variable
 
 ```
-## Pointers to members and members functions
+### Pointers_to_members_and_members_functions
 
 ```cpp
 
@@ -378,7 +394,7 @@ int main(void) {
 
 ```
 
-## ex01
+### ex01
 
 Why I choose `a_string == other_string` over `a_string.compare(other_string)`:
 
@@ -406,7 +422,7 @@ It's a tricky function, though, cause in loops it can ignore the first letter of
 
 [this](https://stackoverflow.com/questions/4745858/stdcin-getline-vs-stdcin) and [this other](https://stackoverflow.com/questions/61007300/why-is-cin-ignore-ignoring-the-first-character-of-my-getline-input) threads in stackoverflow give's a good overview of the issue.
 
-## ex02
+### ex02
 
 initializing the four static non-member variable:
 
