@@ -1,6 +1,8 @@
 # piscine_cpp
 Dive into C++ | école 42
 
+
+
 ```
 "C++ was an object-oriented extension to C that kept most of the basic C features and semantics.
 Indeed its implementation was as a preprocessor to existing C compilers.
@@ -11,12 +13,16 @@ and to add resource handlers called constructors and destructors."
 Ira Pohl
 ```
 
-```
-And the crucial thing that makes OO languages so powerful is,
-they allow type extensibility that allows you to program naturally with the new types.
-```
+
+
+> And the crucial thing that makes OO languages so powerful is they allow type extensibility that allows you to program naturally with the new types.
+
+
+
 
 C++98 is simpler nad easier to beggin
+
+
 
 ## [Module_00](https://github.com/paulahemsi/piscine_cpp/blob/main/module_00)
 
