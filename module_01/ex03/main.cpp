@@ -6,15 +6,13 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 00:56:11 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/14 22:29:23 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:48:06 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Weapon.hpp"
 # include "HumanA.hpp"
 # include "HumanB.hpp"
-
-// ? In which case is it appropriate to store the Weapon as a pointer? And as a reference? Why? These are the questions you should ask yourself before turning in this exercise.
 
 int main(void)
 {

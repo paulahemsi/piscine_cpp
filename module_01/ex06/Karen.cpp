@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 20:52:14 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/16 22:31:41 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/17 21:13:34 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,28 @@ bool Karen::complain(std::string level)
 	std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int i;
 
-	i = -1;
-	while(levels[++i] != level && i < 4)
-		continue ;
-	i++;
-	if (i == 5)
-		return (false);
-	while(--i >= 0)
+	i = 0;
+	while(i < 4 && levels[i] != level)
+		i++;
+	switch (i)
 	{
-		Karen::tic_tac(400000, 5);
-		(this->*functionPointer[i])();
+		case 4:
+			return (false);
+		case 3:
+			(this->*functionPointer[i])();
+			Karen::tic_tac(400000, 5);
+			i--;
+		case 2:
+			(this->*functionPointer[i])();
+			Karen::tic_tac(400000, 5);
+			i--;
+		case 1:
+			(this->*functionPointer[i])();
+			Karen::tic_tac(400000, 5);
+			i--;
+		default:
+			(this->*functionPointer[i])();
+			Karen::tic_tac(400000, 5);
+			return (true);
 	}
-	Karen::tic_tac(400000, 5);
-	return (true);
 }

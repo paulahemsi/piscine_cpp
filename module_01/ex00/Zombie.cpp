@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 21:14:34 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/13 23:24:11 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/17 18:02:39 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ Zombie::Zombie(std::string name) : _name(name)
 	return ;
 }
 
-Zombie::~Zombie()
+Zombie::Zombie(void)
+{
+	return ;
+}
+
+Zombie::~Zombie(void)
 {
 	std::cout	<< V_GREEN;
 	if (getName() == "zzaaarghh")
@@ -47,5 +52,5 @@ void Zombie::annouce(void)
 
 std::string	Zombie::getName(void)
 {
-	return (getName());
+	return (this->_name);
 }

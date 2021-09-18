@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 18:38:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/13 22:36:53 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/17 18:33:32 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@
 */
 # define NOISE			"\n\n\"ARGGZsZKzzzKRsRGHzzzAAHaarrr!\"\n\n"
 
-# define ANNOUCE1		"\n\n\"aAAAaiiirzZNNnnNnN " 
+# define ANNOUCE1		"\n\n\"BraAAAaiiinnNnNzzZzZ " 
 
 # define ANNOUCE2		" WHAaaaNT'sss  BRAINiiiiiinnnzzzZ...\"\n\n" 
 
