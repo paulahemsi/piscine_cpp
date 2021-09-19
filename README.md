@@ -48,3 +48,10 @@ C++98 is simpler nad easier to beggin
 * [References](https://github.com/paulahemsi/piscine_cpp/blob/main/module_01/README.md#References)
 * [file_stream](https://github.com/paulahemsi/piscine_cpp/blob/main/module_01/README.md#file_stream)
 * [ex04 notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_01/README.md#ex04)
+
+## [Module_02](https://github.com/paulahemsi/piscine_cpp/blob/main/module_02)
+
+* [Ad-hoc_polymorphism](https://github.com/paulahemsi/piscine_cpp/blob/main/module_02/README.md#Ad-hoc_polymorphism)
+* [Operator_overload](https://github.com/paulahemsi/piscine_cpp/blob/main/module_02/README.md#Operator_overload)
+* [Canonical_form](https://github.com/paulahemsi/piscine_cpp/blob/main/module_02/README.md#Canonical_form)
+* [ex00 notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_02/README.md#ex00)
