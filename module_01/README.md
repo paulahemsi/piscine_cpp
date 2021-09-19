@@ -172,7 +172,7 @@ Erases the sequence of characters in the range [first,last].
 (`(*text).insert(i, (*newStr))`)
 
 ```
-1) string
+(1) string
 Inserts a copy of str.
 (2) substring
 Inserts a copy of a substring of str. The substring is the portion of str that begins at the character position subpos and spans sublen characters (or until the end of str, if either str is too short or if sublen is npos).

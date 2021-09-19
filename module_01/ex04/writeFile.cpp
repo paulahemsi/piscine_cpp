@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 18:29:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/16 19:46:18 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/19 09:45:33 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 # include <fstream>
 # include <stdlib.h>
 
-static std::string	strToUpper(char *file)
+static std::string	strToUpper(std::string &file)
 {
 	char		*fileUpper;
+	size_t		nameLength;
 	std::string	fileUpperStr;
 
-	fileUpper = (char *)malloc(strlen(file) * sizeof(char));
-	if (!fileUpper)
-		return NULL;
-	int i = -1;
-	while(file[++i] != '\0')
-		fileUpper[i] = toupper(file[i]);
-	fileUpper[i] = '\0';
+	nameLength = file.length();
+	fileUpper = new char[nameLength];
+	file.copy(fileUpper, nameLength);
+	for (size_t i = 0; i < nameLength; i++)
+		fileUpper[i] = std::toupper(file[i]);
+	fileUpper[nameLength] = '\0';
 	fileUpperStr = std::string(fileUpper);
-	free(fileUpper);
+	delete [] fileUpper;
 	return (fileUpperStr);
 }
 
@@ -44,17 +44,19 @@ static void replaceFile(std::string *text, char **argv)
 	std::string		newStr = argv[3];
 	
 	for (size_t i = 0; i != std::string::npos; i = (*text).find(replacebleStr, i + 1))
-		if (i != std::string::npos)
+		if (i != std::string::npos && i != 0)
 			replaceWord(text, &replacebleStr, &newStr, i);
 }
 
 void writeFile(char **argv, std::ofstream *outputFile, char *buffer, long size)
 {
+	std::string		argvName;
 	std::string		fileName;
 	std::string		text;
 
+	argvName = std::string(argv[1]);
 	text = std::string(buffer);
-	fileName = strToUpper(argv[1]) + ".replace";
+	fileName = strToUpper(argvName) + ".replace";
 	(*outputFile).open(fileName.c_str());
 	replaceFile(&text, argv);
 	(*outputFile).write(text.c_str(), size);

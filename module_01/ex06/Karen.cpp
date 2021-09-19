@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 20:52:14 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/17 21:13:34 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/19 09:54:25 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,18 @@ bool Karen::complain(std::string level)
 	{
 		case 4:
 			return (false);
-		case 3:
+		case 0:
 			(this->*functionPointer[i])();
 			Karen::tic_tac(400000, 5);
-			i--;
-		case 2:
-			(this->*functionPointer[i])();
-			Karen::tic_tac(400000, 5);
-			i--;
+			i++;
 		case 1:
 			(this->*functionPointer[i])();
 			Karen::tic_tac(400000, 5);
-			i--;
+			i++;
+		case 2:
+			(this->*functionPointer[i])();
+			Karen::tic_tac(400000, 5);
+			i++;
 		default:
 			(this->*functionPointer[i])();
 			Karen::tic_tac(400000, 5);

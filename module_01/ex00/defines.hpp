@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 18:38:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/17 18:33:32 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/19 09:51:34 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define FIRST_CHOICE	"\n\nWhait still_______(PRESS 1 + ENTER)\
 						\nRun______________(PRESS 2 + ENTER)\n\n" 
 
-# define WHAIT			"\n.\n.\n.\nYou whait.\n...But the noise came closer and closer...\n.\n.\n.\n.\n." 
+# define WHAIT			"\n.\n.\n.\nYou wait.\n...But the noise came closer and closer...\n.\n.\n.\n.\n." 
 
 # define RUN			"\n\n\nRUUUUUUUUUUUN!!!!" 
 
@@ -48,14 +48,14 @@
 
 # define ZOMBIE_APPEARS	"\n\n\nA big creepy green smeely zombie just appears in front of you...\nWhat did you do now?!\n\n" 
 
-# define ZOMBIE_DYING	"The Zombies head falls apart...!\nThe body felt on the floor...\n....He seems to be dying...\n\n" 
+# define ZOMBIE_DYING	"The Zombies head falls apart...!\nThe body felt on the floor...\n....He seem's to be dying...\n\n" 
 
 # define RELIEF			"You breath in relief\n\n" 
 
 # define SECOND_CHOICE	"\n\nHit him with your notebook______(PRESS 1 + ENTER) \
 						\nPunch him______________________(PRESS 2 + ENTER)\n\n"
 # define NOTEBOOK_HIT	"\n\nYou take your old and heavy notebook and hit the zombie's head!\nA creepy noise is heard...\n\nSeems you loose your notebook for good.\n"
-# define PUNCH			"\n\nYou give a deep breath and punch that horrible zombie.\nYor fist becamed dirty with zombie gellys \n\n" 
+# define PUNCH			"\n\nYou give a deep breath and punch that horrible zombie.\nYor fist becamed dirty with zombies goops \n\n" 
 
 # define CONTINUE		"\n\nto be continued...\n\n" 
 
