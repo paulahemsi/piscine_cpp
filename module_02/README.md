@@ -163,3 +163,7 @@ Floating point numbers are the exact opposite. They have good precision, since t
 >Consider the number 1/3. No finite decimal digit representation (e.g. 0.333333) can ever be equal to 1/3; we can never have enough 3's. Thus it is more than likely that the computed result you need cannot be represented accurately by a finite floating point variable—you're going to be wrong by at least a little bit no matter what you do.
 
 [understanding floating point](https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point.html)
+
+diagram made by [Paulo Cunha](https://github.com/PCC19) 
+![image](https://user-images.githubusercontent.com/63563271/134776413-5785a206-bc82-4aec-bb4f-b939962c89dd.png)
+
