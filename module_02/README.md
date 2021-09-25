@@ -3,6 +3,7 @@
 * [Ad-hoc_polymorphism](#Ad-hoc_polymorphism)
 * [Operator_overload](#Operator_overload)
 * [Canonical_form](#Canonical_form)
+* [ex00 notes](#ex00)
 
 ## Ad-hoc_polymorphism
 
