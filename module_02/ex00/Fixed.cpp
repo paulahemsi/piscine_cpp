@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:35:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/25 12:05:41 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/25 13:07:43 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Fixed::Fixed(void)
 {
 	std::cout << "Default constructor called" << std::endl;
-	this->_fixedPoint = 0;
+	this->_rawBits = 0;
 	return ;
 }
 
@@ -24,6 +24,7 @@ Fixed::Fixed(Fixed const &instance)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = instance;
+	return ;
 }
 
 Fixed::~Fixed(void)
@@ -35,19 +36,21 @@ Fixed::~Fixed(void)
 Fixed &Fixed::operator=(Fixed const &right_hand_side)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	this->_fixedPoint = right_hand_side.getRawBits();
+	this->_rawBits = right_hand_side.getRawBits();
 	return *this;
 }
 
 int		Fixed::getRawBits(void)const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_fixedPoint);
+	return (this->_rawBits);
 }
 
-void	Fixed::setRawBits(int const value)
+void	Fixed::setRawBits(int const raw)
 {
-	this->_fixedPoint = value;
+	std::cout << "setRawBits member function called" << std::endl;
+	this->_rawBits = raw;
+	return ;
 }
 
 int const	Fixed::_fractional_bits = 8;
