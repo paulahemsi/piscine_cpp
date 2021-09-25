@@ -6,12 +6,14 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 20:01:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/25 14:30:39 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/25 16:52:48 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef FIXED_HPP
 # define FIXED_HPP
+
+#include <iostream>
 
 class Fixed
 {
@@ -33,5 +35,7 @@ class Fixed
 		float	toFloat(void)const;
 		int		toInt(void)const;
 };
+
+std::ostream &operator<<(std::ostream &outputFile, Fixed const &i);
 
 #endif

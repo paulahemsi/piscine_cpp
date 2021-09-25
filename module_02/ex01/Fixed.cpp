@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:35:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/25 14:57:59 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/25 17:08:29 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,16 @@ Fixed::Fixed(Fixed const &instance)
 	return ;
 }
 
-// A constructor that takes a constant integer as a parameter and that converts it to
-// the correspondant fixed(8) point value. The fractional bits value is initialized like
-// in ex00.
-// • A constructor that takes a constant floating point as a parameter and that converts
-// it to the correspondant fixed(8) point value. The fractional bits value is initialized
-// like in ex00.
-// • A member function float toFloat( void ) const; that converts the fixed point
-// value to a floating point value.
-// • A member function int toInt( void ) const; that converts the fixed point value
-// to an integer value.
-
 Fixed::Fixed(int const number)
 {
+	std::cout << "Int constructor called" << std::endl;
 	this->_rawBits = number << Fixed::_fractional_bits;
 }
 
 Fixed::Fixed(float const number)
 {
-	
+	std::cout << "Float constructor called" << std::endl;
+	this->_rawBits = number * (1 << this->_fractional_bits);
 }
 
 Fixed::~Fixed(void)
@@ -61,27 +52,34 @@ Fixed &Fixed::operator=(Fixed const &right_hand_side)
 	return *this;
 }
 
+std::ostream &operator<<(std::ostream &outputFile, Fixed const &i)
+{
+	// std::cout << "Assignation operator called" << std::endl;
+	outputFile << i.getRawBits();
+	return outputFile;
+}
+
 int		Fixed::getRawBits(void)const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return (this->_rawBits);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	// std::cout << "setRawBits member function called" << std::endl;
 	this->_rawBits = raw;
 	return ;
 }
 
 float	Fixed::toFloat(void)const
 {
-	
+	return this->_rawBits / (1 << this->_fractional_bits);
 }
 
 int		Fixed::toInt(void)const
 {
 	return (this->_rawBits >> Fixed::_fractional_bits);
-}	
+}
 
 int const	Fixed::_fractional_bits = 8;
