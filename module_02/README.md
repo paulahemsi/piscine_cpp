@@ -53,7 +53,10 @@ how many operands an operator takes?
 * binary operator -- has two operands
 * ternary operator -- has three operands
 
+![image](https://user-images.githubusercontent.com/63563271/134781968-da52ffe4-f166-4b19-ad11-5c4090720c58.png)
+
 [More about operators](https://www.cs.fsu.edu/~myers/c++/notes/basics2.html)
+
 
 ### overloading an operator
 
