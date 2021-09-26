@@ -3,7 +3,7 @@
 * [Ad-hoc_polymorphism](#Ad-hoc_polymorphism)
 * [Operator_overload](#Operator_overload)
 * [Canonical_form](#Canonical_form)
-* [ex00 notes](#ex00)
+* [exercises notes](#notes)
 
 ## Ad-hoc_polymorphism
 
@@ -153,7 +153,7 @@ std::ostream &operator<<(std::ostream &outputFile, MyClass const &i); //not cano
 
 > orthodox canonical form: At least one default constructor, a copy contructor, an assignation operator overload and a destructor
 
-## ex00
+## notes
 
 >Accuracy and precision are two concepts in measurement that nicely capture the different properties of ints and floats
 
