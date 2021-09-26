@@ -167,6 +167,25 @@ Floating point numbers are the exact opposite. They have good precision, since t
 
 [understanding floating point](https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point.html)
 
+[Introduction to Fixed Point Number Representation](https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html)
+
+To define a fixed point type conceptually, all we need are two parameters:
+
+* width of the number representation, and
+* binary point position within the number
+
 diagram made by [Paulo Cunha](https://github.com/PCC19) 
 ![image](https://user-images.githubusercontent.com/63563271/134776413-5785a206-bc82-4aec-bb4f-b939962c89dd.png)
 
+To convert from floating-point to fixed-point:
+
+* Calculate x = floating_input * 2^(fractional_bits)
+* Round x to the nearest whole number
+* Store the rounded x in an integer container
+
+`2^(fractional_bits)` == `1 << fractional_bits`
+
+To convert from fixed to float, is the oposite: 
+`(float)fixed_number / (float)(1 << fractional_bits)`
+
+[Simple Fixed-Point Conversion in C](https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/)

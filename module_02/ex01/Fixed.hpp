@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 20:01:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/25 16:52:48 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/26 12:52:35 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Fixed
 	public:
 		Fixed(void);
 		Fixed(Fixed const &instance);
-		Fixed(int const number);
-		Fixed(float const number);
+		Fixed(int const int_number);
+		Fixed(float const float_number);
 		~Fixed();
 
 		Fixed	&operator=(Fixed const &right_hand_side);
