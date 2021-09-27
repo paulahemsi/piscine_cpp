@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 20:01:26 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/26 14:17:09 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/26 21:15:20 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,35 @@ int main(void)
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+
+	Fixed c(10);
+	Fixed d(2.25f);
+	std::cout << std::endl << "c: " << c << " d: " << d << std::endl;
+	std::cout << "c / d: " << c / d << std::endl;
+	std::cout << "c * d: " << c * d << std::endl;
+	std::cout << "c + d: " << c + d << std::endl;
+	std::cout << "c - d: " << c - d << std::endl;
+	
+	if (c < d)
+		std::cout << "c < d" << std::endl;
+	else
+		std::cout << "c > d" << std::endl;
+	if ((c / d) <= (c / d))
+		std::cout << "deu bom" << std::endl;
+	else
+		std::cout << "deu ruim" << std::endl;
+	if ((c * d) >= (c * d))
+		std::cout << "deu bom" << std::endl;
+	else
+		std::cout << "deu ruim" << std::endl;
+	if (c == d)
+		std::cout << "c == d" << std::endl;
+	else
+		std::cout << "c != d" << std::endl;
+	if ((c - d) != (c - d))
+		std::cout << "deu ruim" << std::endl;
+	else
+		std::cout << "deu bom" << std::endl;
+
 	return 0;
 }

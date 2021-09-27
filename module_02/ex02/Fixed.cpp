@@ -6,13 +6,13 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:35:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/26 20:43:32 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/26 21:06:11 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include <typeinfo>
 
 Fixed::Fixed(void)
@@ -34,7 +34,7 @@ Fixed::Fixed(int const int_number)
 
 Fixed::Fixed(float const float_number)
 {
-	this->_rawBits = (int)round(float_number * (1 << Fixed::_fractional_bits));
+	this->_rawBits = (int)roundf(float_number * (1 << Fixed::_fractional_bits));
 }
 
 Fixed::~Fixed(void)
@@ -50,30 +50,22 @@ Fixed &Fixed::operator=(Fixed const &right_hand_side)
 
 Fixed Fixed::operator+(Fixed const &right_hand_side)
 {
-	Fixed result;
-	result.setRawBits((this->_rawBits + right_hand_side.getRawBits()) >> Fixed::_fractional_bits);
-	return (result);
+	return (this->toFloat() + right_hand_side.toFloat());
 }
 
 Fixed Fixed::operator-(Fixed const &right_hand_side)
 {
-	Fixed result;
-	result.setRawBits((this->_rawBits - right_hand_side.getRawBits()) >> Fixed::_fractional_bits);
-	return (result);
+	return (this->toFloat() - right_hand_side.toFloat());
 }
 
 Fixed Fixed::operator*(Fixed const &right_hand_side)
 {
-	Fixed result;
-	result.setRawBits((this->_rawBits * right_hand_side.getRawBits()) >> Fixed::_fractional_bits);
-	return (result);
+	return (this->toFloat() * right_hand_side.toFloat());
 }
 
 Fixed Fixed::operator/(Fixed const &right_hand_side)
 {
-	Fixed result;
-	result.setRawBits((this->_rawBits / right_hand_side.getRawBits()) >> Fixed::_fractional_bits);
-	return (result);
+	return (this->toFloat() / right_hand_side.toFloat());
 }
 
 bool	Fixed::operator>(Fixed const &right_hand_side) const
