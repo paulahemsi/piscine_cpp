@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:35:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/26 21:06:11 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/27 19:32:08 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,17 +103,20 @@ Fixed	&Fixed::operator++(void)
 	this->_rawBits++;
 	return (*this);
 }
+
 Fixed	&Fixed::operator--(void)
 {
 	this->_rawBits--;
 	return (*this);
 }
+
 Fixed	Fixed::operator++(int)
 {
 	Fixed result(*this);
 	this->_rawBits++;
 	return (result);
 }
+
 Fixed	Fixed::operator--(int)
 {
 	Fixed result(*this);
@@ -137,8 +140,8 @@ Fixed const	&Fixed::min(Fixed const &value1, Fixed const &value2)
 	if (value1 < value2)
 		return (value1);
 	return (value2);
-	
 }
+
 Fixed const	&Fixed::max(Fixed const &value1, Fixed const &value2)
 {
 	if (value1 > value2)

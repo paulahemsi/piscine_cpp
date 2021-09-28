@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 20:01:26 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/26 21:15:20 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/27 19:36:16 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(void)
 	std::cout << "c * d: " << c * d << std::endl;
 	std::cout << "c + d: " << c + d << std::endl;
 	std::cout << "c - d: " << c - d << std::endl;
-	
+
 	if (c < d)
 		std::cout << "c < d" << std::endl;
 	else
