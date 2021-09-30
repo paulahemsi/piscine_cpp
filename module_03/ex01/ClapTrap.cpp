@@ -6,19 +6,13 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:06:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/29 23:03:55 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/29 23:54:17 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-# define BOLD_H_BLACK	"\e[1;90m"
-# define BOLD_H_RED		"\e[1;91m"
-# define BOLD_H_GREEN	"\e[1;92m"
-# define BOLD_H_YELLOW	"\e[1;93m"
-# define BOLD_H_BLUE	"\e[1;94m"
-# define BOLD_H_MAGENTA	"\e[1;95m"
 # define BOLD_H_CYAN	"\e[1;96m"
 
 ClapTrap::ClapTrap(void) : _name("nameless"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
