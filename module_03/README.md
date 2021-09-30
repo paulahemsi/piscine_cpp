@@ -61,3 +61,38 @@ int main() //Can only access run()
 }
 ```
 
+## notes
+
+>inheritance allows classes that are similar to derive from a base class that contains common attributes and implements common functionality, overriding this base functionality to implement behavior that makes each class unique.
+
+>The is-a relationship between a derived class and its base is applicable only to public inheritance
+
+ScavTrap **is-a** ClapTrap
+
+```cpp
+class Base
+{
+// ... base class members
+};
+
+class Derived: access-specifier Base
+{
+// ... derived class members
+};
+```
+
+The access-specifier can be one of *public* (most frequently used) where a “derived class **is** a base class” relationship; *private* or *protected* for a “derived class **has** a base class” relationship.
+
+`inherits from` or `derives from` essentially mean the same.
+
+`base class` is also called `super class`. 
+
+The class that *derives from the base*, also known as the `derived class`, can be called the `subclass`.
+
+`protected` `public` `private` - **specifiers**
+
+`protected` class attribute or function is accessible to classes that derive (and friends) and inaccessible to everyone else outside the class
+
+> protected is the access specifier you should use if you want a certain attribute in a base class to be accessible to classes that derive from this base
+
+> To ensure maximum security, if the derived classes don’t need to access a base class attribute, remember to mark the attribute private

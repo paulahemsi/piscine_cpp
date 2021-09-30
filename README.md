@@ -55,3 +55,8 @@ C++98 is simpler nad easier to beggin
 * [Operator_overload](https://github.com/paulahemsi/piscine_cpp/blob/main/module_02/README.md#Operator_overload)
 * [Canonical_form](https://github.com/paulahemsi/piscine_cpp/blob/main/module_02/README.md#Canonical_form)
 * [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_02/README.md#notes)
+
+## [Module_03](https://github.com/paulahemsi/piscine_cpp/blob/main/module_03)
+
+* [Inheritance](https://github.com/paulahemsi/piscine_cpp/blob/main/module_03/README.md#Inheritance)
+* [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_03/README.md#notes)

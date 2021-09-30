@@ -187,7 +187,7 @@ My_class::My_class(char c, int i, float f) : my_char(c), my_int(i), my_float(f){
 ### const
 
 `const` cannot be changed
-in c++ we can declare a const in out class and define a different value for each object in the constructor
+in c++ we can declare a const in our class and define a different value for each object in the constructor
 
 ```cpp
 class My_class {
