@@ -6,7 +6,7 @@
 #    By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 19:56:51 by phemsi-a          #+#    #+#              #
-#    Updated: 2021/09/27 19:59:19 by phemsi-a         ###   ########.fr        #
+#    Updated: 2021/09/30 18:41:56 by phemsi-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,11 @@ RM	= rm -rf
 
 CFLAGS	= -Wall -Wextra -Werror -g -std=c++98
 
-$(NAME):	$(SRC)
-			$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+
+$(OBJS):	$(SRC)
+			$(CC) $(CFLAGS) -c $(SRC)
 
 all:		$(NAME)
 

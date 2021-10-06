@@ -6,9 +6,12 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:00:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/27 22:42:48 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/05 20:19:28 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <iostream>
 
@@ -47,3 +50,5 @@ class ClapTrap
 };
 
 std::ostream &operator<<(std::ostream &outputFile, ClapTrap const &i);
+
+#endif

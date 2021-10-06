@@ -6,21 +6,14 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:06:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/28 20:47:02 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/05 20:57:48 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-# define BOLD_H_BLACK	"\e[1;90m"
-# define BOLD_H_RED		"\e[1;91m"
-# define BOLD_H_GREEN	"\e[1;92m"
-# define BOLD_H_YELLOW	"\e[1;93m"
-# define BOLD_H_BLUE	"\e[1;94m"
-# define BOLD_H_MAGENTA	"\e[1;95m"
 # define BOLD_H_CYAN	"\e[1;96m"
-# define BOLD_H_WHITE	"\e[1;97m"
 
 ClapTrap::ClapTrap(void) : _name("nameless"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
@@ -30,7 +23,7 @@ ClapTrap::ClapTrap(void) : _name("nameless"), _hitPoints(10), _energyPoints(10),
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << BOLD_H_MAGENTA << "Rest in peace, " << this->_name << " ..." << std::endl;
+	std::cout << BOLD_H_CYAN	 << "Rest in peace, " << this->_name << " ..." << std::endl;
 	return ;
 }
 
@@ -68,8 +61,8 @@ void	ClapTrap::attack(std::string const & target)
 {
 	if (this->_isBroken() || this->_isTired())
 		return ;
-	this->_energyPoints--;
-	std::cout	<< BOLD_H_RED
+	this->_energyPoints-= 10;
+	std::cout	<< BOLD_H_CYAN	
 				<< "ClapTrap "
 				<< this->_name
 				<< " attack "
@@ -83,7 +76,7 @@ void	ClapTrap::attack(std::string const & target)
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	this->_hitPoints -= amount;
-	std::cout	<< BOLD_H_RED
+	std::cout	<< BOLD_H_CYAN	
 				<< "ClapTrap "
 				<< this->_name
 				<< " takes "
@@ -97,7 +90,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	this->_energyPoints += amount;
 	this->_hitPoints += amount;
-	std::cout	<< BOLD_H_BLUE
+	std::cout	<< BOLD_H_CYAN	
 				<< "Beep Beeep!!! ClapTrap gains "
 				<< amount
 				<< " of repair!! "
@@ -110,7 +103,7 @@ bool	ClapTrap::_isBroken(void)
 {
 	if(this->_hitPoints <= 0)
 	{
-		std::cout	<< BOLD_H_MAGENTA
+		std::cout	<< BOLD_H_CYAN	
 					<< "biip bip ClapTrap i-is bro-o-ken biip... "
 					<< this->_name
 					<< " needs repaaai-ir... bee-ep!"
@@ -124,7 +117,7 @@ bool	ClapTrap::_isTired(void)
 {
 	if(this->_energyPoints <= 0)
 	{
-		std::cout	<< BOLD_H_MAGENTA
+		std::cout	<< BOLD_H_CYAN	
 					<< "biiip bip ClapTrap is tired... "
 					<< this->_name
 					<< " needs more energy... beep!"
@@ -172,4 +165,21 @@ unsigned int	ClapTrap::getEnergyPoints(void)const
 unsigned int	ClapTrap::getAttackDamage(void)const
 {
 	return (this->_attackDamage);
+}
+
+std::ostream &operator<<(std::ostream &outputFile, ClapTrap const &i)
+{
+	outputFile	<< BOLD_H_CYAN	
+				<< i.getName()
+				<< std::endl
+				<< "Hit points: "
+				<< i.getHitPoints()
+				<< std::endl
+				<< "Energy points: "
+				<< i.getEnergyPoints()
+				<< std::endl
+				<< "Attack damage: "
+				<< i.getAttackDamage()
+				<< std::endl;
+	return outputFile;
 }
