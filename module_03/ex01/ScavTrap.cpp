@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 21:12:47 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/29 23:02:38 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/06 22:12:55 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	return ;
 }
 
+ScavTrap::ScavTrap(void)
+{
+	std::cout << BOLD_H_MAGENTA << "oh no, where's my name?! " << std::endl;
+	return ;
+	return ;
+}
+
 ScavTrap::~ScavTrap(void)
 {
 	std::cout 	<< BOLD_H_MAGENTA
@@ -37,6 +44,25 @@ ScavTrap::~ScavTrap(void)
 				<< " our beloved ScavTrap..."
 				<< std::endl;
 	return ;
+}
+
+ScavTrap::ScavTrap(ScavTrap const& instance) : ClapTrap(instance)
+{
+	std::cout	<< BOLD_H_MAGENTA
+				<< "beeeep! ScavTrap "
+				<< this->_name
+				<< " duplicated!"
+				<< std::endl;
+	return ;
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap const &right_hand_side)
+{
+	this->_name = right_hand_side.getName();
+	this->_hitPoints = right_hand_side.getHitPoints();
+	this->_energyPoints = right_hand_side.getHitPoints();
+	this->_attackDamage = right_hand_side.getAttackDamage();
+	return (*this);
 }
 
 void	ScavTrap::attack(std::string const & target)
@@ -62,4 +88,21 @@ void	ScavTrap::guardGate(void)
 				<< this->getName()
 				<< " is in Gate keep mode beep beep "
 				<< std::endl;
+}
+
+std::ostream &operator<<(std::ostream &outputFile, ScavTrap const &i)
+{
+	outputFile	<< BOLD_H_MAGENTA
+				<< i.getName()
+				<< std::endl
+				<< "Hit points: "
+				<< i.getHitPoints()
+				<< std::endl
+				<< "Energy points: "
+				<< i.getEnergyPoints()
+				<< std::endl
+				<< "Attack damage: "
+				<< i.getAttackDamage()
+				<< std::endl;
+	return outputFile;
 }
