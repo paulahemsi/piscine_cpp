@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:06:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/29 23:54:17 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/06 22:40:04 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ void	ClapTrap::attack(std::string const & target)
 {
 	if (this->_isBroken() || this->_isTired())
 		return ;
-	this->_energyPoints--;
+	if (this->_energyPoints - 1 > 0)
+		this->_energyPoints--;
+	else
+		this->_energyPoints = 0;
 	std::cout	<< BOLD_H_CYAN
 				<< "ClapTrap "
 				<< this->_name
@@ -75,7 +78,10 @@ void	ClapTrap::attack(std::string const & target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	this->_hitPoints -= amount;
+	if (amount > this->_hitPoints)
+		this->_hitPoints = 0;
+	else
+		this->_hitPoints -= amount;
 	std::cout	<< BOLD_H_CYAN
 				<< "ClapTrap "
 				<< this->_name
@@ -165,4 +171,21 @@ unsigned int	ClapTrap::getEnergyPoints(void)const
 unsigned int	ClapTrap::getAttackDamage(void)const
 {
 	return (this->_attackDamage);
+}
+
+std::ostream &operator<<(std::ostream &outputFile, ClapTrap const &i)
+{
+	outputFile	<< BOLD_H_CYAN
+				<< i.getName()
+				<< std::endl
+				<< "Hit points: "
+				<< i.getHitPoints()
+				<< std::endl
+				<< "Energy points: "
+				<< i.getEnergyPoints()
+				<< std::endl
+				<< "Attack damage: "
+				<< i.getAttackDamage()
+				<< std::endl;
+	return outputFile;
 }

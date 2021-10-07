@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:00:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/30 18:58:46 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/02 19:14:05 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 class ClapTrap
 {
 	private:
-		std::string		_name;
 
 	protected:
+		std::string		_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;

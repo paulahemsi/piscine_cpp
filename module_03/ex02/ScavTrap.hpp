@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 20:24:38 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/29 22:52:12 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/05 20:24:49 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,19 @@
 class ScavTrap : public ClapTrap
 {
 	private:
-		/* data */
+
 	public:
 		ScavTrap(void);
 		ScavTrap(std::string name);
-		~ScavTrap();
+		ScavTrap(ScavTrap const& instance);
+		~ScavTrap(void);
+
+		ScavTrap	&operator=(ScavTrap const &right_hand_side);
 
 		void	attack(std::string const & target);
 		void	guardGate(void);
 };
+
+std::ostream &operator<<(std::ostream &outputFile, ScavTrap const &i);
 
 #endif

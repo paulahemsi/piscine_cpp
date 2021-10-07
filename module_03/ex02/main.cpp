@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 22:39:42 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/30 19:01:00 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/06 23:18:38 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,27 @@ int main(void)
 	tic_tac(500000, 5);
 	ClapTrap	littleRobot("littleRobot");
 	tic_tac(500000, 5);
-	ClapTrap	bigRobot("bigRobot");
-	tic_tac(500000, 5);
-	bigRobot.attack("littleRobot");
-	tic_tac(300000, 5);
-	littleRobot.takeDamage(bigRobot.getAttackDamage());
-	tic_tac(300000, 5);
-	bigRobot.attack("the air");
-	tic_tac(1000000, 5);
-	littleRobot.beRepaired(10);
-	tic_tac(1000000, 5);
 	ScavTrap	scavRobot("Scavy");
-	tic_tac(500000, 5);
-	scavRobot.attack("littleRobot");
-	tic_tac(500000, 5);
-	littleRobot.takeDamage(scavRobot.getAttackDamage());
-	tic_tac(500000, 5);
+	tic_tac(1000000, 5);
 	FragTrap	fragRobot("Fragy");
+	tic_tac(1000000, 5);
+	FragTrap	anonymusFrag;
+	tic_tac(1000000, 5);
+	FragTrap	copyFrag(fragRobot);
 	tic_tac(500000, 5);
+	std::cout << copyFrag << std::endl;
+	tic_tac(500000, 5);
+	std::cout << fragRobot << std::endl;
+	tic_tac(500000, 5);
+	std::cout << anonymusFrag << std::endl;
+	tic_tac(1000000, 10);
+	anonymusFrag.attack("fragRobot");
+	tic_tac(500000, 5);
+	fragRobot.takeDamage(anonymusFrag.getAttackDamage());
+	tic_tac(1000000, 5);
+	std::cout << anonymusFrag << std::endl;
+	std::cout << fragRobot << std::endl;
+	tic_tac(1000000, 10);
 	fragRobot.highFivesGuys();
-	tic_tac(500000, 5);
-	std::cout << "......silence......" << std::endl;
-	tic_tac(500000, 5);
-	fragRobot.attack("Scavy");
-	scavRobot.takeDamage(fragRobot.getAttackDamage());
 	tic_tac(500000, 5);
 }
