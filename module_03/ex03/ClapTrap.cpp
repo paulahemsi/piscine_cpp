@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 20:06:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/06 21:48:54 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/07 20:26:33 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(void) : _name("nameless"), _hitPoints(10), _energyPoints(10),
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << BOLD_H_CYAN	 << "Rest in peace, " << this->_name << " ..." << std::endl;
+	std::cout << BOLD_H_CYAN << "Rest in peace, " << this->_name << " ..." << std::endl;
 	return ;
 }
 
@@ -61,8 +61,8 @@ void	ClapTrap::attack(std::string const & target)
 {
 	if (this->_isBroken() || this->_isTired())
 		return ;
-	this->_energyPoints-= 10;
-	std::cout	<< BOLD_H_CYAN	
+	this->_energyPoints--;
+	std::cout	<< BOLD_H_CYAN
 				<< "ClapTrap "
 				<< this->_name
 				<< " attack "
@@ -75,11 +75,8 @@ void	ClapTrap::attack(std::string const & target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (amount > this->_hitPoints)
-		this->_hitPoints = 0;
-	else
-		this->_hitPoints -= amount;
-	std::cout	<< BOLD_H_CYAN	
+	this->_hitPoints -= amount;
+	std::cout	<< BOLD_H_CYAN
 				<< "ClapTrap "
 				<< this->_name
 				<< " takes "
@@ -93,7 +90,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	this->_energyPoints += amount;
 	this->_hitPoints += amount;
-	std::cout	<< BOLD_H_CYAN	
+	std::cout	<< BOLD_H_CYAN
 				<< "Beep Beeep!!! ClapTrap gains "
 				<< amount
 				<< " of repair!! "
@@ -106,7 +103,7 @@ bool	ClapTrap::_isBroken(void)
 {
 	if(this->_hitPoints <= 0)
 	{
-		std::cout	<< BOLD_H_CYAN	
+		std::cout	<< BOLD_H_CYAN
 					<< "biip bip ClapTrap i-is bro-o-ken biip... "
 					<< this->_name
 					<< " needs repaaai-ir... bee-ep!"
@@ -120,7 +117,7 @@ bool	ClapTrap::_isTired(void)
 {
 	if(this->_energyPoints <= 0)
 	{
-		std::cout	<< BOLD_H_CYAN	
+		std::cout	<< BOLD_H_CYAN
 					<< "biiip bip ClapTrap is tired... "
 					<< this->_name
 					<< " needs more energy... beep!"
@@ -172,7 +169,7 @@ unsigned int	ClapTrap::getAttackDamage(void)const
 
 std::ostream &operator<<(std::ostream &outputFile, ClapTrap const &i)
 {
-	outputFile	<< BOLD_H_CYAN	
+	outputFile	<< BOLD_H_CYAN
 				<< i.getName()
 				<< std::endl
 				<< "Hit points: "

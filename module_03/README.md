@@ -96,3 +96,38 @@ The class that *derives from the base*, also known as the `derived class`, can b
 > protected is the access specifier you should use if you want a certain attribute in a base class to be accessible to classes that derive from this base
 
 > To ensure maximum security, if the derived classes don’t need to access a base class attribute, remember to mark the attribute private
+
+>To avoid the duplicated base class subobject that occurs with the “dreaded diamond”, you should use the virtual keyword in the inheritance part of the classes that derive directly from the top of the diamond
+
+```cpp
+class Base {
+public:
+  // ...
+protected:
+  int data_;
+};
+class Der1 : public virtual Base {
+                    ↑↑↑↑↑↑↑ // This is the key
+public:
+  // ...
+};
+class Der2 : public virtual Base {
+                    ↑↑↑↑↑↑↑ // This is the key
+public:
+  // ...
+};
+class Join : public Der1, public Der2 {
+public:
+  void method()
+  {
+     data_ = 1;  // Good: this is now unambiguous
+  }
+};
+int main()
+{
+  Join* j = new Join();
+  Base* b = j;   // Good: this is now unambiguous
+}
+```
+
+from [Multiple Inheritance](https://isocpp.org/wiki/faq/multiple-inheritance#mi-diamond)

@@ -60,3 +60,8 @@ C++98 is simpler nad easier to beggin
 
 * [Inheritance](https://github.com/paulahemsi/piscine_cpp/blob/main/module_03/README.md#Inheritance)
 * [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_03/README.md#notes)
+
+
+# study_resources
+
+* Sams Teach Yourself C++ in One Hour a Day - Siddhartha Rao
