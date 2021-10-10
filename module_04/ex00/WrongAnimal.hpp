@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 13:08:03 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/10 18:53:39 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/10 19:08:42 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ protected:
 public:
 	WrongAnimal(void);
 	WrongAnimal(WrongAnimal const& instance);
-	~WrongAnimal(void);
+	virtual ~WrongAnimal(void);
 	WrongAnimal	&operator=(WrongAnimal const &right_hand_side);
 
 	void makeSound(void)const;

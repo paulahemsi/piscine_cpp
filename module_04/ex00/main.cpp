@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 13:09:26 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/10 18:55:14 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/10 19:04:57 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,24 @@ int main(void)
 	tic_tac(500000, 5);
 	dog->makeSound();
 	tic_tac(500000, 5);
-	delete(dog);
+	delete dog;
 	tic_tac(500000, 5);
 	std::cout << cat << std::endl;
 	tic_tac(500000, 5);
 	cat->makeSound();
 	tic_tac(500000, 5);
-	delete(cat);
+	delete cat;
 	tic_tac(500000, 5);
 	std::cout << animal << std::endl;
 	tic_tac(500000, 5);
 	animal->makeSound();
 	tic_tac(500000, 5);
+	delete animal;
+	tic_tac(500000, 5);
 	std::cout << wrongcat << std::endl;
 	tic_tac(500000, 5);
 	wrongcat->makeSound();
+	tic_tac(500000, 5);
+	delete wrongcat;
 	tic_tac(500000, 5);
 }
