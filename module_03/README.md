@@ -131,3 +131,22 @@ int main()
 ```
 
 from [Multiple Inheritance](https://isocpp.org/wiki/faq/multiple-inheritance#mi-diamond)
+
+**DO**
+
+* create a public inheritance hierarchy to establish an is-a relationship.
+* create a private or protected inheritance hierarchy to establish a has-a relationship.
+* remember that public inheritance means that classes deriving from the derived class have access to the public and protected members of the base class. An object of the derived class can be used to access public members of the base 
+* remember that private inheritance means that even classes deriving from the derived class have no access to any member of the base class.
+* remember that protected inheritance means that classes deriving from the derived class have access to the public and protected methods of the base class. Yet, an object of the derived class cannot be used to access public members of the base.
+* remember that irrespective of the nature of inheritance relationship, private members in the base class cannot be accessed by any derived class.
+
+**DON'T**
+
+* create an inheritance hierarchy just to reuse a trivial function.
+* use private or public inheritance indiscriminately as they can end up being architectural bottlenecks towards the future scalability
+of your application.
+* program derived class functions that hide those in the base
+class by having the same name but a different set of input parameters.
+ 
+From Sams Teach Yourself C++ in One Hour a Day - Siddhartha Rao
