@@ -61,6 +61,11 @@ C++98 is simpler nad easier to beggin
 * [Inheritance](https://github.com/paulahemsi/piscine_cpp/blob/main/module_03/README.md#Inheritance)
 * [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_03/README.md#notes)
 
+## [Module_04](https://github.com/paulahemsi/piscine_cpp/blob/main/module_04)
+
+* [Sub-typing_Polymorphism](https://github.com/paulahemsi/piscine_cpp/blob/main/module_04/README.md#Sub-typing_Polymorphism)
+*
+* [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_04/README.md#notes)
 
 # study_resources
 
