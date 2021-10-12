@@ -2,7 +2,7 @@
 
 * [Sub-typing_Polymorphism](#Sub-typing_Polymorphism)
 * [exercises notes](#notes)
-
+* [Abstract_classes_and_interfaces](#abstract_classes_and_interfaces)
 ## Sub-typing_Polymorphism
 
 
@@ -70,6 +70,43 @@ int main()
 ```
 
 `virtual member function` == `method` == member function wich resolution will be dinamic (done during the execution)
+
+## abstract_classes_and_interfaces
+
+```cpp
+class ACharacter //A to indicates is an abtract class
+{
+	public:
+		virtual void	attack(std::string const & target) = 0; //not implemented, the class that inherited from this will have to implement her own attacks. All children classes must have the attack behaviour. Also, the abstract class can't be instaciated
+		void			sayHeloo(std::string const & target);
+};
+```
+
+the abstract class can't be instaciated
+
+```cpp
+int main()
+{
+	ACharacter* a = new Warrior();//ok
+	ACharacter* b = new ACharacter();//not possible because ACharacter is an abstract class
+}
+```
+
+>There’s no interface in C++98 (not even in C++20) but it’s common to call pure abstract class Interface
+
+interface is an abstract class with only abstracts behaviours
+
+```cpp
+class ImyInterface //I is also a convetion for interfaces
+{
+	public:
+		virtual void abstractBehaviour() = 0;
+		virtual void anotherAbstractBehaviour() = 0;
+};
+```
+An abstract class can have atributes, but only the classes that derives from her will be able to use it (hence only them can be instanciated)
+
+In the other hand, interfaces can't have atributes, only behaviours (like the example, a coffe maker). Contracts between developers
 
 ## notes
 

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 13:09:26 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/10 22:38:22 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/11 22:21:38 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,30 @@ static void	tic_tac(int usleep_time, int duration)
 
 int main(void)
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;//should not create a leak
-	delete i;
-		tic_tac(100000, 5);
+	const Animal* dog = new Dog();
+	tic_tac(500000, 5);
+	const Animal* cat = new Cat();
+	tic_tac(500000, 5);
+	delete dog;//should not create a leak
+	tic_tac(500000, 5);
+	delete cat;
+	tic_tac(500000, 5);
 	Animal *animals[10];
+	tic_tac(500000, 5);
 	for(int i = 0; i < 10; i++)
 	{
 		if (i % 2 == 0)
 			animals[i] = new Cat;
 		else
 			animals[i] = new Dog;
+		tic_tac(500000, 5);
 	}
+	tic_tac(500000, 5);
 	for(int i = 0; i < 10; i++)
 	{
 		animals[i]->makeSound();
 		animals[i]->getIdea();
 		delete animals[i];
+		tic_tac(500000, 5);
 	}
 }
