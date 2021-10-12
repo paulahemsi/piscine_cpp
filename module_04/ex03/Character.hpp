@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 23:33:04 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/11 23:51:57 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/12 14:23:40 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,28 @@
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
+#define MAX_ITENS 4
+
 class Character : public ICharacter
 {
 	private:
 		std::string _name;
-		AMateria	*_inventory[4];//ptr is ok, but the array directly isn't
+		AMateria	*_inventory[MAX_ITENS];//ptr is ok, but the array directly isn't
+
 	public:
-		virtual ~Character(void) {}
-		virtual std::string const &getName(void) const;
-		virtual void equip(AMateria* m);
-		virtual void unequip(int idx);
-		virtual void use(int idx, ICharacter& target);
+		Character(std::string name);
+		Character(void);
+		Character(Character const & src );
+		virtual	~Character(void);
+	
+		Character	&operator=( Character const & ringht_hand_side );
+	
+		std::string const	&getName(void) const;
+		AMateria * const	&getInventoryItem(int index) const;
+		void 				setName(std::string name);
+		void				equip(AMateria* m);
+		void				unequip(int idx);
+		void				use(int idx, ICharacter& target);
 };
 
 #endif

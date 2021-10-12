@@ -6,9 +6,18 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:39:46 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/11 22:40:02 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/12 14:08:39 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "IMateriaSource.hpp"
+#include "AMateria.hpp"
+#include "MateriaSource.hpp"
+#include "ICharacter.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+
 
 int main(void)
 {

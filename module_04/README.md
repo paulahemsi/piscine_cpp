@@ -121,3 +121,31 @@ more from virtual destructor on [this stackoverflow thread](https://stackoverflo
 >To sum up, always make base classes' destructors virtual when they're meant to be manipulated polymorphically.
 
 >If you want to prevent the deletion of an instance through a base class pointer, you can make the base class destructor protected and nonvirtual; by doing so, the compiler won't let you call delete on a base class pointer.
+
+From Siddhartha Rao - Sams Teach Yourself C in one Hour a Day
+
+>A base class that cannot be instantiated is called an abstract base class. Such a base class fulfills only one purpose, that of being derived from. C++ allows you to create an abstract base class using pure virtual functions.
+
+What class AbstractBase does is that it enforce class Derived to supply an implementation for virtual method's. This functionality where a base
+class can enforce support of methods with a specified name and signature in classes that derive from it is that of an interface.
+
+Even if an abstract base class cannot be instantiated, you can use it as a reference or a pointer.
+
+>Abstract Base Classes are often simply called ABCs.
+
+the usage of keyword `final` ensures that a class cannot be used as a base class.
+
+```cpp
+
+class Platypus final:public Mammal, public Bird, public Reptile
+{
+	//...
+}
+
+```
+
+The `virtual` keyword in C++ often is used in different contexts for different purposes:
+
+* A **function** declared `virtual` means that an existing overriding function in a derived class is invoked
+
+* An **inheritance relationship** declared using keyword `virtual` between classes *Derived1* and *Derived2* that **inherits from class Base** means that another class *Derived3* that **inherits from Derived1 and Derived2** still results in the creation of **only one instance of Base** during instantiation of type Derived3.
