@@ -67,6 +67,12 @@ C++98 is simpler nad easier to beggin
 * [Abstract_classes_and_interfaces](https://github.com/paulahemsi/piscine_cpp/blob/main/module_04/README.md#Sub-typing_Polymorphism#abstract_classes_and_interfaces)
 * [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_04/README.md#notes)
 
+# [Module_05](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05)
+
+* [Nested_classes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05#Nested_classes)
+* [Exceptions](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05#Exceptions)
+* [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05#notes)
+
 # study_resources
 
 * Sams Teach Yourself C++ in One Hour a Day - Siddhartha Rao
