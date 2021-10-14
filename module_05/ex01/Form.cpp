@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 20:11:18 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/12 20:57:52 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/14 20:53:33 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,30 @@
 #include <iostream>
 
 # define GRAY			"\e[0;38;5;8m"
+# define RESET			"\e[0m"
 
 Form::Form(void) : _name("standartForm"), _gradeToSign(75), _gradeToExecute(75) 
 {
-	std::cout << GRAY << "Form created. " << this;
+	std::cout << GRAY << "Form created. " << *this << RESET << std::endl;
 	return ;
 }
 
 Form::Form(std::string name, int gradeToSign, int gradeToexecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToexecute) 
 {
-	std::cout << GRAY << "Form created. " << this;
+	std::cout << GRAY << "Form created. " << *this << RESET << std::endl;
 	return ;
 }
 
 Form::Form(Form const& instance) : _name(instance.getName()), _gradeToSign(instance.getGradeToSign()), _gradeToExecute(instance.getGradeToExecute())
 {
-	std::cout << GRAY << "Form copied. " << this;
+	std::cout << GRAY << "Form copied. " << *this << RESET << std::endl;
 	*this = instance;
 	return ;
 }
 
 Form::~Form(void)
 {
-	std::cout << GRAY << "Form destroyed. " << this;
+	std::cout << GRAY << "Form destroyed. " << *this << RESET << std::endl;
 	return ;
 }
 
@@ -86,8 +87,8 @@ std::ostream &operator<<(std::ostream &outputFile, Form const &i)
 				<< i.getGradeToExecute()
 				<< " Is signed: ";
 	if (i.getIsSigned())
-		outputFile << "Yes." << std::endl;
+		outputFile << "Yes." << RESET << std::endl;
 	else
-		outputFile << "No." << std::endl;
+		outputFile << "No." << RESET << std::endl;
 	return (outputFile);
 }

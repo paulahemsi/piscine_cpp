@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:44:57 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/12 21:06:38 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/14 20:44:56 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -30,7 +32,7 @@ class Form
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("\e[0;38;5;9mForm Exception: Grade too high\e[0m");
+				return ("\e[0;38;5;9mForm Exception: Grade too high\n\e[0m");
 			}
 	};
 
@@ -39,7 +41,7 @@ class Form
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("\e[0;38;5;9mForm Exception: Grade too low\e[0m");
+				return ("\e[0;38;5;9mForm Exception: Grade too low\n\e[0m");
 			}
 	};
 

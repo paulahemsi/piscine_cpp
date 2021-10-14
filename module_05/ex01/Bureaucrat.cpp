@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:18:59 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/12 21:04:03 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/14 20:51:59 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@
 
 Bureaucrat::Bureaucrat(void) : _name("John"), _grade(150)
 {
-	std::cout << "Bureaucrat with standard name (John) and grade (150) created" << std::endl;
+	std::cout << "Bureaucrat with standard name (John) and grade (150) created" << std::endl << std::endl;
 	return ;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
 	_checkGrade();
-	std::cout << "Bureaucrat " << this->_name << " created with grade " << this->_grade << std::endl;
+	std::cout << "Bureaucrat " << this->_name << " created with grade " << this->_grade << std::endl << std::endl;
 	return ;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const& instance) : _name(instance.getName())
 {
 	*this = instance;
-	std::cout << "Bureaucrat " << this->_name << " duplicated" << std::endl;
+	std::cout << "Bureaucrat " << this->_name << " duplicated" << std::endl << std::endl;
 	return ;
 }
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Bureaucrat " << this->_name << " destroyed" << std::endl;
+	std::cout << "Bureaucrat " << this->_name << " destroyed" << std::endl << std::endl;
 	return ;
 }
 
@@ -66,12 +66,14 @@ int	Bureaucrat::getGrade(void) const
 
 void		Bureaucrat::incrementGrade(void)
 {
+	std::cout << "incrementing " << this->_name << "'s grade" << std::endl << std::endl;
 	this->_grade--;
 	_checkGrade();
 }
 
 void		Bureaucrat::decrementGrade(void)
 {
+	std::cout << "decrementing " << this->_name << "'s grade" << std::endl << std::endl;
 	this->_grade++;
 	_checkGrade();
 }
@@ -90,12 +92,14 @@ void		Bureaucrat::signForm(Form &form)
 					<< " because "
 					<< e.what()
 					<< std::endl;
+		return ;
 	}
 	std::cout	<< this->_name
 				<< " signs "
 				<< form.getName()
+				<< std::endl
 				<< std::endl;
-	
+		return ;
 }
 
 std::ostream &operator<<(std::ostream &outputFile, Bureaucrat const &i)
