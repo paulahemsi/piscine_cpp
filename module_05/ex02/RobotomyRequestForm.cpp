@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:37:28 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:48:45 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:55:29 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ void		RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		return ;
 	}
 	std::srand((unsigned int)time(NULL));
-	int num = rand();
-	std::cout << "NUM " << num << std::endl;
-	if ((num % 2) != 0)
+	if ((rand() % 2) != 0)
 		std::cout << PINK << "Robotomization Failure" << RESET << std::endl;
 	else
 		std::cout << PINK << "Beeeep Bzzztrrrrr beeeeeeeep! " << this->getTarget() << "  has been robotomized successfully" << RESET << std::endl;

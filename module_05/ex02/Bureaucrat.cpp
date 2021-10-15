@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:18:59 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:34:25 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:52:35 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,31 @@ void		Bureaucrat::signForm(AForm &form)
 				<< std::endl;
 		return ;
 }
+
+void		Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr	<< this->_name
+					<< " cannot sign "
+					<< form.getName()
+					<< " because "
+					<< e.what()
+					<< std::endl;
+		return ;
+	}
+	std::cout	<< this->_name
+				<< " executes "
+				<< form.getName()
+				<< std::endl
+				<< std::endl;
+		return ;
+}
+
 
 std::ostream &operator<<(std::ostream &outputFile, Bureaucrat const &i)
 {

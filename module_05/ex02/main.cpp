@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:21:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:44:59 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:52:56 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int main(void)
 	fred.signForm(form);
 	fred.signForm(form3);
 	fred.signForm(form2);
-	form.execute(fred);
-	form3.execute(fred);
-	form2.execute(fred);
+	fred.executeForm(form);
+	fred.executeForm(form3);
+	fred.executeForm(form2);
 	std::cout << john << std::endl;
 	// tic_tac(500000, 5);
 	std::cout << fred << std::endl;

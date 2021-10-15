@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:44:06 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:27:27 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:51:04 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ class Bureaucrat
 		void		incrementGrade(void);
 		void		decrementGrade(void);
 		void		signForm(AForm &form);
+		void		executeForm(AForm const & form);
 };
 
 std::ostream &operator<<(std::ostream &outputFile, Bureaucrat const &i);

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:44:57 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:15:02 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:54:45 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,18 @@ class AForm
 		AForm(AForm const& instance);
 		virtual ~AForm(void);
 
-		AForm	&operator=(AForm const &right_hand_side);
+		AForm				&operator=(AForm const &right_hand_side);
 
-		std::string	getName(void) const;
-		int			getGradeToSign(void) const;
-		int			getGradeToExecute(void) const;
-		bool		getIsSigned(void) const;
-		std::string	getTarget(void) const;
+		std::string			getName(void) const;
+		int					getGradeToSign(void) const;
+		int					getGradeToExecute(void) const;
+		bool				getIsSigned(void) const;
+		std::string			getTarget(void) const;
 
-		void		setTarget(std::string target);
+		void				setTarget(std::string target);
 
-		void		beSigned(Bureaucrat const &bureaucrat);
-		void		execute(Bureaucrat const &executor) const;
+		void				beSigned(Bureaucrat const &bureaucrat);
+		virtual void		execute(Bureaucrat const &executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &outputFile, AForm const &i);
