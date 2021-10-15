@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:39:08 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:39:37 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/15 13:22:54 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class ShrubberyCreationForm : public AForm
 {
 	private:
-
 		ShrubberyCreationForm(void);
+		void	_createFile(void) const;
 	public:
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm const& instance);

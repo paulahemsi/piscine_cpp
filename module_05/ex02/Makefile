@@ -6,7 +6,7 @@
 #    By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 19:44:22 by phemsi-a          #+#    #+#              #
-#    Updated: 2021/10/14 23:10:41 by phemsi-a         ###   ########.fr        #
+#    Updated: 2021/10/15 13:18:52 by phemsi-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ clean:
 fclean:		clean
 			$(RM) $(NAME)
 			$(RM) $(OBJS)
+			$(RM) *_shrubbery
 
 re:			fclean all
 

@@ -1,6 +1,7 @@
 
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
+#include <fstream>
 
 # define V_CYAN			"\e[0;38;5;44m"
 # define RESET			"\e[0m"
@@ -10,6 +11,25 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubb
 	this->setTarget(target);
 	std::cout << *this << std::endl;
 	return ;
+}
+
+void		ShrubberyCreationForm::_createFile(void)const
+{
+	std::string line;
+	std::string name = this->getTarget() + "_shrubbery";
+	std::ofstream outputFile(name.c_str());
+	std::ifstream inputFile("trees.txt");
+
+	if(inputFile && outputFile)
+	{
+		while(getline(inputFile, line))
+			outputFile << line << std::endl;
+		std::cout << V_CYAN << name << " was sussefuly created and filled with beautifull ASCII trees, go take a look!" << RESET << std::endl;
+	}
+	else
+		std::cout << V_CYAN << "Error creating file" << RESET << std::endl;
+	outputFile.close();
+	inputFile.close();
 }
 
 void		ShrubberyCreationForm::execute(Bureaucrat const &executor) const
@@ -23,7 +43,8 @@ void		ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		std::cerr << e.what() << std::endl;
 		return ;
 	}
-	std::cout << V_CYAN << this->getTarget() << " TODO CREATE FILE ON TARGET DIRECTORY" << RESET << std::endl;
+	this->_createFile();
+	return ;
 }
 
 std::ostream &operator<<(std::ostream &outputFile, ShrubberyCreationForm const &i)

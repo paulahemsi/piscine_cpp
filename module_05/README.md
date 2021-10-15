@@ -136,3 +136,17 @@ throwing exception is resource consuming, so in case of errors that occurs very 
 in the case in which it doesnt return an error often, not part of the normal behaviour of the program, return throw exceptions (like `bad allock` exception in `new`)
 
 ## notes
+
+**std::endl vs \n**
+
+std::endl flushes the buffer and writes your output immediately while '\n' allows the outfile to put all of your output into a buffer and maybe write it later.
+
+**Steps to copy one file to another in C++:**
+
+* Create objects of ifstream and ofstream classes.
+* Check if they are connected to their respective files. If so, go ahead otherwise check the filenames twice.
+* Read the contents of the source file using the getline() method and write the same to the destination using the << operator ( i.e. 
+* Copy each line from ifstream object to ofstream object).
+* Close files after the copy using the close() method.
+
+From [pencilprogrammer](https://pencilprogrammer.com/cpp-programs/copy-one-file-to-another/)
