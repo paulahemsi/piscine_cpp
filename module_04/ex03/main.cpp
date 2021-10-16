@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:39:46 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 17:37:05 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 19:59:18 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,7 @@ int main(void)
 	tic_tac(500000, 5);
 
 	delete bob;
-	tic_tac(500000, 5);
 	delete una;
-	tic_tac(500000, 5);
 	delete src;
 
 	return 0;
