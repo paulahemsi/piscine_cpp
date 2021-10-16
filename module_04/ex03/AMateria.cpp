@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:44:26 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/11 23:36:07 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 12:58:00 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ AMateria::AMateria(std::string const & type): _type(type)
 	return ;
 }
 
-AMateria::AMateria(void)
+AMateria::AMateria(void) : _type("empty")
 {
 	std::cout << "New empty materia created!" << std::endl;
 	return ;
@@ -40,7 +40,8 @@ AMateria::~AMateria(void)
 
 AMateria	&AMateria::operator=( AMateria const & ringht_hand_side )
 {
-	
+	(void)ringht_hand_side;
+	return (*this);
 }
 
 std::string const &AMateria::getType() const
@@ -50,9 +51,6 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-	if(this->_type == "ice")
-		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-	else
-		std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+	(void)target;
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 13:04:45 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/12 13:09:59 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 12:09:11 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ public:
 	
 	Ice	&operator=( Ice const & ringht_hand_side );
 
-	virtual Ice* clone(void) const;
+	Ice		*clone(void) const;
+	void	use(ICharacter& target);
 };
 
 #endif

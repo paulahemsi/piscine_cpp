@@ -15,12 +15,16 @@
 
 Character::Character(std::string name) : _name(name)
 {
+	this->_initInventory();
 	std::cout << "New character " << name << " created!" << std::endl;
+	return ;
 }
 
 Character::Character(void) : _name("nameless")
 {
+	this->_initInventory();
 	std::cout << "New nameless character created!" << std::endl;
+	return ;
 }
 
 Character::Character(Character const & instance)
@@ -32,8 +36,17 @@ Character::Character(Character const & instance)
 
 Character::~Character(void)
 {
+	for(int i = 0; i < MAX_ITENS; i++)
+		if(this->_inventory[i])
+			delete this->_inventory[i];
 	std::cout << "Character " << this->getName() << " destroyed" << std::endl;
 	return ;
+}
+
+void Character::_initInventory(void)
+{
+	for(int i = 0; i < MAX_ITENS; i++)
+		this->_inventory[i] = NULL;
 }
 
 Character	&Character::operator=( Character const & right_hand_side )
@@ -60,22 +73,33 @@ void Character::setName(std::string name)
 	return ;
 }
 
-void Character::equip(AMateria* m)
+void Character::_fillInventory(AMateria *m, int i)
+{
+	this->_inventory[i] = m;
+	return ;
+}
+
+void Character::equip(AMateria *m)
 {
 	for(int i = 0; i < MAX_ITENS; i++)
 		if(!this->_inventory[i])
-			this->_inventory[i] = m;
+			return(this->_fillInventory(m, i));
 	return ;
 }
 
 void Character::unequip(int idx)
 {
 	if (this->_inventory[idx])
-		this->_inventory[idx] == NULL;
+		this->_inventory[idx] = NULL;
+	return ;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
 	if (this->_inventory[idx])
+	{
+		std::cout << this->_inventory[idx]->getType();
 		this->_inventory[idx]->use(target);
+	}
+	return ;
 }

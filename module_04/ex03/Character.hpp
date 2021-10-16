@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 23:33:04 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/12 14:23:40 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 17:01:07 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@
 class Character : public ICharacter
 {
 	private:
-		std::string _name;
+		std::string	_name;
 		AMateria	*_inventory[MAX_ITENS];//ptr is ok, but the array directly isn't
+		void		_fillInventory(AMateria *m, int i);
+		void 		_initInventory(void);
 
 	public:
 		Character(std::string name);
