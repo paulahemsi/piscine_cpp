@@ -75,13 +75,21 @@ void Character::setName(std::string name)
 
 void Character::_fillInventory(AMateria *m, int i)
 {
+	for(int j = 0; j < MAX_ITENS; j++)
+	{
+		if(this->_inventory[j] == m)
+		{
+			std::cout << this->_name << " already has this materia" << std::endl;
+			return ;
+		}
+	}
 	this->_inventory[i] = m;
 	return ;
 }
 
 void Character::equip(AMateria *m)
 {
-	for(int i = 0; i < MAX_ITENS; i++)
+	for(int i = 0; i < MAX_ITENS && m != NULL; i++)
 		if(!this->_inventory[i])
 			return(this->_fillInventory(m, i));
 	return ;
@@ -97,9 +105,6 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
 	if (this->_inventory[idx])
-	{
-		std::cout << this->_inventory[idx]->getType();
 		this->_inventory[idx]->use(target);
-	}
 	return ;
 }

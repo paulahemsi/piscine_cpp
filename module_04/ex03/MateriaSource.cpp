@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 12:51:59 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 17:03:27 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 17:20:08 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void MateriaSource::_storeMateria(AMateria *materia, int i)
 
 void MateriaSource::learnMateria(AMateria *materia) 
 {
-	std::cout << materia->getType() << std::endl;
 	for(int i = 0; i < MAX_MAGICS; i++)
 		if (!this->_magicBook[i])
 			return (_storeMateria(materia, i));
@@ -63,9 +62,9 @@ void MateriaSource::learnMateria(AMateria *materia)
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	for(int i = 0; i < MAX_MAGICS; i++)
+	for(int i = 0; i < MAX_MAGICS && this->_magicBook[i]; i++)
 		if (this->_magicBook[i]->getType() == type)
 			return (this->_magicBook[i]->clone());
-	std::cout << PURPLE << "Sorry, we don't know this kind of magic" << RESET << std::endl;
+	std::cout << PURPLE << "Sorry, we don't know this kind of \"" << type <<  "\" magic" << RESET << std::endl;
 	return (NULL);
 }

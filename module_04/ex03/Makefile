@@ -6,7 +6,7 @@
 #    By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 14:26:07 by phemsi-a          #+#    #+#              #
-#    Updated: 2021/10/12 14:27:38 by phemsi-a         ###   ########.fr        #
+#    Updated: 2021/10/16 17:37:53 by phemsi-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,9 @@ $(OBJS):	$(SRC)
 			$(CC) $(CFLAGS) -c $(SRC)
 
 all:		$(NAME)
+
+run:		$(NAME)
+			valgrind ./a.out
 
 clean:
 			$(RM) $(OBJS)

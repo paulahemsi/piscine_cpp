@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:23:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 16:37:40 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 17:09:13 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ Cure	&Cure::operator=( Cure const & ringht_hand_side )
 
 Cure* Cure::clone(void) const
 {
-	std::cout << "+++++" << this->_type << std::endl;
 	return new Cure(*this);
 }
 
