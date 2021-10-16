@@ -6,12 +6,13 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:21:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 20:51:13 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/15 21:44:44 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <unistd.h>
+#include <stdlib.h>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
@@ -26,6 +27,7 @@ static void	tic_tac(int usleep_time, int duration)
 
 int main(void)
 {
+	system("canberra-gtk-play -f audio.ogg");
 	std::cout << std::endl << "----Let the bureaucracy begin----" << std::endl << std::endl;
 	tic_tac(500000, 5);
 	Bureaucrat	john;
@@ -49,7 +51,9 @@ int main(void)
 	fred.signForm(form42);
 	tic_tac(500000, 5);
 	fred.incrementGrade();
+	tic_tac(500000, 5);
 	fred.incrementGrade();
+	tic_tac(500000, 5);
 	fred.incrementGrade();
 	tic_tac(500000, 5);
 	std::cout << fred << std::endl;
