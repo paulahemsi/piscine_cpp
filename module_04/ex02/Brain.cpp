@@ -6,12 +6,14 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 21:17:57 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/10 22:11:15 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 18:54:02 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <stdlib.h> 
+#include <time.h>
+#include <cstdlib>
 #include "Brain.hpp"
 
 # define V_BLUE			"\e[0;38;5;27m"
@@ -121,6 +123,7 @@ std::string Brain::_rawIdeas[100] = {
 
 Brain::Brain(void)
 {
+	std::srand((unsigned int)time(NULL));
 	for(int i = 0; i < 100; i++)
 		this->ideas[i] = Brain::_rawIdeas[rand() % 100];
 	std::cout << V_BLUE << "New brain is here, ready to fill you with the greatest ideas!" << std::endl;
@@ -140,9 +143,9 @@ Brain::~Brain(void)
 	return;
 }
 
-Brain	&Brain::operator=(Brain const &right_hand_side)
+void Brain::operator=(Brain const &right_hand_side)
 {
 	for(int i = 0; i < 100; i++)
 		this->ideas[i] = right_hand_side.ideas[i];
-	return (*this);
+	return ;
 }

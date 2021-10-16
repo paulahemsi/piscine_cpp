@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 14:51:18 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/10 22:36:21 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 19:35:03 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ class Cat : public Animal
 		Cat	&operator=(Cat const &right_hand_side);
 
 		Brain	*getBrain(void)const;
-		virtual void getIdea(void);
-		virtual void getIdea(int index);
-		virtual void makeSound(void)const;
+		void getIdea(void);
+		void getIdea(int index);
+		void makeSound(void)const;
 };
 
 #endif

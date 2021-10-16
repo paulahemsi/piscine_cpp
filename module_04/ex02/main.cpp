@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 13:09:26 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/13 18:55:46 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 19:50:12 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,39 @@ static void	tic_tac(int usleep_time, int duration)
 
 int main(void)
 {
-	const Animal* j = new Dog();
+	std::cout << "\n\n---------HEAP TEST---------\n\n" << std::endl;
 	tic_tac(500000, 5);
-	const Animal* i = new Cat();
+
+	const Animal* heapDog = new Dog();
 	tic_tac(500000, 5);
-	delete j;
+	const Animal* heapCat = new Cat();
 	tic_tac(500000, 5);
-	delete i;
+	delete heapDog;
 	tic_tac(500000, 5);
+	delete heapCat;
+	tic_tac(500000, 5);
+
+	std::cout << "\n\n---------STACK + DEEP TEST---------\n\n" << std::endl;
+	tic_tac(500000, 5);
+
+	Dog dog;
+	tic_tac(500000, 5);
+	Cat cat;
+	tic_tac(500000, 5);
+	Cat catCopy(cat);
+	tic_tac(500000, 5);
+	Dog dogCopy(dog);
+	tic_tac(500000, 5);
+	cat.getIdea(5);
+	catCopy.getIdea(5);
+	tic_tac(500000, 5);
+	dog.getIdea(5);
+	dogCopy.getIdea(5);
+	tic_tac(500000, 5);
+
+	std::cout << "\n\n---------ARRAY TEST---------\n\n" << std::endl;
+	tic_tac(500000, 5);
+
 	Animal *animals[4];
 	tic_tac(500000, 5);
 	for(int i = 0; i < 4; i++)
