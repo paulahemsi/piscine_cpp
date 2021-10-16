@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 14:51:50 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/10 17:49:15 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 17:56:16 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ Cat::Cat(void) : Animal("Cat")
 
 Cat::Cat(Cat const& instance) : Animal(instance)
 {
-	// *this = instance;
 	std::cout << MAGENTA << "miiiiiau... why another cat, stupid human?" << std::endl;
 	return ;
 }
 
 Cat::~Cat(void)
 {
-	std::cout << MAGENTA << "farewell" << std::endl;
+	std::cout << MAGENTA << "farewell, human,and serve me better next timeeeeow" << std::endl;
 	return ;
 }
 
