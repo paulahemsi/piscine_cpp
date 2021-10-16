@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:44:57 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:54:45 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:12:19 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ class AForm
 		void				setTarget(std::string target);
 
 		void				beSigned(Bureaucrat const &bureaucrat);
-		virtual void		execute(Bureaucrat const &executor) const = 0;
+		virtual bool		execute(Bureaucrat const &executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &outputFile, AForm const &i);

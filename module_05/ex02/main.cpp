@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:21:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/15 13:27:11 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:30:36 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,21 @@ int main(void)
 	tic_tac(500000, 5);
 	Bureaucrat	fred("fred", 1);
 	tic_tac(500000, 5);
-	form.execute(john);
+	john.executeForm(form);
 	tic_tac(500000, 5);
-	form.execute(fred);
+	fred.executeForm(form);
 	tic_tac(500000, 5);
-	form3.execute(fred);
+	fred.executeForm(form2);
 	tic_tac(500000, 5);
-	form2.execute(fred);
+	fred.executeForm(form3);
 	tic_tac(500000, 5);
 	fred.signForm(form);
 	tic_tac(500000, 5);
 	fred.signForm(form3);
 	tic_tac(500000, 5);
 	fred.signForm(form2);
+	tic_tac(500000, 5);
+	john.executeForm(form);
 	tic_tac(500000, 5);
 	fred.executeForm(form);
 	tic_tac(500000, 5);

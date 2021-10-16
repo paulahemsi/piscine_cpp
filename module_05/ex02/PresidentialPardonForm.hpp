@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:59:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:21:49 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:13:44 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(PresidentialPardonForm const& instance);
 		~PresidentialPardonForm(void) {};
 
-		void					execute(Bureaucrat const &executor) const;
+		bool					execute(Bureaucrat const &executor) const;
 
 		PresidentialPardonForm	&operator=(PresidentialPardonForm const &right_hand_side);
 };

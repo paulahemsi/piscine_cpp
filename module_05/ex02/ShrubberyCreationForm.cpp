@@ -32,19 +32,14 @@ void		ShrubberyCreationForm::_createFile(void)const
 	inputFile.close();
 }
 
-void		ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+bool		ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	try
+	if (AForm::execute(executor))
 	{
-		AForm::execute(executor);
+		this->_createFile();
+		return (true);
 	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return ;
-	}
-	this->_createFile();
-	return ;
+	return (false);
 }
 
 std::ostream &operator<<(std::ostream &outputFile, ShrubberyCreationForm const &i)

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:35:58 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:37:17 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:14:15 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm(RobotomyRequestForm const& instance);
 		~RobotomyRequestForm(void) {};
 
-		void				execute(Bureaucrat const &executor) const;
+		bool				execute(Bureaucrat const &executor) const;
 
 		RobotomyRequestForm	&operator=(RobotomyRequestForm const &right_hand_side);
 };
