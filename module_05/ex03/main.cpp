@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:21:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 01:37:44 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:46:17 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main(void)
 	AForm *formShrubbery = intern.makeForm("shrubbery creation", "intern_tree");
 	tic_tac(500000, 5);
 	AForm *formRobotomy = intern.makeForm("robotomy request", "my_boss");
+	AForm *inexitentForm = intern.makeForm("piporopopopo", "nothing");
 	tic_tac(500000, 5);
 	Bureaucrat bureaucrat("Lucy", 1);
 	tic_tac(500000, 5);
@@ -63,5 +64,6 @@ int main(void)
 	delete formPresidential;
 	delete formRobotomy;
 	delete formShrubbery;
+	delete inexitentForm;
 	return (0);
 }

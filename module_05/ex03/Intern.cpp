@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:08:21 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/15 21:29:24 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:44:34 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,12 @@ AForm	*Intern::makeForm(std::string name, std::string target)
 	for(int i = 0; i < TOTAL_FORMS; i++)
 	{
 		if(name == namesArray[i])
+		{
+			std::cout << "Intern creates " << name << std::endl;
 			return ((this->*createForm[i])(target));
+		}
 	}
-	std::cout << "Intern creates " << name << std::endl;
+	std::cout << name << " is not a valid form." << std::endl;
 	return (NULL);
 }
 
