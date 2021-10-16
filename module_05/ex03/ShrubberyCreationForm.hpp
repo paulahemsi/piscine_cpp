@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:39:08 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/15 13:22:54 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:14:02 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(ShrubberyCreationForm const& instance);
 		~ShrubberyCreationForm(void) {};
 
-		void					execute(Bureaucrat const &executor) const;
+		bool					execute(Bureaucrat const &executor) const;
 
 		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const &right_hand_side);
 };

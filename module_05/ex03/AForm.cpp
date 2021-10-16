@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 20:11:18 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:17:48 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:13:16 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,19 @@ void		AForm::beSigned(Bureaucrat const &bureaucrat)
 	return ;
 }
 
-void		AForm::execute(Bureaucrat const &executor) const
+bool		AForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->_isSigned)
+	{
 		throw AForm::NoSignatureException();
+		return false;
+	}
 	if (executor.getGrade() > this->getGradeToExecute())
+	{
 		throw AForm::GradeTooLowException();
-	return ;
+		return false;
+	}
+	return true;
 }
 
 

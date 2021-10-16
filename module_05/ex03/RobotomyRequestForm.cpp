@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:37:28 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:55:29 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:16:57 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,18 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRe
 	return ;
 }
 
-void		RobotomyRequestForm::execute(Bureaucrat const &executor) const
+bool		RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	try
+	if (AForm::execute(executor))
 	{
-		AForm::execute(executor);
+		std::srand((unsigned int)time(NULL));
+		if ((rand() % 2) != 0)
+			std::cout << PINK << "Robotomization Failure" << RESET << std::endl;
+		else
+			std::cout << PINK << "Beeeep Bzzztrrrrr beeeeeeeep! " << this->getTarget() << "  has been robotomized successfully" << RESET << std::endl;
+		return (true);
 	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return ;
-	}
-	std::srand((unsigned int)time(NULL));
-	if ((rand() % 2) != 0)
-		std::cout << PINK << "Robotomization Failure" << RESET << std::endl;
-	else
-		std::cout << PINK << "Beeeep Bzzztrrrrr beeeeeeeep! " << this->getTarget() << "  has been robotomized successfully" << RESET << std::endl;
+	return (false);
 }
 
 std::ostream &operator<<(std::ostream &outputFile, RobotomyRequestForm const &i)

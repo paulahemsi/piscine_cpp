@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:21:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/15 21:32:15 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:37:44 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,8 @@ int main(void)
 	tic_tac(500000, 5);
 	bureaucrat.executeForm(*formRobotomy);
 	tic_tac(500000, 5);
+	delete formPresidential;
+	delete formRobotomy;
+	delete formShrubbery;
 	return (0);
 }

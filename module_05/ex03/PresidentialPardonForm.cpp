@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:59:02 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 23:21:27 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 01:16:03 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,14 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 	return ;
 }
 
-void		PresidentialPardonForm::execute(Bureaucrat const &executor) const
+bool		PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	try
+	if (AForm::execute(executor))
 	{
-		AForm::execute(executor);
+		std::cout << MAGENTA << this->getTarget() << " has been pardoned by Zafod Beeblebrox" << RESET << std::endl;
+		return (true);
 	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return ;
-	}
-	std::cout << MAGENTA << this->getTarget() << " has been pardoned by Zafod Beeblebrox" << RESET << std::endl;
+	return (false);
 }
 
 std::ostream &operator<<(std::ostream &outputFile, PresidentialPardonForm const &i)
