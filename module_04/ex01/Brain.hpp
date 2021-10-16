@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 21:11:56 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/10 22:29:09 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 18:35:34 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Brain
 		Brain(void);
 		Brain(Brain const& instance);
 		~Brain(void);
-		Brain	&operator=(Brain const &right_hand_side);
+		void operator=(Brain const &right_hand_side);
 };
 
 #endif

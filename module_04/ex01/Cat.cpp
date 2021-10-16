@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 14:51:50 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/10 22:39:40 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 18:39:46 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 
 Cat::Cat(void) : Animal("Cat")
 {
-	this->_brain = new Brain();
+	this->_brain = new Brain;
 	std::cout << MAGENTA << "who arrre you and hou you darrrre bother meeeoooow?" << std::endl;
 	return ;
 }
 
 Cat::Cat(Cat const& instance) : Animal(instance)
 {
+	// this->_brain = new Brain;
 	*this = instance;
 	std::cout << MAGENTA << "meeoww... why another cat, stupid human?" << std::endl;
 	return ;
@@ -41,7 +42,7 @@ Cat::~Cat(void)
 Cat	&Cat::operator=(Cat const &right_hand_side)
 {
 	this->_type = right_hand_side.getType();
-	this->_brain = right_hand_side.getBrain();
+	this->_brain = new Brain(*right_hand_side.getBrain());
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 14:39:55 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/10 22:35:38 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 18:33:16 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog : public Animal
 		Brain *_brain;
 	public:
 	Dog(void);
-	Dog(Animal const& instance);
+	Dog(Dog const& instance);
 	~Dog(void);
 	Dog	&operator=(Dog const &right_hand_side);
 

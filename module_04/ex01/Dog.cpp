@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 14:42:21 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/10 22:39:27 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 18:41:53 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ Dog::Dog(void) : Animal("Dog")
 	return ;
 }
 
-Dog::Dog(Animal const& instance) : Animal(instance)
+Dog::Dog(Dog const& instance) : Animal(instance)
 {
-	this->_brain = new Brain;
+	// this->_brain = new Brain;
+	*this = instance;
 	std::cout << CYAN << "Heey loook! Thats nice, now we're twooo dogys! Uhuuu!" << std::endl;
 	return ;
 }
@@ -40,7 +41,7 @@ Dog::~Dog(void)
 Dog	&Dog::operator=(Dog const &right_hand_side)
 {
 	this->_type = right_hand_side.getType();
-	this->_brain = right_hand_side.getBrain();
+	this->_brain = new Brain (*right_hand_side.getBrain());
 	return *this;
 }
 
