@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:39:46 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 19:59:18 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 23:11:07 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(void)
 	src->learnMateria(new Cure());
 	tic_tac(500000, 5);
 
-	ICharacter* una = new Character("una");
+	Character* una = new Character("una");
 	tic_tac(500000, 5);
 
 	AMateria* tmp;
@@ -49,6 +49,7 @@ int main(void)
 	tmp = src->createMateria("cure");
 	tic_tac(500000, 5);
 	una->equip(tmp);
+
 	una->equip(tmp);
 	una->equip(tmp);
 	una->equip(tmp);
@@ -58,19 +59,24 @@ int main(void)
 	ICharacter* bob = new Character("bob");
 	tic_tac(500000, 5);
 
-	una->use(0, *bob);
+	Character* unaCopy = new Character(*una);
 	tic_tac(500000, 5);
-	una->use(1, *bob);
+	delete una;
+	tic_tac(500000, 5);
+
+	unaCopy->use(0, *bob);
+	tic_tac(500000, 5);
+	unaCopy->use(1, *bob);
 	tic_tac(500000, 5);
 
 	tmp = src->createMateria("nectar");
-	una->equip(tmp);
-	una->use(3, *bob);
-	bob->use(3, *una);
+	unaCopy->equip(tmp);
+	unaCopy->use(3, *bob);
+	bob->use(3, *unaCopy);
 	tic_tac(500000, 5);
 
 	delete bob;
-	delete una;
+	delete unaCopy;
 	delete src;
 
 	return 0;

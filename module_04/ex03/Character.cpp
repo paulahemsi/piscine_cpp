@@ -29,6 +29,7 @@ Character::Character(void) : _name("nameless")
 
 Character::Character(Character const & instance)
 {
+	this->_initInventory();
 	*this = instance;
 	std::cout << "Character " << instance.getName() << " copied!" << std::endl;
 	return ;
@@ -52,19 +53,19 @@ void Character::_initInventory(void)
 Character	&Character::operator=( Character const & right_hand_side )
 {
 	this->_name = right_hand_side.getName();
-	for(int i = 0; i < MAX_ITENS; i++)
-		this->_inventory[i] = right_hand_side.getInventoryItem(i);
+	for (int i = 0; i < MAX_ITENS; i++)
+	{
+		if (right_hand_side._inventory[i])
+			this->_inventory[i] = right_hand_side._inventory[i]->clone();
+		else
+			this->_inventory[i] = NULL;
+	}
 	return *this;
 }
 
 std::string const &Character::getName(void)const
 {
 	return (this->_name);
-}
-
-AMateria * const &Character::getInventoryItem(int index)const
-{
-	return (this->_inventory[index]);
 }
 
 void Character::setName(std::string name)

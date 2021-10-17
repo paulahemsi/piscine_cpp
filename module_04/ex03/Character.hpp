@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 23:33:04 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 17:01:07 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 23:11:28 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ class Character : public ICharacter
 		Character	&operator=( Character const & ringht_hand_side );
 	
 		std::string const	&getName(void) const;
-		AMateria * const	&getInventoryItem(int index) const;
 		void 				setName(std::string name);
 		void				equip(AMateria* m);
 		void				unequip(int idx);
