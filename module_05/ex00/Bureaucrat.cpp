@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:18:59 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/12 19:32:40 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 21:01:57 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,30 @@ int	Bureaucrat::getGrade(void) const
 void		Bureaucrat::incrementGrade(void)
 {
 	this->_grade--;
-	_checkGrade();
+	try
+	{
+		_checkGrade();
+	}
+	catch(const std::exception& e)
+	{
+		this->_grade++ ;
+		std::cerr << e.what() << '\n';
+	}
 }
 
 void		Bureaucrat::decrementGrade(void)
 {
 	this->_grade++;
-	_checkGrade();
+	try
+	{
+		_checkGrade();
+	}
+	catch(const std::exception& e)
+	{
+		this->_grade--;
+		std::cerr << e.what() << '\n';
+	}
+	
 }
 
 std::ostream &operator<<(std::ostream &outputFile, Bureaucrat const &i)
