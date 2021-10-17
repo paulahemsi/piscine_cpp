@@ -209,6 +209,8 @@ It is important to remember that the copy constructor is a constructor : it init
 
 > Canonical form should always include a constructor that takes in no parameter. So if one class can only need to instantiated with parameters, That means either the default constructor must be private, or it must be declared but non-implemented, to comply with Canonical form.
 
+[About Abstract Base Classes](https://isocpp.org/wiki/faq/abcs#pure-virtual-fns)
+
 **Random**
 
 About how to make [random numbers generators more random](https://www.dreamincode.net/forums/topic/29294-making-pseudo-random-number-generators-more-random/)
