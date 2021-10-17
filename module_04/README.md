@@ -214,3 +214,5 @@ It is important to remember that the copy constructor is a constructor : it init
 About how to make [random numbers generators more random](https://www.dreamincode.net/forums/topic/29294-making-pseudo-random-number-generators-more-random/)
 
 A random number generated from the `rand()` function isn't actually random. It simply is a transformation. Every time we call `rand()` it takes the seed and/or the last random number(s) generated, runs a mathematical operation on those numbers, and returns the result. So if the **seed state** is the **same** each time (as it is if you don't call **srand with a truly random number**), then you will always get the same 'random' numbers out.
+
+[StackOverflow thread](https://stackoverflow.com/questions/9459035/why-does-rand-yield-the-same-sequence-of-numbers-on-every-run)
