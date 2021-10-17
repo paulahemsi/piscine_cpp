@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:18:59 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 20:51:59 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 21:16:19 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,31 @@ int	Bureaucrat::getGrade(void) const
 
 void		Bureaucrat::incrementGrade(void)
 {
-	std::cout << "incrementing " << this->_name << "'s grade" << std::endl << std::endl;
 	this->_grade--;
-	_checkGrade();
+	try
+	{
+		_checkGrade();
+	}
+	catch(const std::exception& e)
+	{
+		this->_grade++ ;
+		std::cerr << e.what() << '\n';
+	}
 }
 
 void		Bureaucrat::decrementGrade(void)
 {
-	std::cout << "decrementing " << this->_name << "'s grade" << std::endl << std::endl;
 	this->_grade++;
-	_checkGrade();
+	try
+	{
+		_checkGrade();
+	}
+	catch(const std::exception& e)
+	{
+		this->_grade--;
+		std::cerr << e.what() << '\n';
+	}
+	
 }
 
 void		Bureaucrat::signForm(Form &form)

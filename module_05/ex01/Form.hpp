@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:44:57 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 20:44:56 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 20:31:00 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Form
 		int const			_gradeToSign;
 		int const			_gradeToExecute;
 		void				_sign(int grade);
+
+		void				_checkGrade(void) const;
 
 	class GradeTooHighException : public std::exception
 	{

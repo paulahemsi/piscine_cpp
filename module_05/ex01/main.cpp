@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:21:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 20:20:23 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/16 21:29:46 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int main(void)
 {
 	std::cout << std::endl << "----Let the bureaucracy begin----" << std::endl << std::endl;
 	tic_tac(500000, 5);
+	std::cout << "\n\n---------CREATION TEST---------\n\n" << std::endl;
+	tic_tac(500000, 5);
 	Bureaucrat	john;
 	tic_tac(500000, 5);
 	Bureaucrat	fred("fred", 45);
@@ -37,7 +39,31 @@ int main(void)
 	tic_tac(500000, 5);
 	Form		form149("149", 149, 149);
 	tic_tac(500000, 5);
-	Form		form77_61("77_61", 77, 61);
+	Form		*form77_61 = new Form("77_61", 77, 61);
+	std::cout << "\n\n---------COPY AND DEEPNESS TEST---------\n\n" << std::endl;
+	Form		*form77_61Copy = new Form(*form77_61);
+	delete form77_61;
+	std::cout << *form77_61Copy << std::endl;
+	delete form77_61Copy;
+	std::cout << "\n\n---------HI LOW GRADES FORM CREATION TEST---------\n\n" << std::endl;
+	tic_tac(500000, 5);
+	try
+	{
+		Form		form777_1("777_1", 777, 1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		Form		form3_minus1("3_minus1", 777, -1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "\n\n---------SIGNS TESTS---------\n\n" << std::endl;
 	tic_tac(500000, 5);
 	std::cout << john << std::endl;
 	tic_tac(500000, 5);
