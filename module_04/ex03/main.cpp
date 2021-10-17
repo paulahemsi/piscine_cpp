@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:39:46 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 23:11:07 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/17 00:18:46 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,19 @@ int main(void)
 	bob->use(3, *unaCopy);
 	tic_tac(500000, 5);
 
+	tmp = src->createMateria("ice");
+	tic_tac(500000, 5);
+	unaCopy->equip(tmp);
+	tic_tac(500000, 5);
+	unaCopy->use(2, *bob);
+	tic_tac(500000, 5);
+	unaCopy->unequip(2);
+	tic_tac(500000, 5);
+
 	delete bob;
 	delete unaCopy;
 	delete src;
+	delete tmp;
 
 	return 0;
 }
