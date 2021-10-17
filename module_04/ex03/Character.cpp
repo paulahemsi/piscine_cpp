@@ -85,7 +85,11 @@ void Character::_fillInventory(AMateria *m, int i)
 		}
 	}
 	this->_inventory[i] = m;
-	std::cout << this->getName() << " equip index " << i << " with materia " << this->_inventory[i]->getType() << std::endl;
+	std::cout	<< this->getName()
+				<< " equip index " << i
+				<< " with materia "
+				<< this->_inventory[i]->getType()
+				<< std::endl;
 	return ;
 }
 
@@ -101,7 +105,10 @@ void Character::unequip(int idx)
 {
 	if (this->_inventory[idx])
 	{
-		std::cout << this->getName() << " unequip index " << idx << " with materia " << this->_inventory[idx]->getType() << std::endl;
+		std::cout	<< this->getName()
+					<< " unequip index " << idx
+					<< " with materia "
+					<< this->_inventory[idx]->getType() << std::endl;
 		this->_inventory[idx] = NULL;
 	}
 	return ;

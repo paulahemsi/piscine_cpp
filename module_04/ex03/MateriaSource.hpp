@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 12:50:12 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 12:52:57 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/17 11:30:06 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ class MateriaSource : public IMateriaSource
 {
 	private:
 		AMateria	*_magicBook[MAX_MAGICS];
+
 		void		_storeMateria(AMateria *materia, int i);
+		void		_initBook(void);
 
 	public:
 		MateriaSource(void);

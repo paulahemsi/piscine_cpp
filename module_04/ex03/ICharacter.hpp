@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:45:09 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/14 18:38:42 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/17 10:57:21 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ class AMateria;
 
 class ICharacter
 {
-	private:
-
 	public:
 		virtual ~ICharacter() {}
 		virtual std::string const &getName(void) const = 0;

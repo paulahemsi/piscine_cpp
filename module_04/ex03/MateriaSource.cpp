@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 12:51:59 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 17:20:08 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/17 11:47:06 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@
 
 MateriaSource::MateriaSource(void)
 {
-	for(int i = 0; i < MAX_MAGICS; i++)
-		_magicBook[i] = NULL;
+	this->_initBook();
 	std::cout << PURPLE << "Magic Book Materia Source created" << RESET << std::endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &instace)
 {
+	this->_initBook();
 	*this = instace;
 	std::cout << PURPLE << "Magic Book copied" << RESET << std::endl;
+	return ;
 }
 
 MateriaSource::~MateriaSource(void)
@@ -40,8 +41,17 @@ MateriaSource::~MateriaSource(void)
 MateriaSource &MateriaSource::operator=(MateriaSource const &rightHandSide)
 {
 	for(int i = 0; i < MAX_MAGICS; i++)
-		this->_magicBook[i] = rightHandSide._magicBook[i];
+	{
+		if (rightHandSide._magicBook[i])
+			this->_magicBook[i] = rightHandSide._magicBook[i]->clone();
+	}
 	return *this;
+}
+
+void MateriaSource::_initBook(void)
+{
+	for(int i = 0; i < MAX_MAGICS; i++)
+		this->_magicBook[i] = NULL;
 }
 
 void MateriaSource::_storeMateria(AMateria *materia, int i) 
