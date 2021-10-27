@@ -49,6 +49,13 @@
 		"chrono": "cpp",
 		"ratio": "cpp",
 		"cstring": "cpp",
-		"cinttypes": "cpp"
+		"cinttypes": "cpp",
+		"codecvt": "cpp",
+		"condition_variable": "cpp",
+		"list": "cpp",
+		"map": "cpp",
+		"mutex": "cpp",
+		"thread": "cpp",
+		"cfenv": "cpp"
 	}
 }

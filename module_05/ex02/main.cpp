@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:21:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 21:54:01 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/21 19:49:09 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,7 @@ int main(void)
 	std::cout << fred << std::endl;
 	tic_tac(500000, 5);
 	std::cout << john << std::endl;
+	tic_tac(500000, 5);
+
 	return (0);
 }

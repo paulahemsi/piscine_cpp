@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 20:11:18 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 22:01:42 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/25 19:52:10 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define GRAY			"\e[0;38;5;8m"
 # define RESET			"\e[0m"
 
-Form::Form(void) : _name("standartForm"), _isSigned(false), _gradeToSign(75), _gradeToExecute(75) 
+Form::Form(void) : _name("standardForm"), _isSigned(false), _gradeToSign(75), _gradeToExecute(75) 
 {
 	std::cout << GRAY << "Form created. " << *this << RESET << std::endl;
 	return ;

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:21:27 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/16 21:29:46 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/21 19:44:29 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,22 @@ int main(void)
 	Form		form149("149", 149, 149);
 	tic_tac(500000, 5);
 	Form		*form77_61 = new Form("77_61", 77, 61);
+	tic_tac(500000, 5);
+
 	std::cout << "\n\n---------COPY AND DEEPNESS TEST---------\n\n" << std::endl;
+	tic_tac(500000, 5);
+
 	Form		*form77_61Copy = new Form(*form77_61);
+	tic_tac(500000, 5);
 	delete form77_61;
+	tic_tac(500000, 5);
 	std::cout << *form77_61Copy << std::endl;
+	tic_tac(500000, 5);
 	delete form77_61Copy;
+
 	std::cout << "\n\n---------HI LOW GRADES FORM CREATION TEST---------\n\n" << std::endl;
 	tic_tac(500000, 5);
+
 	try
 	{
 		Form		form777_1("777_1", 777, 1);
@@ -55,6 +64,8 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+
+	tic_tac(500000, 5);
 	try
 	{
 		Form		form3_minus1("3_minus1", 777, -1);
@@ -63,8 +74,11 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	tic_tac(500000, 5);
+
 	std::cout << "\n\n---------SIGNS TESTS---------\n\n" << std::endl;
 	tic_tac(500000, 5);
+
 	std::cout << john << std::endl;
 	tic_tac(500000, 5);
 	std::cout << fred << std::endl;
@@ -80,7 +94,6 @@ int main(void)
 	fred.incrementGrade();
 	tic_tac(500000, 5);
 	fred.incrementGrade();
-	tic_tac(500000, 5);
 	fred.incrementGrade();
 	tic_tac(500000, 5);
 	std::cout << fred << std::endl;
