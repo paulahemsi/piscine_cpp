@@ -67,12 +67,22 @@ C++98 is simpler nad easier to beggin
 * [Abstract_classes_and_interfaces](https://github.com/paulahemsi/piscine_cpp/blob/main/module_04/README.md#Sub-typing_Polymorphism#abstract_classes_and_interfaces)
 * [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_04/README.md#notes)
 
-# [Module_05](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05)
+## [Module_05](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05)
 
 * [Nested_classes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05#Nested_classes)
 * [Exceptions](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05#Exceptions)
 * [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05#notes)
 
-# study_resources
+## [Module_06](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06)
+
+* [c_type_conversion](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#c_type_conversion)
+* [c_type_reinterpretation](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#c_type_reinterpretation)
+* [c_type_qualifier_reinterpretation](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#c_type_qualifier_reinterpretation)
+* [upcast_and_downcast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#upcast_and_downcast)
+* [static_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#static_cast)
+* [dynamic_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#dynamic_cast)
+
+
+## study_resources
 
 * Sams Teach Yourself C++ in One Hour a Day - Siddhartha Rao

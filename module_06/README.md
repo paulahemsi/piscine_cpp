@@ -5,7 +5,7 @@
 * [c_type_qualifier_reinterpretation](#c_type_qualifier_reinterpretation)
 * [upcast_and_downcast](#upcast_and_downcast)
 * [static_cast](#static_cast)
-* [static_cast](#dynamic_cast)
+* [dynamic_cast](#dynamic_cast)
 
 
 * [exercises notes](#notes)
