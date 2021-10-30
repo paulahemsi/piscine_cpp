@@ -6,9 +6,44 @@
 * [upcast_and_downcast](#upcast_and_downcast)
 * [static_cast](#static_cast)
 * [dynamic_cast](#dynamic_cast)
+* [reinterpret_cast](#reinterpret_cast)
+* [const_cast](#const_cast)
+* [cast_operators](#cast_operators)
+* [explicit_keyword](#explicit_keyword)
 
 
-* [exercises notes](#notes)
+* [exercises_notes](#notes)
+
+Casting is a mechanism by which the programmer can temporarily or
+permanently change the interpretation of an object by the compiler.
+Note that this does not imply that the programmer changes the object
+itself—he simply changes the interpretation thereof. Operators that
+change the interpretation of an object are called casting operators.
+
+
+
+
+
+
+|     Cast         |  Conv . |  Reint . |  Upcast |  Downcast  |  Type qual .  |
+| -----------------|---------|----------|---------|------------|------------- |
+| implicit         | :heavy_check_mark: |   :x:   | :heavy_check_mark: | :x: | :x: |
+| static_cast      | :heavy_check_mark: |   :x:   | :heavy_check_mark: | :heavy_check_mark:  | :x: |
+| dynamic_cast     |   :x:   |   :x:    | :heavy_check_mark: | :heavy_check_mark: |:x:     |
+| const_cast       |   :x:   |   :x:    |   :x:   |    :x:     | :heavy_check_mark: |
+| reinterpret_cast |   :x:   | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark:   |  :x:  |
+| legacy C cast    | :heavy_check_mark: | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+
+
+|     Cast         |  Semantics check   |   Reliable at run    | tested at run  |
+| -----------------|------------------- | -------------------- | -------------  |
+| implicit         | :heavy_check_mark: | :heavy_check_mark:  |        :x:      |
+| static_cast      | :heavy_check_mark: |          :x:        |        :x:      |
+| dynamic_cast     | :heavy_check_mark: | :heavy_check_mark:  |:heavy_check_mark: |
+| const_cast       |      :x:           |          :x:        |        :x:      |
+| reinterpret_cast |      :x:           |          :x:        |        :x:      |
+| legacy C cast    |      :x:           |          :x:        |        :x:      |
+
 
 ## c_type_conversion
 
@@ -208,3 +243,121 @@ int main(void)
 ```
 
 Usefull when using plugins: the code will be grouped under a class and we use the dynamic cast to can make sure that we are dealing with the right type, otherwise output an error message
+
+## reinterpret_cast
+
+reinterpretation, downcasts and upcast
+
+the most open one, with it we are able to reinterpret any address as any other address (and deal with the consequences, so better to know what you are doing)
+
+useful, for example, when reciving a void * bytes from a stream, the documentation says it's char but we can reinterpreted as string
+
+simple use case:
+
+```cpp
+
+int main(void)
+{
+	float	a = 420.042f;						//Reference value
+
+	void	*b = &a;							//Implicit promotion - ok
+	int		*c = reinterpret_cast<int *>(b);	//Explicit demotion - ok, devs choice
+	int		&d = reinterpret_cast<int &>(b);	//Explicit demotion - ok, devs choice
+	
+	return (0);
+}
+
+```
+
+## const_cast
+
+able to do a transformation of the type qualifyers
+
+```cpp
+
+int main(void)
+{
+	int			a = 42;						//Reference value
+	
+	int const	*b = &a;					// Implicit promotion - ok
+	int			*c = b;						// Implicit demotion - won't compile
+	int			*d = const_cast<int *>(b);	// Explicit demotion - ok, devs choice
+	
+	return (0);
+}
+
+```
+
+Need a const_cast in the program can a be sign of a bad design, why it was a const type at the first place?!
+
+## cast_operators
+
+New sintax that will allow us to define in our classes specific operators in order to make implicit conversion of yout class in a type we are interested in
+
+```cpp
+
+class MyClass
+{
+	public:
+		MyClass (float const value) : _value(value) {}
+		
+		float		getValue(void)					{return this->_value;}
+		
+		operator	float()							{return this->_value;} //allow us to assign an instance of our class to a float value
+		operator	int()						    {return static_cast<int>(this->_value);} //allow us to assign an instance of our class to an int value with the cast we pre determined
+
+	private:
+	
+		float _value;
+}
+
+int main(void)
+{
+	MyClass	a(420.042f);
+	float	b = a;
+	int		c = a;
+
+	std::cout << a.getValue() << std::endl; //420.042
+	std::cout << b << std::endl;			//420.042
+	std::cout << c << std::endl;			//420
+
+	return (0);
+}
+
+```
+
+## explicit_keyword
+
+prevent the implicit construction of our instance
+
+```cpp
+
+class A {};
+class B {};
+
+class C 
+{
+	public:
+		C(A const & _) {return;}
+		explicit C(B const & _) {return;}
+
+};
+
+void f (C const & _)
+{
+	return ;
+}
+
+int main(void)
+{
+	f(A()); //Implicit conversion ok
+	f(B()); //Implicit conversion not ok because the constructor using a B class has the explicit keyword
+	
+	rerturn (0);
+}
+
+```
+
+## notes
+
+cast originated from one particular cast action: the conversion, wich allow us to transform the bits from one value after the coding of another value
