@@ -1,5 +1,6 @@
 # Module_06
 
+* [intro](#intro)
 * [c_type_conversion](#c_type_conversion)
 * [c_type_reinterpretation](#c_type_reinterpretation)
 * [c_type_qualifier_reinterpretation](#c_type_qualifier_reinterpretation)
@@ -10,23 +11,43 @@
 * [const_cast](#const_cast)
 * [cast_operators](#cast_operators)
 * [explicit_keyword](#explicit_keyword)
-
-
 * [exercises_notes](#notes)
 
-Casting is a mechanism by which the programmer can temporarily or
-permanently change the interpretation of an object by the compiler.
-Note that this does not imply that the programmer changes the object
-itself—he simply changes the interpretation thereof. Operators that
-change the interpretation of an object are called casting operators.
+## intro
 
+> Casting is a mechanism by which the programmer can temporarily or permanently change the interpretation of an object by the compiler. Note that this does not imply that the programmer changes the object itself—he simply changes the interpretation thereof. Operators that change the interpretation of an object are called casting operators.
 
+> In a perfectly type-safe and type-strong world comprising well-written C++ applications, there should be no need for casting and for casting operators. However, we live in a real world where modules programmed by a lot of different people and vendors often using different environments have to work together. To make this happen, compilers very often need to be instructed to interpret data in ways that make them compile and the application function correctly.
 
+- Siddhartha Rao *"Sams Teach Yourself C++ in One Hour a Day"*
 
+The four C++ casting operators are
 
+* static_cast
+* dynamic_cast
+* reinterpret_cast
+* const_cast
+
+The usage syntax of the casting operators is consistent:
+
+```cpp
+destination_type result = cast_operator<destination_type> (object_to_cast);
+```
+
+**DO**
+
+* remember that casting a Derived* to a Base* is called upcasting and this is safe
+* remember that casting a Base* directly to a Derived* is called downcasting, and this can be unsafe unless you use dynamic_cast, and check for success.
+* remember that the objective of creating an inheritance hierarchy is typically in having virtual functions that when invoked using base class pointers ensure that the available derived class versions are invoked
+* mark conversion operators as explicit to avoid implicit conversions.
+
+**DON'T**
+
+* forget to check the pointer for validity after using dynamic_cast
+* design your application around RTTI using dynamic_cast
 
 |     Cast         |  Conv . |  Reint . |  Upcast |  Downcast  |  Type qual .  |
-| -----------------|---------|----------|---------|------------|------------- |
+| -----------------|---------|----------|---------|------------| ------------- |
 | implicit         | :heavy_check_mark: |   :x:   | :heavy_check_mark: | :x: | :x: |
 | static_cast      | :heavy_check_mark: |   :x:   | :heavy_check_mark: | :heavy_check_mark:  | :x: |
 | dynamic_cast     |   :x:   |   :x:    | :heavy_check_mark: | :heavy_check_mark: |:x:     |
@@ -154,6 +175,13 @@ C++ offers many types of casts and a new cast sintaxe allowing us to choose a sp
 
 simple conversion between direct values, upcasts and downcasts
 
+* used to convert pointers between related types, and perform explicit type conversions for standard data types that would otherwise happen automatically or implicitly
+* implements a basic compile-time check to ensure that the pointer is being cast to a related type
+* improvement over a C-style cast that allows a pointer to one object to be cast to an
+absolutely unrelated type without any complaint
+* Apart from helping in upcasting or downcasting, static_cast can, in many cases, help
+make implicit casts explicit and bring them to the attention of the programmer or reader
+
 **type of casts:**
 
 * conversion
@@ -204,6 +232,7 @@ only work with polimorphic instances, unless one of the member functions should 
 
 only for downcast, and it checks if the downcast is possible or not 
 
+
 ```cpp
 
 class Parent				{public: virtual ~Parent(void){}};
@@ -241,16 +270,114 @@ int main(void)
 }
 
 ```
+Another example, by Siddhartha Rao in *"Sams Teach Yourself C++ in One Hour a Day"*
+
+```cpp
+
+#include <iostream>
+using namespace std;
+
+class Fish
+{
+	public:
+	virtual void Swim()
+	{
+	cout << "Fish swims in water" << endl;
+	}
+	// base class should always have virtual destructor
+	virtual ~Fish() {}
+};
+
+class Tuna: public Fish
+{
+	public:
+	void Swim()
+	{
+	cout << "Tuna swims real fast in the sea" << endl;
+	}
+	void BecomeDinner()
+	{
+	cout << "Tuna became dinner in Sushi" << endl;
+	}
+ };
+
+ class Carp: public Fish
+ {
+	public:
+	void Swim()
+	{
+	cout << "Carp swims real slow in the lake" << endl;
+	}
+
+	void Talk()
+	{
+	cout << "Carp talked Carp!" << endl;
+	}
+ };
+
+ void DetectFishType(Fish* objFish)
+ {
+	Tuna* objTuna = dynamic_cast <Tuna*>(objFish);
+	if (objTuna) // check success of cast
+	{
+	cout << "Detected Tuna. Making Tuna dinner: " << endl;
+	objTuna->BecomeDinner();
+	}
+
+	Carp* objCarp = dynamic_cast <Carp*>(objFish);
+	if(objCarp)
+	{
+	cout << "Detected Carp. Making carp talk: " << endl;
+	objCarp->Talk();
+	}
+
+	cout << "Verifying type using virtual Fish::Swim: " << endl;
+	objFish->Swim(); // calling virtual function Swim
+ }
+
+ int main()
+ {
+	Carp myLunch;
+	Tuna myDinner;
+
+	DetectFishType(&myDinner);
+	cout << endl;
+	DetectFishType(&myLunch);
+
+	return 0;
+}
+```
+```
+$
+Detected Tuna. Making Tuna dinner:
+Tuna became dinner in Sushi
+Verifying type using virtual Fish::Swim:
+Tuna swims real fast in the sea
+
+Detected Carp. Making carp talk:
+Carp talked Carp!
+Verifying type using virtual Fish::Swim:
+Carp swims real slow in the lake
+$
+```
 
 Usefull when using plugins: the code will be grouped under a class and we use the dynamic cast to can make sure that we are dealing with the right type, otherwise output an error message
 
 ## reinterpret_cast
 
+`reinterpret_cast` is the closest a C++ casting operator gets to the C-style cast.
+
 reinterpretation, downcasts and upcast
+
+forces a reinterpretation of type
 
 the most open one, with it we are able to reinterpret any address as any other address (and deal with the consequences, so better to know what you are doing)
 
 useful, for example, when reciving a void * bytes from a stream, the documentation says it's char but we can reinterpreted as string
+
+> This cast actually forces the compiler to accept situations that static_cast would normally not permit. It finds usage in certain low-level applications (such as drivers, for example) where data needs to be converted to a simple type that an API—Application Program Interface—can accept (for example, some OS-level APIs require data to be sent as a BYTE array, that is, unsigned char*)
+- Siddhartha Rao in *"Sams Teach Yourself C++ in One Hour a Day"*
+
 
 simple use case:
 
@@ -269,9 +396,13 @@ int main(void)
 
 ```
 
+> As far as possible, you should refrain from using reinterpret_cast in your applications because it allows you to instruct the compiler to treat type X as an unrelated type Y, which does not look like good design or implementation.
+- Siddhartha Rao in *"Sams Teach Yourself C++ in One Hour a Day"*
+
+
 ## const_cast
 
-able to do a transformation of the type qualifyers
+enables to turn off the const access modifier to an object
 
 ```cpp
 
@@ -289,6 +420,9 @@ int main(void)
 ```
 
 Need a const_cast in the program can a be sign of a bad design, why it was a const type at the first place?!
+
+But in many cases the not-using-const error might belong to a third-party library, and making changes to it is
+not possible. In situations such as these, const_cast is the savior.
 
 ## cast_operators
 
@@ -328,7 +462,9 @@ int main(void)
 
 ## explicit_keyword
 
-prevent the implicit construction of our instance
+To avoid implicit conversions, we can use `explicit` keyword at the beginning of an operator declaration
+
+Using explicit would force the programmer to assert his intention to convert using a cast
 
 ```cpp
 
@@ -361,3 +497,19 @@ int main(void)
 ## notes
 
 cast originated from one particular cast action: the conversion, wich allow us to transform the bits from one value after the coding of another value
+
+`scalar types: arithmetic types and pointer types`
+
+`arithmetic types: integer types and floating types`
+
+```
+Floating-point types may support special values:
+
+infinity (positive and negative), see INFINITY
+the negative zero, -0.0. It compares equal to the positive zero, but is meaningful in some arithmetic operations, e.g. 1.0/0.0 == INFINITY, but 1.0/-0.0 == -INFINITY)
+not-a-number (NaN), which does not compare equal with anything (including itself). Multiple bit patterns represent NaNs, see nan, NAN. Note that C takes no special notice of signaling NaNs (specified by IEEE-754), and treats all NaNs as quiet.
+```
+
+**uintptr_t**
+
+Integer type capable of holding a value converted from a void pointer and then be converted back to that type with a value that compares equal to the original pointer
