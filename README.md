@@ -75,13 +75,18 @@ C++98 is simpler nad easier to beggin
 
 ## [Module_06](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06)
 
+* [intro](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#intro)
 * [c_type_conversion](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#c_type_conversion)
 * [c_type_reinterpretation](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#c_type_reinterpretation)
 * [c_type_qualifier_reinterpretation](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#c_type_qualifier_reinterpretation)
 * [upcast_and_downcast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#upcast_and_downcast)
 * [static_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#static_cast)
 * [dynamic_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#dynamic_cast)
-
+* [reinterpret_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#reinterpret_cast)
+* [const_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#const_cast)
+* [cast_operators](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#cast_operators)
+* [explicit_keyword](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#explicit_keyword)
+* [exercises_notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#notes)
 
 ## study_resources
 

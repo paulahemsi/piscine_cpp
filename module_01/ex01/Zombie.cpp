@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 21:14:34 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/09/14 00:22:01 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/30 19:15:53 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,10 @@ void Zombie::annouce(void)
 	std::cout << GREEN;
 }
 
-
 std::string	Zombie::getName(void)
 {
 	return (this->_name);
 }
-
-# include <stdlib.h> 
-
 
 char getChar(void)
 {
