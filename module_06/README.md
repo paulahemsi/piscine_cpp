@@ -46,7 +46,7 @@ destination_type result = cast_operator<destination_type> (object_to_cast);
 * forget to check the pointer for validity after using dynamic_cast
 * design your application around RTTI using dynamic_cast
 
-|     Cast         |  Conv . |  Reint . |  Upcast |  Downcast  |  Type qual .  |
+|     Cast         | Conversion | Reinterpretation |  Upcast |  Downcast  |  Type qualifier |
 | -----------------|---------|----------|---------|------------| ------------- |
 | implicit         | :heavy_check_mark: |   :x:   | :heavy_check_mark: | :x: | :x: |
 | static_cast      | :heavy_check_mark: |   :x:   | :heavy_check_mark: | :heavy_check_mark:  | :x: |
@@ -74,8 +74,8 @@ int main(void)
 {
 	int a = 42;
 
-	double b = a; // Implicit conersion cast 
-	double c = (double)a; // Explicit conersion cast 
+	double b = a; // Implicit conversion cast 
+	double c = (double)a; // Explicit conversion cast 
 
 	double d = a; // Implicit promotion -> OK 
 	int e = d; // Implicit demotion -> KO 
@@ -84,11 +84,17 @@ int main(void)
 
 ```
 a: 00000000 00000000 00000000 00101010
+
 b: 0 10000000100 0101000000000000000000000000000000000000000000000000
+
 c: 0 10000000100 0101000000000000000000000000000000000000000000000000
+
 d: 0 10000000100 0101000000000000000000000000000000000000000000000000
+
 e: 00000000 00000000 00000000 00101010
+
 f: 00000000 00000000 00000000 00101010
+
 
 ## c_type_reinterpretation
 
@@ -235,14 +241,14 @@ only for downcast, and it checks if the downcast is possible or not
 
 ```cpp
 
-class Parent				{public: virtual ~Parent(void){}};
+class Parent {public: virtual ~Parent(void){}};
 class Child1: public Parent {};
 class Child2: public Parent {};
 
 int main(void)
 {
-	Child1	a;			//reference value
-	Parent	*b = &a;	//implicit upcast - ok
+	Child1	a; //reference value
+	Parent	*b = &a; //implicit upcast - ok
 	
 	//explicit downcast ok:
 	Child1	*c = dynamic_cast<Child1 *>(b); //ok, cause it comes from Child1
@@ -385,11 +391,11 @@ simple use case:
 
 int main(void)
 {
-	float	a = 420.042f;						//Reference value
+	float	a = 420.042f; //Reference value
 
-	void	*b = &a;							//Implicit promotion - ok
-	int		*c = reinterpret_cast<int *>(b);	//Explicit demotion - ok, devs choice
-	int		&d = reinterpret_cast<int &>(b);	//Explicit demotion - ok, devs choice
+	void	*b = &a; //Implicit promotion - ok
+	int		*c = reinterpret_cast<int *>(b); //Explicit demotion - ok, devs choice
+	int		&d = reinterpret_cast<int &>(b); //Explicit demotion - ok, devs choice
 	
 	return (0);
 }
@@ -408,11 +414,11 @@ enables to turn off the const access modifier to an object
 
 int main(void)
 {
-	int			a = 42;						//Reference value
+	int			a = 42; //Reference value
 	
-	int const	*b = &a;					// Implicit promotion - ok
-	int			*c = b;						// Implicit demotion - won't compile
-	int			*d = const_cast<int *>(b);	// Explicit demotion - ok, devs choice
+	int const	*b = &a; // Implicit promotion - ok
+	int			*c = b; // Implicit demotion - won't compile
+	int			*d = const_cast<int *>(b); // Explicit demotion - ok, devs choice
 	
 	return (0);
 }
@@ -435,10 +441,10 @@ class MyClass
 	public:
 		MyClass (float const value) : _value(value) {}
 		
-		float		getValue(void)					{return this->_value;}
+		float		getValue(void) {return this->_value;}
 		
-		operator	float()							{return this->_value;} //allow us to assign an instance of our class to a float value
-		operator	int()						    {return static_cast<int>(this->_value);} //allow us to assign an instance of our class to an int value with the cast we pre determined
+		operator	float() {return this->_value;} //allow us to assign an instance of our class to a float value
+		operator	int() {return static_cast<int>(this->_value);} //allow us to assign an instance of our class to an int value with the cast we pre determined
 
 	private:
 	
@@ -452,8 +458,8 @@ int main(void)
 	int		c = a;
 
 	std::cout << a.getValue() << std::endl; //420.042
-	std::cout << b << std::endl;			//420.042
-	std::cout << c << std::endl;			//420
+	std::cout << b << std::endl; //420.042
+	std::cout << c << std::endl; //420
 
 	return (0);
 }
