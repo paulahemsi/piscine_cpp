@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 22:50:13 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/30 23:22:59 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/31 11:54:54 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,12 @@ static void	define_data(Data *student)
 	student->xp = 4.42;
 }
 
-static void	print_original_data(Data *student)
+static void	print_data(Data *data)
 {
-	std::cout	<< V_CYAN << "\n----- Original data: ----- \n" << std::endl;
-
-	std::cout	<< "Name: "		<< student->name << std::endl
-				<< "Level: "	<< student->level << std::endl
-				<< "Project: "	<< student->project << std::endl
-				<< "Xp: "		<< student->xp << std::endl;
-}
-
-static void	print_serialized_data(uintptr_t serialized_data)
-{
-	std::cout	<< V_ORANGE << "\n----- After serialization: -----" << std::endl;
-	std::cout << std::endl << serialized_data << std::endl;
-}
-
-static void	print_deserialized_data(Data *deserialize_data)
-{
-	std::cout	<< V_GREEN << "\n----- After deserialization: ----- \n" << std::endl;
-	std::cout	<< "Name: "		<< deserialize_data->name << std::endl
-				<< "Level: "	<< deserialize_data->level << std::endl
-				<< "Project: "	<< deserialize_data->project << std::endl
-				<< "Xp: "		<< deserialize_data->xp << std::endl << std::endl;
+	std::cout	<< "Name: "		<< data->name << std::endl
+				<< "Level: "	<< data->level << std::endl
+				<< "Project: "	<< data->project << std::endl
+				<< "Xp: "		<< data->xp << std::endl;
 }
 
 int main(void)
@@ -57,12 +40,18 @@ int main(void)
 	Data *deserialize_data;
 	uintptr_t serialized_data;
 
+	std::cout << V_CYAN << std::endl;
+	std::cout << "----- Original data: -----" << std::endl;
 	define_data(student);
-	print_original_data(student);
+	print_data(student);
 
+	std::cout << V_ORANGE << std::endl;
+	std::cout << "--- After serialization: ---" << std::endl;
 	serialized_data = serialize(student);
-	print_serialized_data(serialized_data);
+	std::cout << serialized_data << std::endl;
 
+	std::cout << V_GREEN << std::endl;
+	std::cout << "-- After deserialization: --" << std::endl;
 	deserialize_data = deserialize(serialized_data);
-	print_deserialized_data(deserialize_data);
+	print_data(deserialize_data);
 }
