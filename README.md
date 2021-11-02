@@ -69,24 +69,31 @@ C++98 is simpler nad easier to beggin
 
 ## [Module_05](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05)
 
-* [Nested_classes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05#Nested_classes)
-* [Exceptions](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05#Exceptions)
-* [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05#notes)
+* [Nested_classes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05/README.md#Nested_classes)
+* [Exceptions](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05/README.md#Exceptions)
+* [exercises notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_05/README.md#notes)
 
 ## [Module_06](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06)
 
 * [intro](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#intro)
-* [c_type_conversion](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#c_type_conversion)
-* [c_type_reinterpretation](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#c_type_reinterpretation)
-* [c_type_qualifier_reinterpretation](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#c_type_qualifier_reinterpretation)
-* [upcast_and_downcast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#upcast_and_downcast)
-* [static_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#static_cast)
-* [dynamic_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#dynamic_cast)
-* [reinterpret_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#reinterpret_cast)
-* [const_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#const_cast)
-* [cast_operators](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#cast_operators)
-* [explicit_keyword](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#explicit_keyword)
+* [c_type_conversion](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06/README.md#c_type_conversion)
+* [c_type_reinterpretation](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06/README.md#c_type_reinterpretation)
+* [c_type_qualifier_reinterpretation](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06/README.md#c_type_qualifier_reinterpretation)
+* [upcast_and_downcast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06/README.md#upcast_and_downcast)
+* [static_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06/README.md#static_cast)
+* [dynamic_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06/README.md#dynamic_cast)
+* [reinterpret_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06/README.md#reinterpret_cast)
+* [const_cast](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06/README.md#const_cast)
+* [cast_operators](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06/README.md#cast_operators)
+* [explicit_keyword](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06/README.md#explicit_keyword)
 * [exercises_notes](https://github.com/paulahemsi/piscine_cpp/blob/main/module_06#notes)
+
+## [Module_07](https://github.com/paulahemsi/piscine_cpp/blob/main/module_07)
+
+* [From C: Parametric macros](https://github.com/paulahemsi/piscine_cpp/blob/main/module_07/README.md#From_C:_Parametric_macros)
+* [Templates](https://github.com/paulahemsi/piscine_cpp/blob/main/module_07/README.md#Templates)
+* [Default type](https://github.com/paulahemsi/piscine_cpp/blob/main/module_07/README.md#Default_type)
+* [Specialization](https://github.com/paulahemsi/piscine_cpp/blob/main/module_07/README.md#Specialization)
 
 ## study_resources
 

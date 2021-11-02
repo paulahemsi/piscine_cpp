@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 23:35:15 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/31 00:22:21 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/10/31 13:48:47 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ static void	tic_tac(int usleep_time, int duration)
 int main(void)
 {
 	std::string colors[10] = {CYAN, V_BLUE, P_BLUE, V_CYAN, MAGENTA, PURPLE, LILAC, PINK, GREEN, V_GREEN};
-	
+
 	for (int i = 0; i < 10; i++, tic_tac(500000, 5))
 	{
 		std::cout << colors[i] << std::endl;
