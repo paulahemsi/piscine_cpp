@@ -6,16 +6,18 @@
 #    By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 21:55:43 by phemsi-a          #+#    #+#              #
-#    Updated: 2021/11/01 22:18:23 by phemsi-a         ###   ########.fr        #
+#    Updated: 2021/11/02 14:54:59 by phemsi-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = convert
+NAME = a.out
 
-SRC =	main.cpp
+SRC =	main.cpp \
+		Student.cpp
 
-OBJS =	main.o
+OBJS =	main.o \
+		Student.o
 
 CC	= c++
 
