@@ -417,3 +417,44 @@ code more readable with:
 * more atomic things
 * design it correctly to be able to reuse-it later
 
+## notes
+
+
+**ex02**
+
+`(Tip: try to compile int * a = new int();, then
+display *a.)`
+
+new int dynamically allocates an object of type int, and gives a pointer to that.
+
+```cpp
+int main(void)
+{
+	int *a = new int();
+	std::cout << *a << std::endl; //0
+	int *b = new int(4);
+	std::cout << *b << std::endl; //4
+	int *c = new int(33333);
+	std::cout << *c << std::endl; //33333
+	int *d = new int[6];
+	for (int i = 0; i < 6; i++)
+		std::cout << *(d + i) << std::endl; //0 (undefined values)
+	for (int i = 0; i < 6; i++)
+		std::cout << d[i] << std::endl; //0 (undefined values)
+	int *e = new int[6](); //initializes the int values to 0
+	for (int i = 0; i < 6; i++)
+		std::cout << e[i] << std::endl; //0
+}
+```
+
+```
+int *p_scalar = new int(5); //allocates an integer, set to 5. (same syntax as constructors)
+int *p_array = new int[5];  //allocates an array of 5 adjacent integers. (undefined values)
+int *cpp11_array = new int[5] {1, 2, 3, 4, 5};  //allocates an array of 5 adjacent integers initialized to {1, 2, 3, 4, 5}. (C++11 only)
+```
+
+>In C++98 initializers cannot be specified for arrays created with new. When no initializer list is provided all elements of an array are initialized with the default constructor of the type. If the type does not have a default constructor, this is a compile-time error.
+
+from [new and delete (C++)](https://en.wikipedia.org/w/index.php?title=New_and_delete_(C%2B%2B)&oldid=690112349)
+
+`new int[100]();` This will allocate an array of int and zero-initialize its elements.
