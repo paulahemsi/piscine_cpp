@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 18:20:29 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/06 21:41:53 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/06 22:55:16 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Array
 {
 	private:
 		unsigned int	_n;
-		unsigned int	_index;
 		T				*_ptr;
 
 	public:
@@ -38,9 +37,8 @@ class Array
 				{delete[] this->_ptr;}
 		}
 
-		T &operator[](unsigned int index)
+		T &operator[](unsigned int index) const
 		{
-			this->_index = index;
 			if ((index < 0) || (index >= this->_n))
 				throw OutOfBoundsException();
 			return (_ptr[index]);
@@ -70,17 +68,9 @@ class Array
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("\e[0;31mout of limits\e[0m");
+				return ("\e[0;31mout of bounds\e[0m");
 			}
 	};
 };
-
-
-
-
-
-//copia
-//new array[instancia->_n]
-//lopar pela instancia passando os valor pro new
 
 #endif
