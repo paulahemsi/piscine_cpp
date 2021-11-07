@@ -458,3 +458,52 @@ int *cpp11_array = new int[5] {1, 2, 3, 4, 5};  //allocates an array of 5 adjace
 from [new and delete (C++)](https://en.wikipedia.org/w/index.php?title=New_and_delete_(C%2B%2B)&oldid=690112349)
 
 `new int[100]();` This will allocate an array of int and zero-initialize its elements.
+
+-------------------------
+
+about the error **argument list for class template "Array" is missing**:
+
+> When you separate method definitions from their declarations for a templated class, you have to include the same template declaration on every method definition, and quality the class name with the template argument(s), eg:
+
+```cpp
+
+template <typename T>
+class Array
+{
+private:
+    //code
+public:
+    //code
+};
+
+template <typename T>
+Array<T>::~Array()
+{
+
+}
+
+template <typename T>
+int Array<T>::isValidIndex(int index) const
+{
+
+}
+
+// and so on..
+
+```
+
+from [this stackoverflow thread](https://stackoverflow.com/questions/48999185/argument-list-for-class-template-is-missing-cpp)
+
+--------------------------
+
+`new int[0]`
+
+>When the value of the expression in a direct-new-declarator is zero, the allocation function is called to allocate an array with no elements.
+
+>The effect of dereferencing a pointer returned as a request for zero size is undefined.
+
+>That means you can do it, but you can not legally (in a well defined manner across all platforms) dereference the memory that you get - you can only pass it to array delete - and you should delete it.
+
+>The intent is to have operator new() implementable by calling malloc() or calloc(), so the rules are substantially the same. C++ differs from C in requiring a zero request to return a non-null pointer.
+
+from [this stackoverflow thread](https://stackoverflow.com/questions/1087042/c-new-int0-will-it-allocate-memory)
