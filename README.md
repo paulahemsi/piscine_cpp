@@ -95,6 +95,20 @@ C++98 is simpler nad easier to beggin
 * [Default type](https://github.com/paulahemsi/piscine_cpp/blob/main/module_07/README.md#Default_type)
 * [Specialization](https://github.com/paulahemsi/piscine_cpp/blob/main/module_07/README.md#Specialization)
 
+## [Module_08](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08)
+
+* [containers](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08/README.md#containers)
+* [iterators](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08/README.md#iterators)
+* [algorithm_function](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08/README.md#algorithm_function)
+* [functor_class](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08/README.md#functor_class)
+* [Sequential_containers](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08/README.md#Sequential_containers)
+* [Ordered_associative_containers](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08/README.md#Ordered_associative_containers)
+* [Unordered_associative_containers](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08/README.md#Unordered_associative_containers)
+* [Adapters](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08/README.md#Adapters)
+* [STL_containers_overview](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08/README.md#STL_containers_overview)
+* [resources](https://github.com/paulahemsi/piscine_cpp/blob/main/module_08/README.md#resources)
+
+
 ## study_resources
 
 * Sams Teach Yourself C++ in One Hour a Day - Siddhartha Rao
