@@ -14,11 +14,24 @@
 
 STL: Standard template library
 
+Put in simple terms, the standard template library (STL) is a set of template classes and functions that supply the programmer with:
+
+* Containers for storing information
+* Iterators for accessing the information stored
+* Algorithms for manipulating the content of the containers
+
+
 ## containers
 
 holds elements and iterators (the containers equivalents of pointers, providing structured access to elements)
 
 a set of values and a set of cohersive operations on these values
+
+Containers are STL classes that are used to store data. STL supplies two types of container classes:
+* *Sequential containers*
+* *Associative containers*
+
+*Container Adapters* are variants of the same with reduced functionality to support a specific purpose
 
 | Sequential | Associative | Adapters  |
 |------------|-------------|-----------|
@@ -27,7 +40,7 @@ a set of values and a set of cohersive operations on these values
 |    list    |    map      |piority queue|
 |            |  multi map  |           |
 
-all containers are parameterized bu the types they contain
+all containers are parameterized by the types they contain
 
 ```cpp
 
@@ -44,6 +57,9 @@ class stack
 ```
 
 ## iterators
+
+Iterators in STL are template classes that in some ways are a generalization of pointers.
+These are template classes that give the programmer a handle by which he can work with and manipulate STL containers and perform operations on them. Note that operations could as well be STL algorithms that are template functions, Iterators are the bridge that allows these template functions to work with containers, which are template classes, in a consistent and seamless manner.
 
 each container declares a trait for the type of iterator ir provides
 
@@ -70,6 +86,16 @@ generic algorithms
 * non-mutating (only reads the content)
 * sorting
 * numeric
+
+Some of the most used STL algorithms are:
+
+* `std::find` : Helps find a value in a collection
+* `std::find_if` : Helps find a value in a collection on the basis of a specific
+user-defined predicate
+* `std::reverse` : Reverses a collection
+* `std::remove_if` : Helps remove an item from a collection on the basis of a
+user-defined predicate
+* `std::transform` : Helps
 
 ## functor_class
 
@@ -115,6 +141,7 @@ int main()
 
 * arrange the data in a linear manner
 * element order has nothing to do with element value
+* fast insertion, slow find operations
 
 | container| characteristics |
 |----------|----------------------------------|
@@ -136,6 +163,7 @@ Compared to the other dynamic sequence containers (deques, lists and forward_lis
 
 * support efficient operations on elements using keys ordered by `operator<`
 * implemented as balanced binary trees (red black tree)
+* slow insertion, fast find operations
 
 | container| characteristics |
 |----------|----------------------------------|
@@ -148,6 +176,8 @@ Compared to the other dynamic sequence containers (deques, lists and forward_lis
 
 * maintain data in structures suitable for fast associative operations
 * implemented as hash tables
+* slow insertion, fast find operations
+
 
 | container| characteristics |
 |----------|----------------------------------|
@@ -216,3 +246,4 @@ Compared to the other dynamic sequence containers (deques, lists and forward_lis
 * [qingqingqingli wiki](https://github.com/qingqingqingli/CPP/wiki/module08)
 * [C++ STL's: When to use which STL](https://www.hackerearth.com/practice/notes/c-stls-when-to-use-which-stl/)
 * [C++ STL Containers: Choose your containers wisely](https://dev.to/pratikparvati/c-stl-containers-choose-your-containers-wisely-4lc4)
+* Sams Teach Yourself C++ in one Hour a Day
