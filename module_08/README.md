@@ -61,6 +61,8 @@ class stack
 Iterators in STL are template classes that in some ways are a generalization of pointers.
 These are template classes that give the programmer a handle by which he can work with and manipulate STL containers and perform operations on them. Note that operations could as well be STL algorithms that are template functions, Iterators are the bridge that allows these template functions to work with containers, which are template classes, in a consistent and seamless manner.
 
+Iterators let us view a non-linear collection in a linear manner. The whole point of iterators was to have a standard interface to iterate over data in any container. But we still had to specify what type of data this iterator was pointing to.
+
 each container declares a trait for the type of iterator ir provides
 
 * input
@@ -76,6 +78,11 @@ each container provides factory methods for creating iterators:
 * `begin()` `end()`: for traversing from front to back
 * `rbegin()` `rend()`: for traversing from back to front
 
+Better to be pre-increment if you don't need the value before it incremented
+
+Postincrement must return the value the iterator had BEFORE it was incrementing; so, that previous value needs to be copied somewhere before altering it with the increment proper, so it's available to return.
+The extra work may be a little or a lot, but it certainly can't be less than zero, compared to a preincrement, which can simply perform the incrementing and then return the just-altered value -- no copying // saving // etc necessary.
+So, unless you specifically MUST have postincrement (because you're using the "value before increment" in some way), you should always use preincrement instead.
 
 ## algorithm_function
 
@@ -246,4 +253,17 @@ Compared to the other dynamic sequence containers (deques, lists and forward_lis
 * [qingqingqingli wiki](https://github.com/qingqingqingli/CPP/wiki/module08)
 * [C++ STL's: When to use which STL](https://www.hackerearth.com/practice/notes/c-stls-when-to-use-which-stl/)
 * [C++ STL Containers: Choose your containers wisely](https://dev.to/pratikparvati/c-stl-containers-choose-your-containers-wisely-4lc4)
+* [Introducing iterators](https://www.linuxtopia.org/online_books/programming_books/thinking_in_c++/Chapter16_014.html)
 * Sams Teach Yourself C++ in one Hour a Day
+* [stack docs](https://en.cppreference.com/w/cpp/container/stack)
+* [this stackoverflow thread](https://stackoverflow.com/questions/525365/does-stdstack-expose-iterators)to ex02 - stack with iterators
+
+## notes
+
+>The std::stack does expose its underlying container (and therefore iterators) to subclasses through its protected interface. The std::stack's underlying container object corresponds to the (protected) data member c.
+
+`typedef Container::iterator iterator;`:
+` error: need ‘typename’ before ‘Container::iterator’ because ‘Container’ is a dependent scope`
+
+`iterator begin() {return std::begin(c);}`:
+` note: ‘std::begin’ is only available from C++11 onwards`
