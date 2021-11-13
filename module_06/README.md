@@ -65,6 +65,8 @@ destination_type result = cast_operator<destination_type> (object_to_cast);
 | reinterpret_cast |      :x:           |          :x:        |        :x:      |
 | legacy C cast    |      :x:           |          :x:        |        :x:      |
 
+![image](https://user-images.githubusercontent.com/63563271/141655477-af119393-1c7d-4116-9651-4212c9f335b9.png)
+
 
 ## c_type_conversion
 
