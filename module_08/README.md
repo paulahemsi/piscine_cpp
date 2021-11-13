@@ -247,6 +247,9 @@ Compared to the other dynamic sequence containers (deques, lists and forward_lis
 |Frees memory for removed elements| --- | Only with `shrink_to_fit()`|Sometimes|Always|Always|Always|Sometimes|
 |Transaction safe (success or no effect)|:x:|Push/pop at the end| Push/pop at the begining and the end|All insertions and all erasures|All insertions and all erasures|Single-element insertions and all erasures if comparing doesn't throw|Single-element insertions and all erasures if hashing and comparing doesn't throw|
 
+![image](https://user-images.githubusercontent.com/63563271/141655399-05e73cdb-1ec9-4fb9-9441-c5e77128b8b2.png)
+
+
 ## resources
 
 * [Overview of C++ STL Containers - video](https://www.youtube.com/watch?v=M1Zj8M48AvY)
