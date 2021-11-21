@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 13:44:58 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/20 22:19:57 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 00:14:51 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class ScalarConversion
 		int			_int;
 		float		_float;
 		double		_double;
+		bool		_impossible;
 		std::string	_pseudoLiteral;
 
 		static bool	_isDisplayableNANChar(char *str);
@@ -41,6 +42,7 @@ class ScalarConversion
 		static bool	_isPseudoLiteral(char *str);
 		static bool	_isFloatPseudoLiteral(std::string arg);
 		static bool	_isDoublePseudoLiteral(std::string arg);
+		static void	_displayImpossible(void);
 
 		void		_detectType(void);
 

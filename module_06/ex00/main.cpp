@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 19:23:49 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/20 22:20:55 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 00:30:40 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ static bool wrong_args(int argc)
 		return (true);
 	return (false);
 }
+
+//! Repensar lógica pensando nos overflows
+//! Como detectar overflow de long long?
 
 int main(int argc, char **argv)
 {
