@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:31:35 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 13:31:18 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 14:13:29 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 #include <iostream>
 #include <stdlib.h> //stroll
 #include <float.h> //float e dbl limits
-#include <string> //to_string
 #include <errno.h>
 #include <iomanip>
 #include <limits.h>
-#include <limits>
 #include <stdlib.h>
 
 ScalarConversion::ScalarConversion(void) {}
 
-ScalarConversion::ScalarConversion(char *str) : _str(str), _type(0), _impossible(false)
+ScalarConversion::ScalarConversion(char *str) : _str(str)
 {
 	this->_detectType();
 }
@@ -38,14 +36,31 @@ ScalarConversion::ScalarConversion(ScalarConversion const &instance)
 ScalarConversion &ScalarConversion::operator=(ScalarConversion const &right_hand_side)
 {
 	this->_str = right_hand_side._str;
+	this->_type = right_hand_side._type;
 	return *this;
 }
 
-bool ScalarConversion::_isDisplayableChar(char c)
+/*
+** functions to detect input type:
+**
+**
+** (there's easiests ways to do it in c++ but the subject only allow us to use few functions, so I was forced to do some checks in C way)
+*/
+
+void ScalarConversion::_detectType()
 {
-	if (c >= '!' && c <= '~')
-		return (true);
-	return (false);
+	if (_isDisplayableNANChar(this->_str))
+		this->_type = CHAR;
+	else if (_isInt(this->_str))
+		this->_type = INT;
+	else if (_isFloat(this->_str))
+		this->_type = FLOAT;
+	else if (_isDouble(this->_str))
+		this->_type = DOUBLE;
+	else if (_isPseudoLiteral(this->_str))
+		this->_type = PSEUDO_LITERAL;
+	else
+		throw ScalarConversion::TypeNotFound();
 }
 
 bool ScalarConversion::_isDisplayableNANChar(char *str)
@@ -113,6 +128,14 @@ bool ScalarConversion::_isDouble(char *str)
 	return (true);
 }
 
+bool ScalarConversion::_isPseudoLiteral(char *str)
+{
+	std::string arg = str;
+	if (_isFloatPseudoLiteral(arg) || _isDoublePseudoLiteral(arg))
+		return (true);
+	return (false);
+}
+
 bool ScalarConversion::_isFloatPseudoLiteral(std::string arg)
 {
 	if (arg == "-inff" || arg == "+inff" || arg == "nanf")
@@ -127,103 +150,24 @@ bool ScalarConversion::_isDoublePseudoLiteral(std::string arg)
 	return (false);
 }
 
-bool ScalarConversion::_isPseudoLiteral(char *str)
-{
-	std::string arg = str;
-	if (_isFloatPseudoLiteral(arg) || _isDoublePseudoLiteral(arg))
-		return (true);
-	return (false);
-}
+/*
+** functions and auxiliar functions to display input value in all types:
+*/
 
-void ScalarConversion::_detectType()
+void ScalarConversion::display(void)
 {
-	if (_isDisplayableNANChar(this->_str))
-		this->_type = CHAR;
-	else if (_isInt(this->_str))
-		this->_type = INT;
-	else if (_isFloat(this->_str))
-		this->_type = FLOAT;
-	else if (_isDouble(this->_str))
-		this->_type = DOUBLE;
-	else if (_isPseudoLiteral(this->_str))
-		this->_type = PSEUDO_LITERAL;
+	_defineFormatAndPrecision();
+	if (this->_type == PSEUDO_LITERAL)
+		this->_displayPseudoLiteral();
+	else if (this->_type == CHAR)
+		this->_charConvertAllAndDisplay();
 	else
-		throw ScalarConversion::TypeNotFound();
-	std::cout << this->_type << "\nCHAR-0 INT-1 FLOAT-2 DOUBLE-3" << std::endl;
+		this->_numberConvertAllAndDisplay();
 }
 
-// void ScalarConversion::convertType(void)
-// {
-// 	if (this->_type == PSEUDO_LITERAL)
-// 		return ;
-// 	void	(ScalarConversion::*convert[4])(void) = {	&ScalarConversion::_convertInt,
-// 														&ScalarConversion::_convertFloat,
-// 														&ScalarConversion::_convertDouble,
-// 														&ScalarConversion::_convertChar };
-
-// 	(this->*convert[this->_type])();
-// }
-
-// void	ScalarConversion::_convertChar(void)
-// {
-// 	this->_char = this->_str[0];
-// 	this->_int = static_cast<int>(this->_char);
-// 	this->_float = static_cast<float>(this->_char);
-// 	this->_double = static_cast<double>(this->_char);
-// }
-
-// void	ScalarConversion::_convertInt(void)
-// {
-// 	long long limitsChecking = strtoll(this->_str, NULL, 0);
-// 	if (limitsChecking < INT_MIN || limitsChecking > INT_MAX)
-// 	{
-// 		this->_impossible = true;
-// 		return ;
-// 	}
-// 	this->_int = atoi(this->_str);
-// 	this->_char = static_cast<char>(this->_int);
-// 	this->_float = static_cast<float>(this->_int);
-// 	this->_double = static_cast<double>(this->_int);
-// }
-
-// void	ScalarConversion::_convertFloat(void)
-// {
-// 	long long limitsChecking = strtoll(this->_str, NULL, 0);
-// 	if (limitsChecking < FLT_MIN || limitsChecking > FLT_MAX || errno == ERANGE)
-// 	{
-// 		this->_impossible = true;
-// 		return ;
-// 	}
-// 	std::cout << this->_str << std::endl;
-// 	this->_float = atof(this->_str);
-// 	std::cout << std::fixed << atof(this->_str) << "-->FLOAT--->" << this->_float << std::endl;
-// 	this->_int = static_cast<int>(this->_float);
-// 	this->_char = static_cast<char>(this->_float);
-// 	this->_double = static_cast<double>(this->_float);
-// }
-
-// void	ScalarConversion::_convertDouble(void)
-// {
-// 	long long limitsChecking = strtoll(this->_str, NULL, 0);
-// 	std::cout << limitsChecking << "---" << std::fixed << DBL_MAX << std::endl;
-// 	if (limitsChecking < DBL_MIN || limitsChecking > DBL_MAX || errno == ERANGE)
-// 	{
-// 		this->_impossible = true;
-// 		return ;
-// 	}
-// 	this->_float = strtoll(this->_str, NULL, 0);//atol(this->_str);
-// 	this->_float = static_cast<float>(this->_double);
-// 	this->_int = static_cast<int>(this->_double);
-// 	this->_char = static_cast<char>(this->_double);
-// }
-
-char *ScalarConversion::_pseudoLiteralToDouble(char *str)
+void ScalarConversion::_defineFormatAndPrecision(void)
 {
-	int i = 0;
-	while (str[i + 1] != '\0')
-		i++;
-	str[i] = '\0';
-	return (str);
+	std::cout << std::fixed << std::setprecision(1);
 }
 
 void ScalarConversion::_displayPseudoLiteral(void)
@@ -242,26 +186,13 @@ void ScalarConversion::_displayPseudoLiteral(void)
 	std::cout << "double: " << pseudoLitral << std::endl;
 }
 
-// void ScalarConversion::_displayChar(void)
-// {
-// 	std::cout << "char: ";
-// 	if (this->_isDisplayableChar(this->_char))
-// 		std::cout << "'" << this->_char << "'" << std::endl;
-// 	else
-// 		std::cout << "Non displayable" << std::endl;
-// }
-
-void ScalarConversion::_displayChar(long long value)
+char *ScalarConversion::_pseudoLiteralToDouble(char *str)
 {
-	char c;
-	std::cout << "char: ";
-	if (value < 0 || value > 127)
-		std::cout << "impossible" << std::endl;
-	c = static_cast<char>(value);
-	if (this->_isDisplayableChar(c))
-		std::cout << "'" << c << "'" << std::endl;
-	else
-		std::cout << "Non displayable" << std::endl;
+	int i = 0;
+	while (str[i + 1] != '\0')
+		i++;
+	str[i] = '\0';
+	return (str);
 }
 
 void ScalarConversion::_charConvertAllAndDisplay(void)
@@ -272,58 +203,15 @@ void ScalarConversion::_charConvertAllAndDisplay(void)
 	std::cout << "double: " << static_cast<double>(this->_str[0]) << std::endl;
 }
 
-void ScalarConversion::_displayImpossible(void)
+void ScalarConversion::_numberConvertAllAndDisplay(void)
 {
-	std::cout << "char: " << "impossible" << std::endl;
-	std::cout << "int: " << "impossible" << std::endl;
-	std::cout << "float: " << "impossible" << std::endl;
-	std::cout << "double: " << "impossible" << std::endl;
-}
-
-
-// void ScalarConversion::displayAllTypes(void)
-// {
-// 	if (this->_type == PSEUDO_LITERAL)
-// 	{
-// 		this->_displayPseudoLiteral();
-// 		return ;
-// 	}
-// 	if (this->_impossible)
-// 	{
-// 		_displayImpossible();
-// 		return ;
-// 	}
-// 	// this->_displayChar();
-// 	std::cout << std::fixed << std::setprecision(1);
-// 	std::cout << "int: " << this->_int << std::endl;
-// 	std::cout << "float: " << this->_float << "f" << std::endl;
-// 	std::cout << "double: " << this->_double << std::endl;
-// }
-
-void ScalarConversion::_defineFormatAndPrecision(void)
-{
-	std::cout << std::fixed << std::setprecision(1);
-}
-
-bool ScalarConversion::_intOverflow(long long value)
-{
-	if (value < INT_MIN || value > INT_MAX)
-		return (true);
-	return (false);
-}
-
-bool ScalarConversion::_floatOverflow(long long value)
-{
-	if (value < FLT_MAX|| value > FLT_MIN)
-		return (true);
-	return (false);
-}
-
-bool ScalarConversion::_doubleOverflow(long long value)
-{
-	if (value < DBL_MIN || value > DBL_MAX)
-		return (true);
-	return (false);
+	long long value = strtoll(this->_str, NULL, 0);
+	if (_typeOverflow(value))
+		_displayImpossible();
+	this->_displayChar(value);
+	this->_displayInt(value);
+	this->_displayFloat(value);
+	this->_displayDouble(value);
 }
 
 bool ScalarConversion::_typeOverflow(long long value)
@@ -338,21 +226,74 @@ bool ScalarConversion::_typeOverflow(long long value)
 	return (false);
 }
 
-void ScalarConversion::_numberConvertAllAndDisplay(void)
+bool ScalarConversion::_intOverflow(long long value)
 {
-	long long value = strtoll(this->_str, NULL, 0);
-	if (_typeOverflow(value))
-		_displayImpossible();
-	this->_displayChar(value);
+	if (value < INT_MIN || value > INT_MAX)
+		return (true);
+	return (false);
 }
 
-void ScalarConversion::display(void)
+bool ScalarConversion::_floatOverflow(long long value)
 {
-	_defineFormatAndPrecision();
-	if (this->_type == PSEUDO_LITERAL)
-		this->_displayPseudoLiteral();
-	else if (this->_type == CHAR)
-		this->_charConvertAllAndDisplay();
+	if (value < FLT_MIN|| value > FLT_MAX)
+		return (true);
+	return (false);
+}
+
+bool ScalarConversion::_doubleOverflow(long long value)
+{
+	if (value < DBL_MIN || value > DBL_MAX)
+		return (true);
+	return (false);
+}
+
+void ScalarConversion::_displayImpossible(void)
+{
+	std::cout << "char: " << "impossible" << std::endl;
+	std::cout << "int: " << "impossible" << std::endl;
+	std::cout << "float: " << "impossible" << std::endl;
+	std::cout << "double: " << "impossible" << std::endl;
+}
+
+void ScalarConversion::_displayChar(long long value)
+{
+	char c;
+	std::cout << "char: ";
+	if (value < 0 || value > 127)
+		std::cout << "impossible" << std::endl;
+	c = static_cast<char>(value);
+	if (this->_isDisplayableChar(c))
+		std::cout << "'" << c << "'" << std::endl;
 	else
-		this->_numberConvertAllAndDisplay();
+		std::cout << "Non displayable" << std::endl;
+}
+
+bool ScalarConversion::_isDisplayableChar(char c)
+{
+	if (c >= '!' && c <= '~')
+		return (true);
+	return (false);
+}
+
+void ScalarConversion::_displayInt(long long value)
+{
+	std::cout << "int: ";
+	if (this->_intOverflow(value))
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(value) << std::endl;
+}
+
+void ScalarConversion::_displayFloat(long long value)
+{
+	std::cout << "float: ";
+	if (this->_floatOverflow(value))
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<float>(value) << "f" << std::endl;
+}
+
+void ScalarConversion::_displayDouble(long long value)
+{
+	std::cout << "double: " << static_cast<double>(value) << std::endl;
 }

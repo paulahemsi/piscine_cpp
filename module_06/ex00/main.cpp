@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 19:23:49 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 11:21:07 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 14:13:44 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,16 @@ static bool wrong_args(int argc)
 	return (false);
 }
 
-//! Repensar lógica pensando nos overflows
-//! Como detectar overflow de long long?
-//!!!CHAOS!!!
-
 int main(int argc, char **argv)
 {
-	std::cout << "MAIN: " << std::fixed << atof("2147483655.0f") << std::endl;
 	if (wrong_args(argc))
 		return (print_usage());
 	try
 	{
 		ScalarConversion value(argv[1]);
-		// value.convertType();
-		// value.displayAllTypes();
+		ScalarConversion valueCopy(value);
 		value.display();
+		valueCopy.display();
 	}
 	catch(const std::exception& e)
 	{
