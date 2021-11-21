@@ -12,6 +12,7 @@
 * [cast_operators](#cast_operators)
 * [explicit_keyword](#explicit_keyword)
 * [exercises_notes](#notes)
+* [study_resources](#study_resources)
 
 ## intro
 
@@ -193,8 +194,7 @@ simple conversion between direct values, upcasts and downcasts
 * implements a basic compile-time check to ensure that the pointer is being cast to a related type
 * improvement over a C-style cast that allows a pointer to one object to be cast to an
 absolutely unrelated type without any complaint
-* Apart from helping in upcasting or downcasting, static_cast can, in many cases, help
-make implicit casts explicit and bring them to the attention of the programmer or reader
+* Apart from helping in upcasting or downcasting, static_cast can, in many cases, help make implicit casts explicit and bring them to the attention of the programmer or reader
 
 **type of casts:**
 
@@ -527,3 +527,14 @@ not-a-number (NaN), which does not compare equal with anything (including itself
 **uintptr_t**
 
 Integer type capable of holding a value converted from a void pointer and then be converted back to that type with a value that compares equal to the original pointer
+
+
+## study_resources
+
+* [Type Punning in C++](https://www.youtube.com/watch?v=8egZ_5GA9Bc)
+* [Casting in C++](https://www.youtube.com/watch?v=pWZS1MtxI-A)
+
+>"You can include any header you need to handle numeric limits and special values."
+
+* [C++ setprecision doc](https://www.cplusplus.com/reference/iomanip/setprecision/)
+* [c++ fixed](https://en.cppreference.com/w/cpp/io/manip/fixed)
