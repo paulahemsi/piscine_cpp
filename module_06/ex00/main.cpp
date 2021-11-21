@@ -6,13 +6,9 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 19:23:49 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 14:13:44 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 14:16:18 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-
-#include <iomanip>
 
 #include <iostream>
 #include "ScalarConversion.hpp"
@@ -39,9 +35,7 @@ int main(int argc, char **argv)
 	try
 	{
 		ScalarConversion value(argv[1]);
-		ScalarConversion valueCopy(value);
 		value.display();
-		valueCopy.display();
 	}
 	catch(const std::exception& e)
 	{

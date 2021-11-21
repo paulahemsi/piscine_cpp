@@ -6,18 +6,17 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:31:35 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 14:13:29 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 14:19:30 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConversion.hpp"
 #include <iostream>
+#include <limits.h>
 #include <stdlib.h> //stroll
 #include <float.h> //float e dbl limits
+#include <iomanip> //setprecision
 #include <errno.h>
-#include <iomanip>
-#include <limits.h>
-#include <stdlib.h>
 
 ScalarConversion::ScalarConversion(void) {}
 
@@ -205,6 +204,7 @@ void ScalarConversion::_charConvertAllAndDisplay(void)
 
 void ScalarConversion::_numberConvertAllAndDisplay(void)
 {
+	errno = 0;
 	long long value = strtoll(this->_str, NULL, 0);
 	if (_typeOverflow(value))
 		_displayImpossible();
