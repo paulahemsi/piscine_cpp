@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 13:44:58 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 13:57:40 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 19:50:32 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 #define DOUBLE			2
 #define CHAR			3
 #define PSEUDO_LITERAL	4
+
+#define FLOAT_MIN		-340282346638528859811704183484516925440.0000000000000000
+#define DOUBLE_MIN		-179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.0
 
 class ScalarConversion
 {
@@ -43,16 +46,16 @@ class ScalarConversion
 		static char	*_pseudoLiteralToDouble(char *str);
 		void		_charConvertAllAndDisplay(void);
 		void		_numberConvertAllAndDisplay(void);
-		bool		_typeOverflow(long long value);
-		bool		_intOverflow(long long value);
-		bool		_floatOverflow(long long value);
-		bool		_doubleOverflow(long long value);
+		bool		_typeOverflow(double value);
+		bool		_intOverflow(double value);
+		bool		_floatOverflow(double value);
+		bool		_doubleOverflow(double value);
 		static void	_displayImpossible(void);
-		void		_displayChar(long long value);
+		void		_displayChar(double value);
 		static bool	_isDisplayableChar(char c);
-		void		_displayInt(long long value);
-		void		_displayFloat(long long value);
-		void		_displayDouble(long long value);
+		void		_displayInt(double value);
+		void		_displayFloat(double value);
+		void		_displayDouble(double value);
  
 		ScalarConversion(void);
 
@@ -61,7 +64,7 @@ class ScalarConversion
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("\e[0;31mvalue is neither char, int, float or double\e[0m");
+				return ("\e[0;31mvalue is neither int, float, double or printable char\e[0m");
 			}
 	};
 

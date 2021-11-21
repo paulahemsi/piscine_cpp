@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:31:35 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 14:19:30 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 19:54:10 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,18 +205,18 @@ void ScalarConversion::_charConvertAllAndDisplay(void)
 void ScalarConversion::_numberConvertAllAndDisplay(void)
 {
 	errno = 0;
-	long long value = strtoll(this->_str, NULL, 0);
+	double value = strtod(this->_str, NULL);
 	if (_typeOverflow(value))
-		_displayImpossible();
+		return (_displayImpossible());
 	this->_displayChar(value);
 	this->_displayInt(value);
 	this->_displayFloat(value);
 	this->_displayDouble(value);
 }
 
-bool ScalarConversion::_typeOverflow(long long value)
+bool ScalarConversion::_typeOverflow(double value)
 {
-	bool (ScalarConversion::*TypeOverflow[3])(long long value) = {	&ScalarConversion::_intOverflow,
+	bool (ScalarConversion::*TypeOverflow[3])(double value) = {	&ScalarConversion::_intOverflow,
 																	&ScalarConversion::_floatOverflow,
 																	&ScalarConversion::_doubleOverflow };
 	if (errno == ERANGE)
@@ -226,23 +226,23 @@ bool ScalarConversion::_typeOverflow(long long value)
 	return (false);
 }
 
-bool ScalarConversion::_intOverflow(long long value)
+bool ScalarConversion::_intOverflow(double value)
 {
 	if (value < INT_MIN || value > INT_MAX)
 		return (true);
 	return (false);
 }
 
-bool ScalarConversion::_floatOverflow(long long value)
+bool ScalarConversion::_floatOverflow(double value)
 {
-	if (value < FLT_MIN|| value > FLT_MAX)
+	if (value < FLOAT_MIN|| value > FLT_MAX)
 		return (true);
 	return (false);
 }
 
-bool ScalarConversion::_doubleOverflow(long long value)
+bool ScalarConversion::_doubleOverflow(double value)
 {
-	if (value < DBL_MIN || value > DBL_MAX)
+	if (value < DOUBLE_MIN || value > DBL_MAX)
 		return (true);
 	return (false);
 }
@@ -255,17 +255,20 @@ void ScalarConversion::_displayImpossible(void)
 	std::cout << "double: " << "impossible" << std::endl;
 }
 
-void ScalarConversion::_displayChar(long long value)
+void ScalarConversion::_displayChar(double value)
 {
 	char c;
 	std::cout << "char: ";
 	if (value < 0 || value > 127)
 		std::cout << "impossible" << std::endl;
-	c = static_cast<char>(value);
-	if (this->_isDisplayableChar(c))
-		std::cout << "'" << c << "'" << std::endl;
 	else
-		std::cout << "Non displayable" << std::endl;
+	{
+		c = static_cast<char>(value);
+		if (this->_isDisplayableChar(c))
+			std::cout << "'" << c << "'" << std::endl;
+		else
+			std::cout << "Non displayable" << std::endl;
+	}
 }
 
 bool ScalarConversion::_isDisplayableChar(char c)
@@ -275,7 +278,7 @@ bool ScalarConversion::_isDisplayableChar(char c)
 	return (false);
 }
 
-void ScalarConversion::_displayInt(long long value)
+void ScalarConversion::_displayInt(double value)
 {
 	std::cout << "int: ";
 	if (this->_intOverflow(value))
@@ -284,7 +287,7 @@ void ScalarConversion::_displayInt(long long value)
 		std::cout << static_cast<int>(value) << std::endl;
 }
 
-void ScalarConversion::_displayFloat(long long value)
+void ScalarConversion::_displayFloat(double value)
 {
 	std::cout << "float: ";
 	if (this->_floatOverflow(value))
@@ -293,7 +296,7 @@ void ScalarConversion::_displayFloat(long long value)
 		std::cout << static_cast<float>(value) << "f" << std::endl;
 }
 
-void ScalarConversion::_displayDouble(long long value)
+void ScalarConversion::_displayDouble(double value)
 {
 	std::cout << "double: " << static_cast<double>(value) << std::endl;
 }
