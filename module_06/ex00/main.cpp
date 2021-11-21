@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 19:23:49 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/20 21:31:32 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/20 22:20:55 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,6 @@ int main(int argc, char **argv)
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
-	}	
-	
-	
-	
-	
-	
-	float c = 4.3f;
-	std::cout << "\n------------\n" << c << std::endl;
-	int i = static_cast<int>(c);
-	std::cout << i << std::endl;
-	char f = static_cast<char>(c);
-	std::cout << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-	double d = static_cast<double>(c);
-	std::cout <<  std::setprecision(1) << d << std::endl;
-
+	}
 	return (0);
 }
