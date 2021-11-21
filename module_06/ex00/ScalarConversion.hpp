@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 13:44:58 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 00:14:51 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 13:30:56 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include <exception>
 #include <string>
 
-#define CHAR			0
-#define INT				1
-#define FLOAT			2
-#define DOUBLE			3
+#define INT				0
+#define FLOAT			1
+#define DOUBLE			2
+#define CHAR			3
 #define PSEUDO_LITERAL	4
 
 class ScalarConversion
@@ -51,9 +51,18 @@ class ScalarConversion
 		void		_convertFloat(void);
 		void		_convertDouble(void);
 
-		void		_displayChar(void);
+		static void	_defineFormatAndPrecision(void);
+		void		_charConvertAllAndDisplay(void);
+		void		_numberConvertAllAndDisplay(void);
+		// void		_displayChar(void);
+		void		_displayChar(long long value);
 		void		_displayPseudoLiteral(void);
 		char		*_pseudoLiteralToDouble(char *str);
+		
+		bool		_typeOverflow(long long value);
+		bool		_intOverflow(long long value);
+		bool		_floatOverflow(long long value);
+		bool		_doubleOverflow(long long value);
 
 		ScalarConversion(void);
 
@@ -72,8 +81,10 @@ class ScalarConversion
 		~ScalarConversion(void);
 		ScalarConversion	&operator=(ScalarConversion const &right_hand_side);
 
-		void				convertType(void);
-		void				displayAllTypes(void);
+		// void				convertType(void);
+		// void				displayAllTypes(void);
+
+		void				display(void);
 };
 
 #endif
