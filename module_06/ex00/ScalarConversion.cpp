@@ -6,15 +6,15 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:31:35 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 19:54:10 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 20:15:25 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConversion.hpp"
 #include <iostream>
 #include <limits.h>
-#include <stdlib.h> //stroll
-#include <float.h> //float e dbl limits
+#include <stdlib.h> //strtod
+#include <float.h> //float and dbl limit
 #include <iomanip> //setprecision
 #include <errno.h>
 
@@ -235,14 +235,14 @@ bool ScalarConversion::_intOverflow(double value)
 
 bool ScalarConversion::_floatOverflow(double value)
 {
-	if (value < FLOAT_MIN|| value > FLT_MAX)
+	if (value < -FLT_MAX|| value > FLT_MAX)
 		return (true);
 	return (false);
 }
 
 bool ScalarConversion::_doubleOverflow(double value)
 {
-	if (value < DOUBLE_MIN || value > DBL_MAX)
+	if (value < -DBL_MAX || value > DBL_MAX)
 		return (true);
 	return (false);
 }
