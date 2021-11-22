@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 13:44:58 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 20:14:52 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/21 21:36:30 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ class ScalarConversion
 	private:
 		char		*_str;
 		int			_type;
+		char		_char;
+		int			_int;
+		float		_float;
+		double		_double;
 
 		void		_detectType(void);
 		
@@ -38,21 +42,27 @@ class ScalarConversion
 		static bool	_isFloatPseudoLiteral(std::string arg);
 		static bool	_isDoublePseudoLiteral(std::string arg);
 		
+		void		_convertFromChar(void);
+		void		_convertFromNums(void);
+		void		_convertFromInt(void);
+		void		_convertFromFloat(void);
+		void		_convertFromDouble(void);
+
 		static void	_defineFormatAndPrecision(void);
 		void		_displayPseudoLiteral(void);
 		static char	*_pseudoLiteralToDouble(char *str);
-		void		_charConvertAllAndDisplay(void);
-		void		_numberConvertAllAndDisplay(void);
-		bool		_typeOverflow(double value);
-		bool		_intOverflow(double value);
-		bool		_floatOverflow(double value);
-		bool		_doubleOverflow(double value);
+		void		_charDisplay(void);
+		void		_numberDisplay(void);
+		bool		_typeOverflow(double checkValue);
+		bool		_intOverflow(double checkValue);
+		bool		_floatOverflow(double checkValue);
+		bool		_doubleOverflow(double checkValue);
 		static void	_displayImpossible(void);
-		void		_displayChar(double value);
+		void		_displayChar(double checkValue);
 		static bool	_isDisplayableChar(char c);
-		void		_displayInt(double value);
-		void		_displayFloat(double value);
-		void		_displayDouble(double value);
+		void		_displayInt(double checkValue);
+		void		_displayFloat(double checkValue);
+		void		_displayDouble(double checkValue);
  
 		ScalarConversion(void);
 
