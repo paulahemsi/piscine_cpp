@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 22:50:13 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/31 11:54:54 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/24 19:27:47 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,5 @@ int main(void)
 	std::cout << "-- After deserialization: --" << std::endl;
 	deserialize_data = deserialize(serialized_data);
 	print_data(deserialize_data);
+	delete student;
 }
