@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:31:35 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 21:38:55 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/24 18:22:23 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ void ScalarConversion::_convertFromNums(void)
 {
 	void (ScalarConversion::*convert[3])(void) = {	&ScalarConversion::_convertFromInt,
 													&ScalarConversion::_convertFromFloat,
-													&ScalarConversion::_convertFromFloat };
+													&ScalarConversion::_convertFromDouble };
 	(this->*convert[this->_type])();
 }
 
@@ -193,9 +193,8 @@ void ScalarConversion::_convertFromDouble(void)
 	this->_int = static_cast<int>(this->_double);
 }
 
-
 /*
-** functions and auxiliar functions to display input value in all types:
+** functions to check overflow and display input value in all types:
 */
 
 void ScalarConversion::display(void)
@@ -264,8 +263,8 @@ void ScalarConversion::_numberDisplay(void)
 bool ScalarConversion::_typeOverflow(double checkValue)
 {
 	bool (ScalarConversion::*TypeOverflow[3])(double checkValue) = {	&ScalarConversion::_intOverflow,
-																	&ScalarConversion::_floatOverflow,
-																	&ScalarConversion::_doubleOverflow };
+																		&ScalarConversion::_floatOverflow,
+																		&ScalarConversion::_doubleOverflow };
 	if (errno == ERANGE)
 		return (true);
 	if ((this->*TypeOverflow[this->_type])(checkValue))

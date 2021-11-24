@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 13:44:58 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/21 21:36:30 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/22 18:48:29 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class ScalarConversion
 		double		_double;
 
 		void		_detectType(void);
-		
+
 		static bool	_isDisplayableNANChar(char *str);
 		static bool	_isInt(char *str);
 		static bool	_isFloat(char *str);
@@ -41,7 +41,7 @@ class ScalarConversion
 		static bool	_isPseudoLiteral(char *str);
 		static bool	_isFloatPseudoLiteral(std::string arg);
 		static bool	_isDoublePseudoLiteral(std::string arg);
-		
+
 		void		_convertFromChar(void);
 		void		_convertFromNums(void);
 		void		_convertFromInt(void);
@@ -63,7 +63,7 @@ class ScalarConversion
 		void		_displayInt(double checkValue);
 		void		_displayFloat(double checkValue);
 		void		_displayDouble(double checkValue);
- 
+
 		ScalarConversion(void);
 
 	class TypeNotFound : public std::exception
