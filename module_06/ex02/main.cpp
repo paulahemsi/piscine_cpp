@@ -6,15 +6,13 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 23:35:15 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/10/31 13:48:47 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/24 18:37:58 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <time.h>
-#include <cstdlib>
-#include <math.h>
-#include <unistd.h>
+#include <iostream> //std::
+#include <cstdlib> //rand srand
+#include <unistd.h> //usleep
 
 # define CYAN			"\e[0;36m"
 # define V_BLUE			"\e[0;38;5;27m"
