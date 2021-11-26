@@ -6,7 +6,7 @@
 #    By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 18:17:00 by phemsi-a          #+#    #+#              #
-#    Updated: 2021/11/06 22:53:03 by phemsi-a         ###   ########.fr        #
+#    Updated: 2021/11/06 23:09:14 by phemsi-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CC	= c++
 
 RM	= rm -rf
 
-CFLAGS	= -Wall -Wextra -Werror -g -std=c++98
+CFLAGS	= -Wall -Wextra -Werror -g -std=c++98 -Wshadow=compatible-local -Wshadow=local
 
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)

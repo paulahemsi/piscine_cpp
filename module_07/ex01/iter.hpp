@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 15:25:33 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/02 17:12:12 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/26 19:11:28 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 
 template<typename T>
 void iter(T *arrayAddress, size_t lenght, void (function)(T &arrayMember))
+{
+	for(size_t i = 0; i < lenght; i++)
+		function(arrayAddress[i]);
+}
+
+template<typename T>
+void iter(T const *arrayAddress, size_t lenght, void (function)(T const &arrayMember))
 {
 	for(size_t i = 0; i < lenght; i++)
 		function(arrayAddress[i]);
@@ -35,7 +42,7 @@ void doubleValue(T &n)
 }
 
 template<typename T>
-void print(T &n)
+void print(T const &n)
 {
 	std::cout << n << std::endl;
 }
