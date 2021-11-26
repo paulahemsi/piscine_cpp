@@ -185,17 +185,6 @@ int main(void)
 
 C++ offers many types of casts and a new cast sintaxe allowing us to choose a specific cast for every situation, avoiding this kind of problems
 
-
-## static_cast
-
-simple conversion between direct values, upcasts and downcasts
-
-* used to convert pointers between related types, and perform explicit type conversions for standard data types that would otherwise happen automatically or implicitly
-* implements a basic compile-time check to ensure that the pointer is being cast to a related type
-* improvement over a C-style cast that allows a pointer to one object to be cast to an
-absolutely unrelated type without any complaint
-* Apart from helping in upcasting or downcasting, static_cast can, in many cases, help make implicit casts explicit and bring them to the attention of the programmer or reader
-
 **type of casts:**
 
 * conversion
@@ -235,6 +224,20 @@ int main(void)
 
 
 ```
+
+
+## static_cast
+
+simple conversion between direct values, upcasts and downcasts
+
+* used to convert pointers between related types, and perform explicit type conversions for standard data types that would otherwise happen automatically or implicitly
+* implements a basic compile-time check to ensure that the pointer is being cast to a related type
+* improvement over a C-style cast that allows a pointer to one object to be cast to an
+absolutely unrelated type without any complaint
+* Apart from helping in upcasting or downcasting, static_cast can, in many cases, help make implicit casts explicit and bring them to the attention of the programmer or reader
+
+>a mechanism that can be used to convert pointers between related types, and perform explicit type conversions for standard data types that would otherwise happen automatically or implicitly. As far as pointers go, static_cast implements a basic compile-time check to ensure that the pointer is being cast to a related type. This is an improvement over a C-style cast that allows a pointer to one object to be cast to an absolutely unrelated type without any complaint. Using static_cast, a pointer can be upcasted to the base type, or can be downcasted to the derived type
+
 
 ## dynamic_cast
 
@@ -377,6 +380,10 @@ $
 
 Usefull when using plugins: the code will be grouped under a class and we use the dynamic cast to can make sure that we are dealing with the right type, otherwise output an error message
 
+>actually executes the cast at runtime—that is, at application execution time. The result of a dynamic_cast operation can be checked to see whether the attempt at casting succeeded.
+
+>for example, when a pointer of type Derived* is passed to a function that accepts type Base*. The function can use dynamic_cast given a base-class pointer type to detected type and then perform operations specific to the types detected. Thus, dynamic_cast helps determine the type at runtime and use a casted pointer when it is safe to do so. 
+
 ## reinterpret_cast
 
 `reinterpret_cast` is the closest a C++ casting operator gets to the C-style cast.
@@ -410,9 +417,12 @@ int main(void)
 
 ```
 
+>reinterpret_cast is the closest a C++ casting operator gets to the C-style cast. It really does allow the programmer to cast one object type to another, regardless of whether or not the types are related; that is, it forces a reinterpretation
+
+>It finds usage in certain low-level applications (such as drivers, for example) where data needs to be converted to a simple type that an API—Application Program Interface—can accept (for example, some OS-level APIs require data to be sent as a BYTE array, that is, unsigned char*)
+
 > As far as possible, you should refrain from using reinterpret_cast in your applications because it allows you to instruct the compiler to treat type X as an unrelated type Y, which does not look like good design or implementation.
 - Siddhartha Rao in *"Sams Teach Yourself C++ in One Hour a Day"*
-
 
 ## const_cast
 
@@ -538,3 +548,5 @@ Integer type capable of holding a value converted from a void pointer and then b
 
 * [C++ setprecision doc](https://www.cplusplus.com/reference/iomanip/setprecision/)
 * [c++ fixed](https://en.cppreference.com/w/cpp/io/manip/fixed)
+
+
