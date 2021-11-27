@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 20:49:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/08 22:37:10 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/27 11:48:45 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void vectorTest(void)
 	{
 		std::vector<int>::iterator valueIterator = easyfind(intVector, 11);
 		std::cout << "found: " << *valueIterator << std::endl;
-		std::cout << "at position: " << std::distance(intVector.begin(), valueIterator) << std::endl;
+		std::cout << "at index: " << std::distance(intVector.begin(), valueIterator) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -49,7 +49,7 @@ static void vectorTest(void)
 	{
 		std::vector<int>::iterator valueIterator = easyfind(intVector, 1111);
 		std::cout << "found: " << *valueIterator << std::endl;
-		std::cout << "at position: " << std::distance(intVector.begin(), valueIterator) << std::endl;
+		std::cout << "at index: " << std::distance(intVector.begin(), valueIterator) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -75,7 +75,7 @@ static void dequeTest(void)
 	{
 		std::deque<int>::iterator valueIterator = easyfind(intDeque, 25);
 		std::cout << "found: " << *valueIterator << std::endl;
-		std::cout << "at position: " << std::distance(intDeque.begin(), valueIterator) << std::endl;
+		std::cout << "at index: " << std::distance(intDeque.begin(), valueIterator) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -85,7 +85,7 @@ static void dequeTest(void)
 	{
 		std::deque<int>::iterator valueIterator = easyfind(intDeque, 1111);
 		std::cout << "found: " << *valueIterator << std::endl;
-		std::cout << "at position: " << std::distance(intDeque.begin(), valueIterator) << std::endl;
+		std::cout << "at index: " << std::distance(intDeque.begin(), valueIterator) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -112,7 +112,7 @@ static void listTest(void)
 	{
 		std::list<int>::iterator valueIterator = easyfind(intList, 22);
 		std::cout << "found: " << *valueIterator << std::endl;
-		std::cout << "at position: " << std::distance(intList.begin(), valueIterator) << std::endl;
+		std::cout << "at index: " << std::distance(intList.begin(), valueIterator) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -122,7 +122,7 @@ static void listTest(void)
 	{
 		std::list<int>::iterator valueIterator = easyfind(intList, 1111);
 		std::cout << "found: " << *valueIterator << std::endl;
-		std::cout << "at position: " << std::distance(intList.begin(), valueIterator) << std::endl;
+		std::cout << "at index: " << std::distance(intList.begin(), valueIterator) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -147,7 +147,7 @@ static void setTest(void)
 	{
 		std::set<int>::iterator valueIterator = easyfind(intSet, 9);
 		std::cout << "found: " << *valueIterator << std::endl;
-		std::cout << "at position: " << std::distance(intSet.begin(), valueIterator) << std::endl;
+		std::cout << "at index: " << std::distance(intSet.begin(), valueIterator) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -157,7 +157,7 @@ static void setTest(void)
 	{
 		std::set<int>::iterator valueIterator = easyfind(intSet, 1111);
 		std::cout << "found: " << *valueIterator << std::endl;
-		std::cout << "at position: " << std::distance(intSet.begin(), valueIterator) << std::endl;
+		std::cout << "at index: " << std::distance(intSet.begin(), valueIterator) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
