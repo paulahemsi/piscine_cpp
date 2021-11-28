@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 20:49:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/27 11:48:45 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/28 15:47:03 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void vectorTest(void)
 		std::cout << *arrayIterator << std::endl;
 		arrayIterator++;
 	}
+	std::cout << CYAN << "easy find 11" << RESET << std::endl;
 	try
 	{
 		std::vector<int>::iterator valueIterator = easyfind(intVector, 11);
@@ -45,6 +46,7 @@ static void vectorTest(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << CYAN << "easy find 1111" << RESET << std::endl;
 	try
 	{
 		std::vector<int>::iterator valueIterator = easyfind(intVector, 1111);
@@ -71,6 +73,7 @@ static void dequeTest(void)
 		std::cout << *arrayIterator << std::endl;
 		arrayIterator++;
 	}
+	std::cout << CYAN << "easy find 25" << RESET << std::endl;
 	try
 	{
 		std::deque<int>::iterator valueIterator = easyfind(intDeque, 25);
@@ -81,6 +84,7 @@ static void dequeTest(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << CYAN << "easy find 1111" << RESET << std::endl;
 	try
 	{
 		std::deque<int>::iterator valueIterator = easyfind(intDeque, 1111);
@@ -108,6 +112,7 @@ static void listTest(void)
 		std::cout << *arrayIterator << std::endl;
 		arrayIterator++;
 	}
+	std::cout << CYAN << "easy find 22" << RESET << std::endl;
 	try
 	{
 		std::list<int>::iterator valueIterator = easyfind(intList, 22);
@@ -118,6 +123,7 @@ static void listTest(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << CYAN << "easy find 1111" << RESET << std::endl;
 	try
 	{
 		std::list<int>::iterator valueIterator = easyfind(intList, 1111);
@@ -143,6 +149,7 @@ static void setTest(void)
 		std::cout << *arrayIterator << std::endl;
 		arrayIterator++;
 	}
+	std::cout << CYAN << "easy find 9" << RESET << std::endl;
 	try
 	{
 		std::set<int>::iterator valueIterator = easyfind(intSet, 9);
@@ -153,6 +160,7 @@ static void setTest(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << CYAN << "easy find 1111" << RESET << std::endl;
 	try
 	{
 		std::set<int>::iterator valueIterator = easyfind(intSet, 1111);
