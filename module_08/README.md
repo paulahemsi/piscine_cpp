@@ -260,6 +260,7 @@ Compared to the other dynamic sequence containers (deques, lists and forward_lis
 * Sams Teach Yourself C++ in one Hour a Day
 * [stack docs](https://en.cppreference.com/w/cpp/container/stack)
 * [this stackoverflow thread](https://stackoverflow.com/questions/525365/does-stdstack-expose-iterators)to ex02 - stack with iterators
+* [std::stack implementation on different containers](https://coderedirect.com/questions/444298/stdstack-implementation-on-different-containers-what-is-the-actual-difference)
 
 ## notes
 
