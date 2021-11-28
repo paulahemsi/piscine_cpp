@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 20:21:21 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/11 21:03:58 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/28 11:12:25 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,15 @@ Span::~Span(void)
 	return ;
 }
 
-Span::Span(Span const &instance) : _total(instance.getTotal())
+Span::Span(Span const &instance) : _total(instance.getTotal()), _numbers(new std::vector<int>[this->_total])
 {
 	*this = instance;
 }
 
 Span &Span::operator=(Span const &rightHandSize)
 {
-	this->_numbers = new std::vector<int>(*rightHandSize._numbers);
+	for (unsigned int i = 0; i < this->getTotal(); i++)
+		this->_numbers[i] = rightHandSize._numbers[i];
 	return (*this);
 }
 
@@ -90,29 +91,13 @@ void	Span::addNumber(std::vector<int>::iterator firstNumber, std::vector<int>::i
 
 int		Span::shortestSpan(void)
 {
-	try
-	{
-		_chechIsEnoughElements();
-		return (*min_element(this->_numbers->begin(), this->_numbers->end()));
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-		return (0);
-	}
+	_chechIsEnoughElements();
+	return (*min_element(this->_numbers->begin(), this->_numbers->end()));
 }
 
 int		Span::longestSpan(void)
 {
-	try
-	{
-		_chechIsEnoughElements();
-		return (*max_element(this->_numbers->begin(), this->_numbers->end()));
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-		return (0);
-	}
+	_chechIsEnoughElements();
+	return (*max_element(this->_numbers->begin(), this->_numbers->end()));
 }
 

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 20:20:16 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/11 20:54:08 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/28 11:16:06 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,32 @@
 # define RESET			"\e[0m"
 # define CYAN			"\e[0;36m"
 
-int main(void)
+static void tryShortestSpan(Span &span)
 {
-	std::cout << CYAN << "\n----SIMPLE TEST----\n" << RESET << std::endl;
+	try
+	{
+		std::cout << span.shortestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
 
+static void tryLongestSpan(Span &span)
+{
+	try
+	{
+		std::cout << span.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
+
+static void simpleTest(void)
+{
 	Span sp = Span(5);
 	sp.addNumber(-6);
 	sp.addNumber(3);
@@ -36,11 +58,12 @@ int main(void)
 	sp.addNumber(11);
 	sp.addNumber(11);
 	
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	tryShortestSpan(sp);
+	tryLongestSpan(sp);
+}
 
-	std::cout << CYAN << "\n----BIG SPAN TEST----\n" << RESET << std::endl;
-
+static void bigSpanTest(void)
+{
 	Span bigSp = Span(50000);
 	for (int i = 0; i < 50000; i++)
 	{
@@ -50,11 +73,12 @@ int main(void)
 	}
 	bigSp.addNumber(42);
 
-	std::cout << bigSp.shortestSpan() << std::endl;
-	std::cout << bigSp.longestSpan() << std::endl;
+	tryShortestSpan(bigSp);
+	tryLongestSpan(bigSp);
+}
 
-	std::cout << CYAN << "\n----ITERATOR TEST----\n" << RESET << std::endl;
-
+static void iteratorTest(void)
+{
 	Span  itSp = Span(30);
 	std::vector<int> itVector;
 
@@ -69,37 +93,66 @@ int main(void)
 
 	itSp.addNumber(v_beging, v_end);
 	
-	std::cout << itSp.shortestSpan() << std::endl;
-	std::cout << itSp.longestSpan() << std::endl;
+	tryShortestSpan(itSp);
+	tryLongestSpan(itSp);
 
 	itSp.addNumber(v_beging, v_end);
+}
 
-	std::cout << CYAN << "\n----DEEP COPY TEST----\n" << RESET << std::endl;
-
-	Span *ptrSp = new Span(5);
-
-	for (int i = 0; i < 5; i++)
-		ptrSp->addNumber((1000 * i) + 7);
-
-	std::cout << ptrSp->shortestSpan() << std::endl;
-	std::cout << ptrSp->longestSpan() << std::endl;
-
-	Span *copySp = new Span(*ptrSp);
-	delete ptrSp;
-
-	std::cout << copySp->shortestSpan() << std::endl;
-	std::cout << copySp->longestSpan() << std::endl;
-	
-	delete copySp;
-
-	std::cout << CYAN << "\n----SHORT SPAN TEST----\n" << RESET << std::endl;
-
+static void shortSpanTest(void)
+{
 	Span noSp(0);
 	Span littleSp(3);
 
 	littleSp.addNumber(1);
-	std::cout << noSp.shortestSpan() << std::endl;
-	std::cout << noSp.longestSpan() << std::endl;
-	std::cout << littleSp.shortestSpan() << std::endl;
-	std::cout << littleSp.longestSpan() << std::endl;
+	tryShortestSpan(noSp);
+	tryLongestSpan(noSp);
+	tryShortestSpan(littleSp);
+	tryLongestSpan(littleSp);
+}
+
+static void deepCopyTest(void)
+{
+	Span *originalSp = new Span(5);
+
+	for (int i = 0; i < 4; i++)
+		originalSp->addNumber((1000 * i) + 7);
+
+	std::cout << "originalSp shortestSpan: " << std::endl;
+	tryShortestSpan(*originalSp);
+	std::cout << "originalSp longestSpan: " << std::endl;
+	tryLongestSpan(*originalSp);
+
+	Span *copySp = new Span(*originalSp);
+
+	std::cout << "\ncopySp shortestSpan: " << std::endl;
+	tryShortestSpan(*copySp);
+	std::cout << "copySp longestSpan: " << std::endl;
+	tryLongestSpan(*copySp);
+
+	originalSp->addNumber(1);
+	std::cout << "\noriginalSp new shortestSpan: " << std::endl;
+	tryShortestSpan(*originalSp);
+	std::cout << "copySp shortestSpan: " << std::endl;
+	tryShortestSpan(*copySp);
+
+	delete originalSp;
+	std::cout << "copySp longestSpan: " << std::endl;
+	tryLongestSpan(*copySp);
+	
+	delete copySp;
+}
+
+int main(void)
+{
+	std::cout << CYAN << "\n----SIMPLE TEST----\n" << RESET << std::endl;
+	simpleTest();
+	std::cout << CYAN << "\n----BIG SPAN TEST----\n" << RESET << std::endl;
+	bigSpanTest();
+	std::cout << CYAN << "\n----ITERATOR TEST----\n" << RESET << std::endl;
+	iteratorTest();
+	std::cout << CYAN << "\n----SHORT SPAN TEST----\n" << RESET << std::endl;
+	shortSpanTest();
+	std::cout << CYAN << "\n----DEEP COPY TEST----\n" << RESET << std::endl;
+	deepCopyTest();
 }
