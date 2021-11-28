@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 21:16:47 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/11/28 15:33:46 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/11/28 16:17:19 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,19 @@
 
 static void charListTest(void)
 {
-	std::cout << PURPLE << "List test" << RESET << std::endl;
-	std::cout << PURPLE << "\nDeclaring and pushing 'a' and 'b' to mutant stack\n" << RESET << std::endl;
+	std::cout << PURPLE << "\nCreating mstack" << RESET << std::endl;
 	MutantStack<char, std::list<char> > mstack;
+	if (mstack.empty())
+		std::cout << PURPLE << "\nstack is empty\n" << RESET << std::endl;
+	else
+		std::cout << PURPLE << "stack is not empty" << RESET << std::endl;
+	std::cout << LILAC << "pushing 'a' and 'b' to mutant stack\n" << RESET << std::endl;
 	mstack.push('a');
 	mstack.push('b');
+	if (mstack.empty())
+		std::cout << PURPLE << "\nstack is empty\n" << RESET << std::endl;
+	else
+		std::cout << PURPLE << "stack is not empty" << RESET << std::endl;
 	std::cout << PURPLE << "\nTop element:" << RESET << std::endl;
 	std::cout << mstack.top() << std::endl;
 	std::cout << PURPLE << "\nStack size:" << RESET << std::endl;
@@ -104,10 +112,19 @@ static void charListTest(void)
 
 static void floatVectorTest(void)
 {
-	std::cout << PURPLE << "\nDeclaring and pushing 5.5 and 13.7 to mutant stack\n" << RESET << std::endl;
+	std::cout << PURPLE << "\nCreating mstack" << RESET << std::endl;
 	MutantStack<float, std::vector<float> > mstack;
+	if (mstack.empty())
+		std::cout << PURPLE << "\nstack is empty\n" << RESET << std::endl;
+	else
+		std::cout << PURPLE << "stack is not empty" << RESET << std::endl;
+	std::cout << LILAC << "pushing 5.5 and 13.7 to mutant stack\n" << RESET << std::endl;
 	mstack.push(5.5);
 	mstack.push(13.7);
+	if (mstack.empty())
+		std::cout << PURPLE << "\nstack is empty\n" << RESET << std::endl;
+	else
+		std::cout << PURPLE << "stack is not empty" << RESET << std::endl;
 	std::cout << PURPLE << "\nTop number:" << RESET << std::endl;
 	std::cout << mstack.top() << std::endl;
 	std::cout << PURPLE << "\nStack size:" << RESET << std::endl;
@@ -184,10 +201,19 @@ static void floatVectorTest(void)
 
 static void mainTests(void)
 {
-	std::cout << PURPLE << "\nDeclaring and pushing 5 and 13 to mutant stack\n" << RESET << std::endl;
+	std::cout << PURPLE << "\nCreating mstack" << RESET << std::endl;
 	MutantStack<int> mstack;
+	if (mstack.empty())
+		std::cout << PURPLE << "\nstack is empty\n" << RESET << std::endl;
+	else
+		std::cout << PURPLE << "stack is not empty" << RESET << std::endl;
+	std::cout << LILAC << "pushing 5 and 13 to mutant stack\n" << RESET << std::endl;
 	mstack.push(5);
 	mstack.push(13);
+	if (mstack.empty())
+		std::cout << PURPLE << "\nstack is empty\n" << RESET << std::endl;
+	else
+		std::cout << PURPLE << "stack is not empty" << RESET << std::endl;
 	std::cout << PURPLE << "\nTop number:" << RESET << std::endl;
 	std::cout << mstack.top() << std::endl;
 	std::cout << PURPLE << "\nStack size:" << RESET << std::endl;
