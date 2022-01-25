@@ -317,7 +317,7 @@ template <typename U> //now, only one generic type
 class Pair<int, U> { //type diferences between < >
 
     public:
-    Pair<iny, U>(int & lhs, U const & rhs) : _lhs(lhs), _rhs(rhs) {
+    Pair<int, U>(int & lhs, U const & rhs) : _lhs(lhs), _rhs(rhs) {
         std::cout << "Int partial specialization" << std::endl;
         return;
     }
