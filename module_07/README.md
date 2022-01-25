@@ -289,7 +289,7 @@ template <typename T, typename U>
 class Pair {
 
 public:
-	Pair<T, U>(T const & lhs, T const & rhs) : _lhs(lhs), _rhs(rhs) {
+	Pair<T, U>(T const & lhs, U const & rhs) : _lhs(lhs), _rhs(rhs) {
 		std::cout << "Generic template" << std::endl;
 		return;
 	}
@@ -317,12 +317,12 @@ template <typename U> //now, only one generic type
 class Pair<int, U> { //type diferences between < >
 
     public:
-    Pair<T, U>(int & lhs, T const & rhs) : _lhs(lhs), _rhs(rhs) {
+    Pair<iny, U>(int & lhs, U const & rhs) : _lhs(lhs), _rhs(rhs) {
         std::cout << "Int partial specialization" << std::endl;
         return;
     }
 
-    ~Pair<T, U>(void) {}
+    ~Pair<int, U>(void) {}
 
     int     & fst(void) const {return this->lhs;}
     U const & snd(void) const {return this->rhs;}
@@ -332,7 +332,7 @@ class Pair<int, U> { //type diferences between < >
     int     & _lhs;
     U const & _rhs;
 
-    Pair<T, U>(void);
+    Pair<int, U>(void);
 };
 
 
